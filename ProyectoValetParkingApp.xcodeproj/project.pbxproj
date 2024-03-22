@@ -1,0 +1,387 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8428A10D2B6ABBFC00C35C6F /* PrincipalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8428A10C2B6ABBFB00C35C6F /* PrincipalView.swift */; };
+		8428A10F2B6B0E3000C35C6F /* RecepcionEntregaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8428A10E2B6B0E3000C35C6F /* RecepcionEntregaView.swift */; };
+		84D9E5DE2B680621009A9E0E /* ProyectoValetParkingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9E5DD2B680621009A9E0E /* ProyectoValetParkingAppApp.swift */; };
+		84D9E5E02B680621009A9E0E /* IngresarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9E5DF2B680621009A9E0E /* IngresarView.swift */; };
+		84D9E5E22B680623009A9E0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5E12B680623009A9E0E /* Assets.xcassets */; };
+		84D9E5E52B680623009A9E0E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5E42B680623009A9E0E /* Preview Assets.xcassets */; };
+		84D9E5EC2B682C52009A9E0E /* UbicacionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9E5EB2B682C51009A9E0E /* UbicacionView.swift */; };
+		84E13C392B843BF6001DEF3B /* Modelos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E13C382B843BF6001DEF3B /* Modelos.swift */; };
+		84E13C3B2B843D74001DEF3B /* Globales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E13C3A2B843D74001DEF3B /* Globales.swift */; };
+		84E13C3E2B881AEB001DEF3B /* LocationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E13C3D2B881AEB001DEF3B /* LocationDataManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8428A10C2B6ABBFB00C35C6F /* PrincipalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalView.swift; sourceTree = "<group>"; };
+		8428A10E2B6B0E3000C35C6F /* RecepcionEntregaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecepcionEntregaView.swift; sourceTree = "<group>"; };
+		84D9E5DA2B680621009A9E0E /* ProyectoValetParkingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProyectoValetParkingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84D9E5DD2B680621009A9E0E /* ProyectoValetParkingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProyectoValetParkingAppApp.swift; sourceTree = "<group>"; };
+		84D9E5DF2B680621009A9E0E /* IngresarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngresarView.swift; sourceTree = "<group>"; };
+		84D9E5E12B680623009A9E0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84D9E5E42B680623009A9E0E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		84D9E5EB2B682C51009A9E0E /* UbicacionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UbicacionView.swift; sourceTree = "<group>"; };
+		84E13C382B843BF6001DEF3B /* Modelos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modelos.swift; sourceTree = "<group>"; };
+		84E13C3A2B843D74001DEF3B /* Globales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globales.swift; sourceTree = "<group>"; };
+		84E13C3C2B86D5F8001DEF3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		84E13C3D2B881AEB001DEF3B /* LocationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84D9E5D72B680621009A9E0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		84D9E5D12B680620009A9E0E = {
+			isa = PBXGroup;
+			children = (
+				84D9E5DC2B680621009A9E0E /* ProyectoValetParkingApp */,
+				84D9E5DB2B680621009A9E0E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		84D9E5DB2B680621009A9E0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84D9E5DA2B680621009A9E0E /* ProyectoValetParkingApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84D9E5DC2B680621009A9E0E /* ProyectoValetParkingApp */ = {
+			isa = PBXGroup;
+			children = (
+				84E13C3D2B881AEB001DEF3B /* LocationDataManager.swift */,
+				84E13C3C2B86D5F8001DEF3B /* Info.plist */,
+				84D9E5DD2B680621009A9E0E /* ProyectoValetParkingAppApp.swift */,
+				84D9E5DF2B680621009A9E0E /* IngresarView.swift */,
+				84D9E5EB2B682C51009A9E0E /* UbicacionView.swift */,
+				8428A10C2B6ABBFB00C35C6F /* PrincipalView.swift */,
+				8428A10E2B6B0E3000C35C6F /* RecepcionEntregaView.swift */,
+				84D9E5E12B680623009A9E0E /* Assets.xcassets */,
+				84D9E5E32B680623009A9E0E /* Preview Content */,
+				84E13C382B843BF6001DEF3B /* Modelos.swift */,
+				84E13C3A2B843D74001DEF3B /* Globales.swift */,
+			);
+			path = ProyectoValetParkingApp;
+			sourceTree = "<group>";
+		};
+		84D9E5E32B680623009A9E0E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				84D9E5E42B680623009A9E0E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84D9E5D92B680621009A9E0E /* ProyectoValetParkingApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84D9E5E82B680623009A9E0E /* Build configuration list for PBXNativeTarget "ProyectoValetParkingApp" */;
+			buildPhases = (
+				84D9E5D62B680621009A9E0E /* Sources */,
+				84D9E5D72B680621009A9E0E /* Frameworks */,
+				84D9E5D82B680621009A9E0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ProyectoValetParkingApp;
+			productName = ProyectoValetParkingApp;
+			productReference = 84D9E5DA2B680621009A9E0E /* ProyectoValetParkingApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84D9E5D22B680620009A9E0E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					84D9E5D92B680621009A9E0E = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = 84D9E5D52B680620009A9E0E /* Build configuration list for PBXProject "ProyectoValetParkingApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 84D9E5D12B680620009A9E0E;
+			productRefGroup = 84D9E5DB2B680621009A9E0E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84D9E5D92B680621009A9E0E /* ProyectoValetParkingApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84D9E5D82B680621009A9E0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84D9E5E52B680623009A9E0E /* Preview Assets.xcassets in Resources */,
+				84D9E5E22B680623009A9E0E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84D9E5D62B680621009A9E0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84E13C3B2B843D74001DEF3B /* Globales.swift in Sources */,
+				8428A10F2B6B0E3000C35C6F /* RecepcionEntregaView.swift in Sources */,
+				84E13C3E2B881AEB001DEF3B /* LocationDataManager.swift in Sources */,
+				84D9E5EC2B682C52009A9E0E /* UbicacionView.swift in Sources */,
+				84D9E5E02B680621009A9E0E /* IngresarView.swift in Sources */,
+				84D9E5DE2B680621009A9E0E /* ProyectoValetParkingAppApp.swift in Sources */,
+				84E13C392B843BF6001DEF3B /* Modelos.swift in Sources */,
+				8428A10D2B6ABBFC00C35C6F /* PrincipalView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		84D9E5E62B680623009A9E0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		84D9E5E72B680623009A9E0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		84D9E5E92B680623009A9E0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ProyectoValetParkingApp/Preview Content\"";
+				DEVELOPMENT_TEAM = D3R5QR72GS;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ProyectoValetParkingApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Se requiere ubicacion actual";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Se requiere ubicacion actual";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.apolovalet.com.ProyectoValetParkingApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84D9E5EA2B680623009A9E0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ProyectoValetParkingApp/Preview Content\"";
+				DEVELOPMENT_TEAM = D3R5QR72GS;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ProyectoValetParkingApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Se requiere ubicacion actual";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Se requiere ubicacion actual";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.apolovalet.com.ProyectoValetParkingApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84D9E5D52B680620009A9E0E /* Build configuration list for PBXProject "ProyectoValetParkingApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84D9E5E62B680623009A9E0E /* Debug */,
+				84D9E5E72B680623009A9E0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84D9E5E82B680623009A9E0E /* Build configuration list for PBXNativeTarget "ProyectoValetParkingApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84D9E5E92B680623009A9E0E /* Debug */,
+				84D9E5EA2B680623009A9E0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84D9E5D22B680620009A9E0E /* Project object */;
+}
