@@ -14,7 +14,7 @@ struct LugarView: View {
     
     var body: some View {
 
-        HStack(spacing: 3, alignment: .leading){
+        HStack(alignment: .leading, spacing: 3){
             AsyncImage( url: URL( string: "https://api.apolovalet.com/lugares/lugar.png"), content: { image in
                 image
                 .resizable()
