@@ -32,7 +32,9 @@ struct LugarView: View {
             }
             
         }
+
     }
+
 }
 
 struct UbicacionView: View {
@@ -59,7 +61,7 @@ struct UbicacionView: View {
                     .resizable()
                     .frame(height: 125, alignment: .center)
                 
-                Text("Indica ubicacion actual ( \(locationDataManager.latitud?.description ?? "Error"), \(locationDataManager.longitud?.description ?? "Error"))")
+                Text("Indica ubicación actual ( \(locationDataManager.latitud?.description ?? "Error"), \(locationDataManager.longitud?.description ?? "Error"))")
                     .font(.headline)
                     .foregroundColor(.white)
                     .onTapGesture{
@@ -83,8 +85,15 @@ struct UbicacionView: View {
                 }.listStyle(.plain)
                 
                 Button("**CONTINUAR**") {
-                    
-                    // globales.set(1, forKey: "lugar_id")
+
+                    guard let token = globales.string(forKey: "lugar_id") {
+
+                        ios_mensaje = "Debe indicar ubicación actual"
+                        ios_mostrar_mensaje = true
+                        return;
+
+                    }
+
                     pantalla_principal = true
                 }
                 .frame(maxWidth: .infinity)
