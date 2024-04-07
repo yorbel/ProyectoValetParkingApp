@@ -94,6 +94,9 @@ struct UbicacionView: View {
 
                     }
 
+                    print("LUGAR")
+                    print(lugar)
+
                     pantalla_principal = true
                 }
                 .frame(maxWidth: .infinity)
@@ -233,8 +236,9 @@ struct UbicacionView: View {
             return
             
         }
+
         print("COORDENADAS")
-        
+
         print(latitud)
         print(longitud)
         
