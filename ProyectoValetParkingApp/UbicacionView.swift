@@ -49,6 +49,7 @@ struct UbicacionView: View {
     @State private var pantalla_principal = false
     
     @State private var lugares : [LugarModel] = []
+    @State private var lugar_id : Int?
     
     var body: some View {
         ZStack{
@@ -75,18 +76,21 @@ struct UbicacionView: View {
                     ForEach(lugares, id: \.id){ lugar in
                         LugarView(lugar: lugar)
                             .listRowBackground(Color.clear)
+                            .border( lugar_id == lugar.id ? .white  : .clear )
                             .onTapGesture{
                        
+                                lugar_id = lugar.id
                                 globales.set(lugar.id, forKey: "lugar_id")
                             
                             }
+
                     }
                     
                 }.listStyle(.plain)
                 
                 Button("**CONTINUAR**") {
 
-                    guard let lugar = globales.string(forKey: "lugar_id") else {
+                    guard let lugar_id = globales.string(forKey: "lugar_id") else {
 
                         ios_mensaje = "Debe indicar ubicación actual"
                         ios_mostrar_mensaje = true
@@ -94,8 +98,8 @@ struct UbicacionView: View {
 
                     }
 
-                    print("LUGAR")
-                    print(lugar)
+                    print("LUGAR ID")
+                    print(lugar_id)
 
                     pantalla_principal = true
                 }
