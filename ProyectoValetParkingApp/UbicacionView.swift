@@ -86,7 +86,7 @@ struct UbicacionView: View {
                 
                 Button("**CONTINUAR**") {
 
-                    guard let token = globales.string(forKey: "lugar_id") {
+                    guard let lugar = globales.string(forKey: "lugar_id") else {
 
                         ios_mensaje = "Debe indicar ubicación actual"
                         ios_mostrar_mensaje = true
