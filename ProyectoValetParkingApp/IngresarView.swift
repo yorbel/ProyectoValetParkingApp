@@ -58,9 +58,7 @@ struct IngresarView: View {
                 return
                 
             } else if let data = data {
-                
-               
-                
+    
                 guard let response = response as? HTTPURLResponse else {
                     
                     ios_mensaje = "Error en operación de la aplicación"

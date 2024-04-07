@@ -59,7 +59,7 @@ struct UbicacionView: View {
                     .resizable()
                     .frame(height: 125, alignment: .center)
                 
-                Text("Indica ubicacion actual: \(locationDataManager.locationManager.location?.coordinate.latitude.description ?? "Error"), \(locationDataManager.locationManager.location?.coordinate.longitude.description ?? "Error")")
+                Text("Indica ubicacion actual ( \(locationDataManager.latitud?.description ?? "Error"), \(locationDataManager.longitud?.description ?? "Error"))")
                     .font(.headline)
                     .foregroundColor(.white)
                     .onTapGesture{
@@ -207,18 +207,23 @@ struct UbicacionView: View {
     func accion_conseguir_ubicacion_actual(){
         
         
-        guard let ubicacion = locationDataManager.locationManager.location else {
+        guard let latitud = locationDataManager.latitud else {
             
             return
             
         }
         
+        guard let longitud = locationDataManager.longitud else {
+            
+            return
+            
+        }
         print("COORDENADAS")
         
-        print(ubicacion.coordinate.latitude)
-        print(ubicacion.coordinate.longitude)
+        print(latitud)
+        print(longitud)
         
-        accion_buscar_lugares_cercanos(latitud: ubicacion.coordinate.latitude, longitud: ubicacion.coordinate.longitude)
+        accion_buscar_lugares_cercanos(latitud: latitud, longitud: longitud)
         
         //locationManager.delegate = self
         /* locationManager.requestWhenInUseAuthorization()

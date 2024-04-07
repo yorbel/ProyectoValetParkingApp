@@ -12,7 +12,10 @@ class LocationDataManager : NSObject, ObservableObject, CLLocationManagerDelegat
     
     var locationManager = CLLocationManager()
     
+    
     @Published var authorizationStatus: CLAuthorizationStatus?
+    @Published var latitud: Double?
+    @Published var longitud: Double?
    
     override init() {
         super.init()
@@ -48,7 +51,9 @@ class LocationDataManager : NSObject, ObservableObject, CLLocationManagerDelegat
     }
    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // Insert code to handle location updates
+        let ubicacion :CLLocation = locations[0]
+        latitud = ubicacion.coordinate.latitude
+        longitud = ubicacion.coordinate.longitude
     }
    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
