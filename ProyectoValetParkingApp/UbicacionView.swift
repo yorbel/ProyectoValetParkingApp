@@ -69,17 +69,23 @@ struct UbicacionView: View {
                     }
                 
                 List{
+
                     ForEach(lugares, id: \.id){ lugar in
                         LugarView(lugar: lugar)
                             .listRowBackground(Color.clear)
+                            .onTapGesture{
+                       
+                                globales.set(lugar.id, forKey: "lugar_id")
+                            
+                            }
                     }
                     
                 }.listStyle(.plain)
                 
                 Button("**CONTINUAR**") {
                     
-                    globales.set(1, forKey: "lugar_id")
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/pantalla_principal = true
+                    // globales.set(1, forKey: "lugar_id")
+                    pantalla_principal = true
                 }
                 .frame(maxWidth: .infinity)
                 .font(.headline)
