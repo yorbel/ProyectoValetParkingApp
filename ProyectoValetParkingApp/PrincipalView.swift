@@ -28,7 +28,7 @@ struct PrincipalView: View {
         Ticket(id: 4, numero: "000004"),
         Ticket(id: 5, numero: "000005"),
         Ticket(id: 6, numero: "000006"),
-        Ticket(id: 6, numero: "000007"),
+        Ticket(id: 7, numero: "000007"),
 
     ]
     
@@ -88,13 +88,17 @@ struct PrincipalView: View {
                
                 VStack(alignment: .leading){
 
-                    ForEach(tickets, id: \.id){ ticket in
-                        Label("**\(ticket.numero)**", systemImage: "car")
-                            .foregroundColor(.white)
-                            .padding(9)
-                            .background(Color(red: 0, green: 0, blue: 159))
-                            .cornerRadius(15)
-                            
+                    ForEach(i in 1...ceil(tickets.count/3)){
+                        HStack{
+                            // ForEach(tickets, id: \.id){ ticket in
+                                Label("**\(i)**", systemImage: "car")
+                                    .foregroundColor(.white)
+                                    .padding(9)
+                                    .background(Color(red: 0, green: 0, blue: 159))
+                                    .cornerRadius(15)
+                                    
+                            // }
+                        }
                     }
                 }.listRowBackground(Color.clear)
                
