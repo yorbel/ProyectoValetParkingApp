@@ -33,6 +33,14 @@ struct PrincipalView: View {
         Ticket(id: 9, numero: "000009"),
         Ticket(id: 10, numero: "000010"),
 
+        Ticket(id: 11, numero: "000011"),
+        Ticket(id: 12, numero: "000012"),
+        Ticket(id: 13, numero: "000012"),
+
+        Ticket(id: 14, numero: "000014"),
+        Ticket(id: 15, numero: "000015"),
+        Ticket(id: 16, numero: "000016"),
+
     ]
     
     @State private var pantalla_recepcion_entrega = false
