@@ -106,6 +106,7 @@ struct UbicacionView: View {
 
                         ios_mensaje = "Debe indicar ubicación actual"
                         ios_mostrar_mensaje = true
+                        return
 
                     }
                     
@@ -120,6 +121,11 @@ struct UbicacionView: View {
                     .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
                 )
                 .padding()
+                .alert("Mensaje AVP", isPresented: $ios_mostrar_mensaje){
+                    Button("OK"){}
+                } message: {
+                    Text(ios_mensaje)
+                }
                 .navigationDestination(isPresented: $pantalla_principal ){
                     PrincipalView()
                 }

@@ -185,11 +185,9 @@ struct IngresarView: View {
                     )
                     .padding()
                     .alert("Mensaje AVP", isPresented: $ios_mostrar_mensaje){
-                        Button("OK"){
-                            
-                        }
+                        Button("OK"){}
                     } message:{
-                        Text(ios_mensaje);
+                        Text(ios_mensaje)
                     }
                     .navigationDestination(isPresented: $pantalla_ubicacion ){
                         UbicacionView()
