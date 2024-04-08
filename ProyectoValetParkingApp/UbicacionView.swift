@@ -15,6 +15,7 @@ struct LugarView: View {
     var body: some View {
 
         HStack(spacing: 3){
+
             VStack(alignment: .leading){
                 AsyncImage( url: URL( string: "https://api.apolovalet.com/lugares/lugar.png"), content: { image in
                 image
@@ -24,8 +25,7 @@ struct LugarView: View {
                 placeholder: {
                     ProgressView()
                 })
-            }.border(.white)
-           
+            }
             VStack(alignment: .leading){
                 Text(lugar.nombre)
                 .font(.headline)
@@ -33,13 +33,11 @@ struct LugarView: View {
                 Text(lugar.direccion)
                 .font(.subheadline)
                 .foregroundColor(.white)
-            }.border(.white)
-
+            }
             Spacer()
             
         }
         .frame( minWidth: 0, maxWidth: .infinity)
-        .border(.white)
 
     }
 
