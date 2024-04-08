@@ -106,7 +106,6 @@ struct UbicacionView: View {
 
                         ios_mensaje = "Debe indicar ubicación actual"
                         ios_mostrar_mensaje = true
-                        return;
 
                     }
                     
