@@ -29,6 +29,9 @@ struct PrincipalView: View {
         Ticket(id: 5, numero: "000005"),
         Ticket(id: 6, numero: "000006"),
         Ticket(id: 7, numero: "000007"),
+        Ticket(id: 8, numero: "000008"),
+        Ticket(id: 9, numero: "000009"),
+        Ticket(id: 10, numero: "000010"),
 
     ]
     
