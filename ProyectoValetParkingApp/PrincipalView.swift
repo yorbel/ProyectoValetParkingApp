@@ -100,21 +100,24 @@ struct PrincipalView: View {
                     .padding()
                 }
                 
-               
-                VStack(alignment: .leading){
+                ScrollView {
+                    VStack(alignment: .leading){
 
-                    ForEach( 0...Int(ceil(Double(tickets.count/3))), id: \.self ){ i in
-                        HStack{
-                            ForEach(tickets[(3*i)...((3*(i+1) > tickets.count ? (tickets.count-1) : ((3*(i+1))-1) ))], id: \.id){ ticket in
-                                Label("**\(ticket.numero)**", systemImage: "car")
-                                    .foregroundColor(.white)
-                                    .padding(9)
-                                    .background(Color(red: 0, green: 0, blue: 159))
-                                    .cornerRadius(15)
-                                    
+                        ForEach( 0...Int(ceil(Double(tickets.count/3))), id: \.self ){ i in
+                            HStack{
+                                ForEach(tickets[(3*i)...((3*(i+1) > tickets.count ? (tickets.count-1) : ((3*(i+1))-1) ))], id: \.id){ ticket in
+                                    Label("**\(ticket.numero)**", systemImage: "car")
+                                        .foregroundColor(.white)
+                                        .padding(9)
+                                        .background(Color(red: 0, green: 0, blue: 159))
+                                        .cornerRadius(15)
+                                        
+                                }
                             }
                         }
+
                     }
+                    .frame(maxHeight: 200)
                 }
                
                 
