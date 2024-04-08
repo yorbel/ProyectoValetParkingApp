@@ -14,7 +14,7 @@ struct LugarView: View {
     
     var body: some View {
 
-        HStack(alignment: .bottom, spacing: 3){
+        HStack(spacing: 3){
             AsyncImage( url: URL( string: "https://api.apolovalet.com/lugares/lugar.png"), content: { image in
                 image
                 .resizable()
@@ -73,7 +73,7 @@ struct UbicacionView: View {
                     
                     }
                 
-                List{
+                VStack(alignment: .leading, spacing: 3){
 
                     ForEach(lugares, id: \.id){ lugar in
                         LugarView(lugar: lugar)
@@ -87,7 +87,7 @@ struct UbicacionView: View {
                             }
                     }
                     
-                }.listStyle(.plain)
+                }
                 
                 Button("**CONTINUAR**") {
 
