@@ -86,7 +86,6 @@ struct UbicacionView: View {
                             .onTapGesture{
                        
                                 lugar_id = lugar.id
-                                globales.set(lugar.id, forKey: "lugar_id")
                             
                             }
                     }
@@ -95,18 +94,22 @@ struct UbicacionView: View {
                 
                 Button("**CONTINUAR**") {
 
-                    guard let lugar_id = globales.string(forKey: "lugar_id") else {
+                    print("LUGAR ID")
+                    print(lugar_id)
+
+                    if( lugar_id ){
+
+                        globales.set(lugar_id, forKey: "lugar_id")
+                        pantalla_principal = true
+
+                    } else {
 
                         ios_mensaje = "Debe indicar ubicación actual"
                         ios_mostrar_mensaje = true
                         return;
 
                     }
-
-                    print("LUGAR ID")
-                    print(lugar_id)
-
-                    pantalla_principal = true
+                    
                 }
                 .frame(maxWidth: .infinity)
                 .font(.headline)
