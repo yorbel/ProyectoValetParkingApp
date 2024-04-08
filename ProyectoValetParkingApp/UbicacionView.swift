@@ -34,6 +34,7 @@ struct LugarView: View {
             
         }
         .frame( minWidth: 0, maxWidth: .infinity)
+        .border(.white)
 
     }
 
@@ -73,7 +74,7 @@ struct UbicacionView: View {
                     
                     }
                 
-                VStack(alignment: .leading, spacing: 3){
+                List{
 
                     ForEach(lugares, id: \.id){ lugar in
                         LugarView(lugar: lugar)
@@ -87,7 +88,7 @@ struct UbicacionView: View {
                             }
                     }
                     
-                }
+                }.listStyle(.plain)
                 
                 Button("**CONTINUAR**") {
 
