@@ -7,13 +7,6 @@
 
 import SwiftUI
 
-struct Usuario{
-    
-    let nombre: String
-    let apellido: String
-    
-}
-
 struct Ticket{
     
     let id: Int
@@ -27,8 +20,6 @@ struct PrincipalView: View {
     
     @State private var ticket : String = "000001"
     
-    @State private var usuario = Usuario(nombre: "", apellido: "Lopez")
-    
     @State private var tickets = [
 
         Ticket(id: 1, numero: "000001"),
@@ -38,6 +29,7 @@ struct PrincipalView: View {
         Ticket(id: 5, numero: "000005"),
         Ticket(id: 6, numero: "000006"),
         Ticket(id: 6, numero: "000007"),
+
     ]
     
     @State private var pantalla_recepcion_entrega = false
@@ -100,6 +92,7 @@ struct PrincipalView: View {
                             .foregroundColor(.white)
                             .padding(9)
                             .background(Color(red: 0, green: 0, blue: 159))
+                            .frame( width: 200 )
                             .cornerRadius(15)
                             
                     }
@@ -125,6 +118,7 @@ struct PrincipalView: View {
                     .navigationDestination(isPresented: $pantalla_recepcion_entrega ){
                         RecepcionEntregaView(ticket: "000001")
                     }
+
                     Button("**CERRAR SESION**") {
                         
                     }
