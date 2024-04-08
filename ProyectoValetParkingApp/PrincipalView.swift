@@ -88,7 +88,7 @@ struct PrincipalView: View {
                
                 VStack(alignment: .leading){
 
-                    ForEach( i in stride(from: 1, to: ceil(tickets.count/3), by: 1) ){
+                    for( i in stride(from: 1, to: ceil(tickets.count/3), by: 1) ){
                         HStack{
                             // ForEach(tickets, id: \.id){ ticket in
                                 Label("**\(i)**", systemImage: "car")
