@@ -92,7 +92,6 @@ struct PrincipalView: View {
                             .foregroundColor(.white)
                             .padding(9)
                             .background(Color(red: 0, green: 0, blue: 159))
-                            .frame( width: 200 )
                             .cornerRadius(15)
                             
                     }
