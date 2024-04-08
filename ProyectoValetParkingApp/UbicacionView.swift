@@ -97,7 +97,7 @@ struct UbicacionView: View {
                     print("LUGAR ID")
                     print(lugar_id)
 
-                    if( lugar_id ){
+                    if( lugar_id != nil ){
 
                         globales.set(lugar_id, forKey: "lugar_id")
                         pantalla_principal = true
