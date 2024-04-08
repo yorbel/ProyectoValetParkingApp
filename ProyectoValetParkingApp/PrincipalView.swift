@@ -88,9 +88,9 @@ struct PrincipalView: View {
                
                 VStack(alignment: .leading){
 
-                    ForEach( 1...ceil(tickets.count/3), id: \.self ){
+                    ForEach( 1...Int(ceil(tickets.count/3)), id: \.self ){
                         HStack{
-                            // ForEach(tickets, id: \.id){ ticket in
+                            // ForEach(tickets[($0-1)...((3*($0))-1)], id: \.id){ ticket in
                                 Label("**\($0)**", systemImage: "car")
                                     .foregroundColor(.white)
                                     .padding(9)
