@@ -25,7 +25,7 @@ struct LugarView: View {
                     ProgressView()
                 })
             }.border(.white)
-            Spacer()
+           
             VStack(alignment: .leading){
                 Text(lugar.nombre)
                 .font(.headline)
@@ -34,6 +34,8 @@ struct LugarView: View {
                 .font(.subheadline)
                 .foregroundColor(.white)
             }.border(.white)
+
+            Spacer()
             
         }
         .frame( minWidth: 0, maxWidth: .infinity)
