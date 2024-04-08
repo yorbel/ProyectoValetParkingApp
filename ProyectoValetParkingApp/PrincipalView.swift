@@ -7,12 +7,7 @@
 
 import SwiftUI
 
-struct Ticket{
-    
-    let id: Int
-    let numero: String
-    
-}
+
 
 struct PrincipalView: View {
     
@@ -20,30 +15,27 @@ struct PrincipalView: View {
     
     @State private var ticket : String = "000001"
     
-    @State private var tickets = [
+    @State private var tickets = : [LugarModel] = [
 
-        Ticket(id: 1, numero: "000001"),
-        Ticket(id: 2, numero: "000002"),
-        Ticket(id: 3, numero: "000003"),
-        Ticket(id: 4, numero: "000004"),
-        Ticket(id: 5, numero: "000005"),
-        Ticket(id: 6, numero: "000006"),
-        Ticket(id: 7, numero: "000007"),
-        Ticket(id: 8, numero: "000008"),
-        Ticket(id: 9, numero: "000009"),
-        Ticket(id: 10, numero: "000010"),
-
-        Ticket(id: 11, numero: "000011"),
-        Ticket(id: 12, numero: "000012"),
-        Ticket(id: 13, numero: "000012"),
-
-        Ticket(id: 14, numero: "000014"),
-        Ticket(id: 15, numero: "000015"),
-        Ticket(id: 16, numero: "000016"),
-
-        Ticket(id: 17, numero: "000017"),
-        Ticket(id: 18, numero: "000018"),
-        Ticket(id: 19, numero: "000019"),
+        Ticket(id: 1, ticket: "000001", ticket_solicitado: "NO"),
+        Ticket(id: 2, ticket: "000002", ticket_solicitado: "NO"),
+        Ticket(id: 3, ticket: "000003", ticket_solicitado: "NO"),
+        Ticket(id: 4, ticket: "000004", ticket_solicitado: "NO"),
+        Ticket(id: 5, ticket: "000005", ticket_solicitado: "NO"),
+        Ticket(id: 6, ticket: "000006", ticket_solicitado: "NO"),
+        Ticket(id: 7, ticket: "000007", ticket_solicitado: "NO"),
+        Ticket(id: 8, ticket: "000008", ticket_solicitado: "NO"),
+        Ticket(id: 9, ticket: "000009", ticket_solicitado: "NO"),
+        Ticket(id: 10, ticket: "000010", ticket_solicitado: "NO"),
+        Ticket(id: 11, ticket: "000011", ticket_solicitado: "NO"),
+        Ticket(id: 12, ticket: "000012", ticket_solicitado: "NO"),
+        Ticket(id: 13, ticket: "000012", ticket_solicitado: "NO"),
+        Ticket(id: 14, ticket: "000014", ticket_solicitado: "NO"),
+        Ticket(id: 15, ticket: "000015", ticket_solicitado: "NO"),
+        Ticket(id: 16, ticket: "000016", ticket_solicitado: "NO"),
+        Ticket(id: 17, ticket: "000017", ticket_solicitado: "NO"),
+        Ticket(id: 18, ticket: "000018", ticket_solicitado: "NO"),
+        Ticket(id: 19, ticket: "000019", ticket_solicitado: "NO"),
 
     ]
     
@@ -101,6 +93,7 @@ struct PrincipalView: View {
                 }
                 
                 ScrollView {
+
                     VStack(alignment: .leading){
 
                         ForEach( 0...Int(ceil(Double(tickets.count/3))), id: \.self ){ i in

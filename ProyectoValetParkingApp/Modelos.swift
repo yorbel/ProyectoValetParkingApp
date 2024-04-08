@@ -40,3 +40,12 @@ struct LugarModel: Decodable {
     let longitud: Double
     
 }
+
+struct TicketModel: Decodable {
+    
+    let id: Int
+    let ticket: String
+    let ticket_solicitado: String
+    
+}
+
