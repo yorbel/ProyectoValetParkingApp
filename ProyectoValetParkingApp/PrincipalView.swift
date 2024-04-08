@@ -41,6 +41,10 @@ struct PrincipalView: View {
         Ticket(id: 15, numero: "000015"),
         Ticket(id: 16, numero: "000016"),
 
+        Ticket(id: 17, numero: "000017"),
+        Ticket(id: 18, numero: "000018"),
+        Ticket(id: 19, numero: "000019"),
+
     ]
     
     @State private var pantalla_recepcion_entrega = false
@@ -111,7 +115,7 @@ struct PrincipalView: View {
                             }
                         }
                     }
-                }.listRowBackground(Color.clear)
+                }
                
                 
                 VStack(alignment: .center, spacing: -20){
