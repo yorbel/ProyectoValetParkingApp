@@ -37,7 +37,7 @@ struct LugarView: View {
             Spacer()
             
         }
-        .frame( minWidth: 0, maxWidth: .infinity)
+        .frame(maxWidth: .infinity)
 
     }
 

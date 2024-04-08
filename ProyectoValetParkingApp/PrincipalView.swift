@@ -30,8 +30,14 @@ struct PrincipalView: View {
     @State private var usuario = Usuario(nombre: "", apellido: "Lopez")
     
     @State private var tickets = [
+
         Ticket(id: 1, numero: "000001"),
-        Ticket(id: 2, numero: "000002")
+        Ticket(id: 2, numero: "000002"),
+        Ticket(id: 3, numero: "000003"),
+        Ticket(id: 4, numero: "000004"),
+        Ticket(id: 5, numero: "000005"),
+        Ticket(id: 6, numero: "000006"),
+        Ticket(id: 6, numero: "000007"),
     ]
     
     @State private var pantalla_recepcion_entrega = false
@@ -87,18 +93,18 @@ struct PrincipalView: View {
                     .padding()
                 }
                 
-                List{
-                    HStack(alignment: .top){
-                        ForEach(tickets, id: \.id){ ticket in
-                            Label("**\(ticket.numero)**", systemImage: "car")
-                                .foregroundColor(.white)
-                                .padding(9)
-                                .background(Color(red: 0, green: 0, blue: 159))
-                                .cornerRadius(15)
-                                
-                        }
-                    }.listRowBackground(Color.clear)
-                }.listStyle(.plain)
+               
+                HStack(alignment: .top){
+                    ForEach(tickets, id: \.id){ ticket in
+                        Label("**\(ticket.numero)**", systemImage: "car")
+                            .foregroundColor(.white)
+                            .padding(9)
+                            .background(Color(red: 0, green: 0, blue: 159))
+                            .cornerRadius(15)
+                            
+                    }
+                }.listRowBackground(Color.clear)
+               
                 
                 VStack(alignment: .center, spacing: -20){
                     Button("**PROCESAR TICKET**") {
