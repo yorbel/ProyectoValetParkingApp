@@ -72,6 +72,9 @@ struct PrincipalView: View {
                     )
                     .padding()
                 }
+
+                print("COUNT")
+                print( Int(ceil(Double(tickets_solicitados.count/3))) )
                 
                 ScrollView {
 
