@@ -15,7 +15,8 @@ struct PrincipalView: View {
     
     @State private var ticket : String = "000001"
     
-    @State private var tickets : [TicketModel] = [
+
+    @State private var tickets_solicitados : [TicketModel] = [
 
         TicketModel(id: 1, ticket: "000001", ticket_solicitado: "NO"),
         TicketModel(id: 2, ticket: "000002", ticket_solicitado: "NO"),
@@ -96,10 +97,10 @@ struct PrincipalView: View {
 
                     VStack(alignment: .leading){
 
-                        ForEach( 0...Int(ceil(Double(tickets.count/3))), id: \.self ){ i in
+                        ForEach( 0...Int(ceil(Double(tickets_solicitados.count/3))), id: \.self ){ i in
                             HStack{
-                                ForEach(tickets[(3*i)...((3*(i+1) > tickets.count ? (tickets.count-1) : ((3*(i+1))-1) ))], id: \.id){ ticket in
-                                    Label("**\(ticket.ticket)**", systemImage: "car")
+                                ForEach(tickets_solicitados[(3*i)...((3*(i+1) > tickets_solicitados.count ? (tickets_solicitados.count-1) : ((3*(i+1))-1) ))], id: \.id){ ticket_solicitado in
+                                    Label("**\(ticket_solicitado.ticket)**", systemImage: "car")
                                         .foregroundColor(.white)
                                         .padding(9)
                                         .background(Color(red: 0, green: 0, blue: 159))
