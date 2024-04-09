@@ -18,7 +18,7 @@ struct PrincipalView: View {
     
     @State private var ticket : String = ""
     
-    @State private var tickets_solicitados : [TicketModel]
+    @State private var tickets_solicitados : [TicketModel] = []
     
     @State private var pantalla_recepcion_entrega = false
     
