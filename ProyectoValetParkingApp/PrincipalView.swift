@@ -142,7 +142,7 @@ struct PrincipalView: View {
         } message: {
             Text(ios_mensaje)
         }.onAppear {
-            self.accion_buscar_tickes_solicitados() 
+            accion_buscar_tickes_solicitados() 
         }
     }
 
