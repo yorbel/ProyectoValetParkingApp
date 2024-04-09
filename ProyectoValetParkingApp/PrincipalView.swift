@@ -15,27 +15,27 @@ struct PrincipalView: View {
     
     @State private var ticket : String = "000001"
     
-    @State private var tickets : [LugarModel] = [
+    @State private var tickets : [TicketModel] = [
 
-        Ticket(id: 1, ticket: "000001", ticket_solicitado: "NO"),
-        Ticket(id: 2, ticket: "000002", ticket_solicitado: "NO"),
-        Ticket(id: 3, ticket: "000003", ticket_solicitado: "NO"),
-        Ticket(id: 4, ticket: "000004", ticket_solicitado: "NO"),
-        Ticket(id: 5, ticket: "000005", ticket_solicitado: "NO"),
-        Ticket(id: 6, ticket: "000006", ticket_solicitado: "NO"),
-        Ticket(id: 7, ticket: "000007", ticket_solicitado: "NO"),
-        Ticket(id: 8, ticket: "000008", ticket_solicitado: "NO"),
-        Ticket(id: 9, ticket: "000009", ticket_solicitado: "NO"),
-        Ticket(id: 10, ticket: "000010", ticket_solicitado: "NO"),
-        Ticket(id: 11, ticket: "000011", ticket_solicitado: "NO"),
-        Ticket(id: 12, ticket: "000012", ticket_solicitado: "NO"),
-        Ticket(id: 13, ticket: "000012", ticket_solicitado: "NO"),
-        Ticket(id: 14, ticket: "000014", ticket_solicitado: "NO"),
-        Ticket(id: 15, ticket: "000015", ticket_solicitado: "NO"),
-        Ticket(id: 16, ticket: "000016", ticket_solicitado: "NO"),
-        Ticket(id: 17, ticket: "000017", ticket_solicitado: "NO"),
-        Ticket(id: 18, ticket: "000018", ticket_solicitado: "NO"),
-        Ticket(id: 19, ticket: "000019", ticket_solicitado: "NO"),
+        TicketModel(id: 1, ticket: "000001", ticket_solicitado: "NO"),
+        TicketModel(id: 2, ticket: "000002", ticket_solicitado: "NO"),
+        TicketModel(id: 3, ticket: "000003", ticket_solicitado: "NO"),
+        TicketModel(id: 4, ticket: "000004", ticket_solicitado: "NO"),
+        TicketModel(id: 5, ticket: "000005", ticket_solicitado: "NO"),
+        TicketModel(id: 6, ticket: "000006", ticket_solicitado: "NO"),
+        TicketModel(id: 7, ticket: "000007", ticket_solicitado: "NO"),
+        TicketModel(id: 8, ticket: "000008", ticket_solicitado: "NO"),
+        TicketModel(id: 9, ticket: "000009", ticket_solicitado: "NO"),
+        TicketModel(id: 10, ticket: "000010", ticket_solicitado: "NO"),
+        TicketModel(id: 11, ticket: "000011", ticket_solicitado: "NO"),
+        TicketModel(id: 12, ticket: "000012", ticket_solicitado: "NO"),
+        TicketModel(id: 13, ticket: "000012", ticket_solicitado: "NO"),
+        TicketModel(id: 14, ticket: "000014", ticket_solicitado: "NO"),
+        TicketModel(id: 15, ticket: "000015", ticket_solicitado: "NO"),
+        TicketModel(id: 16, ticket: "000016", ticket_solicitado: "NO"),
+        TicketModel(id: 17, ticket: "000017", ticket_solicitado: "NO"),
+        TicketModel(id: 18, ticket: "000018", ticket_solicitado: "NO"),
+        TicketModel(id: 19, ticket: "000019", ticket_solicitado: "NO"),
 
     ]
     
