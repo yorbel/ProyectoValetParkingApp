@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecepcionEntregaView: View {
     
-    var ticket: String
+    var ticket: String = ""
     
     var body: some View {
         ZStack{
