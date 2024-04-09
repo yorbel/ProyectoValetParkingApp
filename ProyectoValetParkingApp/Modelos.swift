@@ -60,7 +60,7 @@ struct TicketModel: Decodable {
     let vehiculo_solicitado: String
     let vehiculo_solicitado_fecha: String?
 
-    let sesion_busqueda_id : Int
+    let sesion_busqueda_id : Int?
     let buscando_vehiculo: String
     let buscando_vehiculo_fecha: String?
     let valet_parking_buscando_id: Int?
