@@ -78,7 +78,7 @@ struct PrincipalView: View {
 
                     VStack(alignment: .leading){
 
-                        ForEach( 0...<Int(ceil(Double(tickets_solicitados.count/3))), id: \.self ){ i in
+                        ForEach( 0..<Int(ceil(Double(tickets_solicitados.count/3))), id: \.self ){ i in
                             HStack{
                                 ForEach(tickets_solicitados[(3*i)...((3*(i+1) > tickets_solicitados.count ? (tickets_solicitados.count-1) : ((3*(i+1))-1) ))], id: \.id){ ticket_solicitado in
                                     Label("**\(ticket_solicitado.ticket)**", systemImage: "car")
