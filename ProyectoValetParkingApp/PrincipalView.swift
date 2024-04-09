@@ -204,8 +204,10 @@ struct PrincipalView: View {
                             tickets_solicitados = try JSONDecoder().decode([TicketModel].self, from: data)
                                                                         
                         } catch let error {
+
+                            print(error)
                             
-                            ios_mensaje = "Error en operación de la aplicaciónnn"
+                            ios_mensaje = "Error en operación de la aplicación"
                             ios_mostrar_mensaje = true
                             return
                             
