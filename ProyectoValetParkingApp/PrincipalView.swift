@@ -12,10 +12,12 @@ import SwiftUI
 struct PrincipalView: View {
     
     let globales = UserDefaults.standard
+
+    @State private var ios_mostrar_mensaje : Bool  = false
+    @State private var ios_mensaje : String = ""
     
     @State private var ticket : String = ""
     
-
     @State private var tickets_solicitados : [TicketModel]
     
     @State private var pantalla_recepcion_entrega = false
@@ -134,6 +136,10 @@ struct PrincipalView: View {
                 }
                 
             }
+        }.alert("Mensaje AVP", isPresented: $ios_mostrar_mensaje){
+            Button("OK"){}
+        } message: {
+            Text(ios_mensaje)
         }.onAppear { self.accion_buscar_tickes_solicitados() }
     }
 
