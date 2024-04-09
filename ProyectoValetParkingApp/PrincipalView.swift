@@ -160,6 +160,11 @@ struct PrincipalView: View {
             return
 
         }
+
+        print("BUSCANDO TICKETS AUN SIN ENTRGAR")
+        print(lugar_id)
+        print(url)
+
       
         var request = URLRequest(url: url)
         
