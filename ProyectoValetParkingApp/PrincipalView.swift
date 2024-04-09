@@ -16,10 +16,10 @@ struct PrincipalView: View {
     @State private var ios_mostrar_mensaje : Bool  = false
     @State private var ios_mensaje : String = ""
     
-    @State private var ticket : String = ""
+    @ObservedObject var ticket = TicketActual()
     
     @State private var tickets_solicitados : [TicketModel] = []
-    
+
     @State private var pantalla_recepcion_entrega = false
     
     @State private var activo = true
@@ -48,7 +48,7 @@ struct PrincipalView: View {
                 }
                 
                 VStack(alignment: .center, spacing: -20){
-                    TextField("INGRESAR TICKET", text: $ticket)
+                    TextField("INGRESAR TICKET", text: $ticket.numero)
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         .foregroundColor(.black)
                         .padding()
@@ -72,15 +72,13 @@ struct PrincipalView: View {
                     )
                     .padding()
                 }
-
-                print("COUNT")
-                print( Int(ceil(Double(tickets_solicitados.count/3))) )
                 
+               
                 ScrollView {
 
                     VStack(alignment: .leading){
 
-                        ForEach( 0...Int(ceil(Double(tickets_solicitados.count/3))), id: \.self ){ i in
+                        ForEach( 0...<Int(ceil(Double(tickets_solicitados.count/3))), id: \.self ){ i in
                             HStack{
                                 ForEach(tickets_solicitados[(3*i)...((3*(i+1) > tickets_solicitados.count ? (tickets_solicitados.count-1) : ((3*(i+1))-1) ))], id: \.id){ ticket_solicitado in
                                     Label("**\(ticket_solicitado.ticket)**", systemImage: "car")
@@ -120,7 +118,7 @@ struct PrincipalView: View {
                     )
                     .padding()
                     .navigationDestination(isPresented: $pantalla_recepcion_entrega ){
-                        RecepcionEntregaView(ticket: "000001")
+                        RecepcionEntregaView(ticket: ticket)
                     }
 
                     Button("**CERRAR SESION**") {
@@ -143,7 +141,9 @@ struct PrincipalView: View {
             Button("OK"){}
         } message: {
             Text(ios_mensaje)
-        }.onAppear { self.accion_buscar_tickes_solicitados() }
+        }.onAppear {
+            self.accion_buscar_tickes_solicitados() 
+        }
     }
 
     func accion_buscar_tickes_solicitados(){
