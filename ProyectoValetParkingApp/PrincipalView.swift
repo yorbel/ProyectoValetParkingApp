@@ -15,7 +15,7 @@ struct PrincipalView: View {
     
     @State private var ticket : String = "000001"
     
-    @State private var tickets = : [LugarModel] = [
+    @State private var tickets : [LugarModel] = [
 
         Ticket(id: 1, ticket: "000001", ticket_solicitado: "NO"),
         Ticket(id: 2, ticket: "000002", ticket_solicitado: "NO"),
