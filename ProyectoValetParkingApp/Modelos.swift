@@ -72,9 +72,9 @@ struct TicketModel: Decodable {
     let entrega_realizada_fecha: String?
 
     let acepto_terminos_y_condiciones: String
-    let marca: String
-    let color: String
-    let sexo_del_conductor: String
+    let marca: String?
+    let color: String?
+    let sexo_del_conductor: String?
 
     
 }
