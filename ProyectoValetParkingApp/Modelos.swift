@@ -51,25 +51,25 @@ struct TicketModel: Decodable {
     let ticket: String
 
     let recepcion_realizada: String
-    let recepcion_realizada_fecha: String
-    let valet_parking_recepcion_id: Int
+    let recepcion_realizada_fecha: String?
+    let valet_parking_recepcion_id: Int?
 
     let cliente_conectado: String
-    let cliente_conectado_fecha: String
+    let cliente_conectado_fecha: String?
 
     let vehiculo_solicitado: String
     let vehiculo_solicitado_fecha: String
 
     let sesion_busqueda_id : Int
     let buscando_vehiculo: String
-    let buscando_vehiculo_fecha: String
-    let valet_parking_buscando_id: Int
+    let buscando_vehiculo_fecha: String?
+    let valet_parking_buscando_id: Int?
 
     let listo_para_retirar: String
-    let listo_para_retirar_fecha: String
+    let listo_para_retirar_fecha: String?
 
     let entrega_realizada: String
-    let entrega_realizada_fecha: String
+    let entrega_realizada_fecha: String?
 
     let acepto_terminos_y_condiciones: String
     let marca: String
