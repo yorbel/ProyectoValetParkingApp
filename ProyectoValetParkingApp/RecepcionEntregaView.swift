@@ -15,6 +15,8 @@ struct RecepcionEntregaView: View {
     @State private var ios_mensaje : String = ""
     
     var ticket: String = ""
+
+    @State private var parking: ParkingModel?
     
     var body: some View {
         ZStack{
@@ -101,8 +103,113 @@ struct RecepcionEntregaView: View {
         } message: {
             Text(ios_mensaje)
         }.onAppear {
-           
+           accion_ticket_se_puede_recepcionar()
         }
+    }
+
+    func accion_ticket_se_puede_recepcionar(){
+
+        guard let token = globales.string(forKey: "token") else {
+
+            return
+        }
+
+        
+        guard let url = (URL(string: Globales.url + "/api/parking/ticket_se_puede_recepcionar/\(ticket)")) else {
+           
+            return
+
+        }
+      
+        var request = URLRequest(url: url)
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token, forHTTPHeaderField: "x-access-token")
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request){ (data, response, error) in
+            
+            
+            if let error = error {
+                
+                ios_mensaje = "Error en comunicación con el sistema."
+                ios_mostrar_mensaje = true
+                return
+                
+            } else if let data = data {
+                
+               
+                
+                guard let response = response as? HTTPURLResponse else {
+                    
+                    ios_mensaje = "Error en operación de la aplicación"
+                    ios_mostrar_mensaje = true
+                    return
+                    
+                }
+                
+                if response.statusCode == 200 {
+                    
+                     DispatchQueue.main.async {
+                        do {
+                            
+                            parking = try JSONDecoder().decode(ParkingModel.self, from: data)
+                                                                        
+                        } catch let error {
+
+                            print(error)
+                            
+                            ios_mensaje = "Error en operación de la aplicación"
+                            ios_mostrar_mensaje = true
+                            return
+                            
+                        }
+                    }
+                    
+                } else {
+                    
+                     DispatchQueue.main.async {
+                        do {
+                            
+                            if response.statusCode == 400 {
+                                
+                                let dataError = try JSONDecoder().decode([DataErrorModel].self, from: data)
+                                
+                                ios_mensaje = dataError[0].msg
+                                ios_mostrar_mensaje = true
+                                return
+                                
+                            }else{
+                                
+                                let dataError = try JSONDecoder().decode(DataErrorModel.self, from: data)
+                                
+                                ios_mensaje = dataError.msg
+                                ios_mostrar_mensaje = true
+                                return
+                                
+                            }
+                            
+                        } catch let error {
+                            
+                            ios_mensaje = "Error en operación de la aplicación"
+                            ios_mostrar_mensaje = true
+                            return
+                            
+                        }
+                    }
+                }
+                
+            } else {
+                
+                ios_mensaje = "Error en comunicación con el sistema."
+                ios_mostrar_mensaje = true
+                return
+                
+            }
+        }
+        
+        task.resume()
+        
     }
 }
 
