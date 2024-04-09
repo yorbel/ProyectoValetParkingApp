@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecepcionEntregaView: View {
     
-    @ObservedObject var ticket
+    @ObservedObject var ticket: TicketActual
     
     var body: some View {
         ZStack{
