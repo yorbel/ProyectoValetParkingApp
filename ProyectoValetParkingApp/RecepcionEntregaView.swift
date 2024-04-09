@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecepcionEntregaView: View {
     
-    @ObservedObject var ticket: TicketActual
+    var ticket: String
     
     var body: some View {
         ZStack{
@@ -21,7 +21,7 @@ struct RecepcionEntregaView: View {
                     .resizable()
                     .frame(height: 125, alignment: .center)
                 
-                Text("**TICKET: \(ticket.numero)**")
+                Text("**TICKET: \(ticket)**")
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .foregroundColor(.white)
                 

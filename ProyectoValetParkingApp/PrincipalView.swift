@@ -16,7 +16,7 @@ struct PrincipalView: View {
     @State private var ios_mostrar_mensaje : Bool  = false
     @State private var ios_mensaje : String = ""
     
-    @ObservedObject var ticket = TicketActual()
+    @State private var ticket : String = ""
     
     @State private var tickets_solicitados : [TicketModel] = []
 
@@ -48,7 +48,7 @@ struct PrincipalView: View {
                 }
                 
                 VStack(alignment: .center, spacing: -20){
-                    TextField("INGRESAR TICKET", text: $ticket.numero)
+                    TextField("INGRESAR TICKET", text: $ticket)
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         .foregroundColor(.black)
                         .padding()
