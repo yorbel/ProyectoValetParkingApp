@@ -205,7 +205,7 @@ struct PrincipalView: View {
                                                                         
                         } catch let error {
                             
-                            ios_mensaje = "Error en operación de la aplicación"
+                            ios_mensaje = "Error en operación de la aplicaciónnn"
                             ios_mostrar_mensaje = true
                             return
                             
