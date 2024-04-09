@@ -99,7 +99,7 @@ struct PrincipalView: View {
                         ForEach( 0...Int(ceil(Double(tickets.count/3))), id: \.self ){ i in
                             HStack{
                                 ForEach(tickets[(3*i)...((3*(i+1) > tickets.count ? (tickets.count-1) : ((3*(i+1))-1) ))], id: \.id){ ticket in
-                                    Label("**\(ticket.numero)**", systemImage: "car")
+                                    Label("**\(ticket.ticket)**", systemImage: "car")
                                         .foregroundColor(.white)
                                         .padding(9)
                                         .background(Color(red: 0, green: 0, blue: 159))
