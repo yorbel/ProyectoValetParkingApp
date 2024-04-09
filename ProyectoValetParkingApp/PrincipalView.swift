@@ -13,32 +13,10 @@ struct PrincipalView: View {
     
     let globales = UserDefaults.standard
     
-    @State private var ticket : String = "000001"
+    @State private var ticket : String = ""
     
 
-    @State private var tickets_solicitados : [TicketModel] = [
-
-        TicketModel(id: 1, ticket: "000001", ticket_solicitado: "NO"),
-        TicketModel(id: 2, ticket: "000002", ticket_solicitado: "NO"),
-        TicketModel(id: 3, ticket: "000003", ticket_solicitado: "NO"),
-        TicketModel(id: 4, ticket: "000004", ticket_solicitado: "NO"),
-        TicketModel(id: 5, ticket: "000005", ticket_solicitado: "NO"),
-        TicketModel(id: 6, ticket: "000006", ticket_solicitado: "NO"),
-        TicketModel(id: 7, ticket: "000007", ticket_solicitado: "NO"),
-        TicketModel(id: 8, ticket: "000008", ticket_solicitado: "NO"),
-        TicketModel(id: 9, ticket: "000009", ticket_solicitado: "NO"),
-        TicketModel(id: 10, ticket: "000010", ticket_solicitado: "NO"),
-        TicketModel(id: 11, ticket: "000011", ticket_solicitado: "NO"),
-        TicketModel(id: 12, ticket: "000012", ticket_solicitado: "NO"),
-        TicketModel(id: 13, ticket: "000012", ticket_solicitado: "NO"),
-        TicketModel(id: 14, ticket: "000014", ticket_solicitado: "NO"),
-        TicketModel(id: 15, ticket: "000015", ticket_solicitado: "NO"),
-        TicketModel(id: 16, ticket: "000016", ticket_solicitado: "NO"),
-        TicketModel(id: 17, ticket: "000017", ticket_solicitado: "NO"),
-        TicketModel(id: 18, ticket: "000018", ticket_solicitado: "NO"),
-        TicketModel(id: 19, ticket: "000019", ticket_solicitado: "NO"),
-
-    ]
+    @State private var tickets_solicitados : [TicketModel]
     
     @State private var pantalla_recepcion_entrega = false
     
@@ -105,6 +83,11 @@ struct PrincipalView: View {
                                         .padding(9)
                                         .background(Color(red: 0, green: 0, blue: 159))
                                         .cornerRadius(15)
+                                        .onTapGesture{
+                       
+                                            ticket = ticket_solicitado.ticket
+                                        
+                                        }
                                         
                                 }
                             }
@@ -151,7 +134,114 @@ struct PrincipalView: View {
                 }
                 
             }
+        }.onAppear { self.accion_buscar_tickes_solicitados() }
+    }
+
+    func accion_buscar_tickes_solicitados(){
+
+        guard let token = globales.string(forKey: "token") else {
+
+            return
         }
+
+        guard let lugar_id = globales.string(forKey: "lugar_id") else {
+
+            return
+        }
+        
+        guard let url = (URL(string: Globales.url + "/api/parking/tickets_sin_entrega_realizada/\(lugar_id)")) else {
+           
+            return
+
+        }
+      
+        var request = URLRequest(url: url)
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token, forHTTPHeaderField: "x-access-token")
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request){ (data, response, error) in
+            
+            
+            if let error = error {
+                
+                ios_mensaje = "Error en comunicación con el sistema."
+                ios_mostrar_mensaje = true
+                return
+                
+            } else if let data = data {
+                
+               
+                
+                guard let response = response as? HTTPURLResponse else {
+                    
+                    ios_mensaje = "Error en operación de la aplicación"
+                    ios_mostrar_mensaje = true
+                    return
+                    
+                }
+                
+                if response.statusCode == 200 {
+                    
+                     DispatchQueue.main.async {
+                        do {
+                            
+                            tickets_solicitados = try JSONDecoder().decode([TicketModel].self, from: data)
+                                                                        
+                        } catch let error {
+                            
+                            ios_mensaje = "Error en operación de la aplicación"
+                            ios_mostrar_mensaje = true
+                            return
+                            
+                        }
+                    }
+                    
+                } else {
+                    
+                     DispatchQueue.main.async {
+                        do {
+                            
+                            if response.statusCode == 400 {
+                                
+                                let dataError = try JSONDecoder().decode([DataErrorModel].self, from: data)
+                                
+                                ios_mensaje = dataError[0].msg
+                                ios_mostrar_mensaje = true
+                                return
+                                
+                            }else{
+                                
+                                let dataError = try JSONDecoder().decode(DataErrorModel.self, from: data)
+                                
+                                ios_mensaje = dataError.msg
+                                ios_mostrar_mensaje = true
+                                return
+                                
+                            }
+                            
+                        } catch let error {
+                            
+                            ios_mensaje = "Error en operación de la aplicación"
+                            ios_mostrar_mensaje = true
+                            return
+                            
+                        }
+                    }
+                }
+                
+            } else {
+                
+                ios_mensaje = "Error en comunicación con el sistema."
+                ios_mostrar_mensaje = true
+                return
+                
+            }
+        }
+        
+        task.resume()
+        
     }
 }
 
