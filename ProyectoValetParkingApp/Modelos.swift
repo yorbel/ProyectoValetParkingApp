@@ -42,12 +42,6 @@ struct LugarModel: Decodable {
 }
 
 
-struct TicketActual: ObservableObject {
-
-    @Published var numero: String = ""
-
-}
-
 struct TicketModel: Decodable {
     
     let id: Int
