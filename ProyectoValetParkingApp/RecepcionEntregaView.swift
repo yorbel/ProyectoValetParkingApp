@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct RecepcionEntregaView: View {
+
+    let globales = UserDefaults.standard
+
+    @State private var ios_mostrar_mensaje : Bool  = false
+    @State private var ios_mensaje : String = ""
     
     var ticket: String = ""
     
@@ -91,6 +96,12 @@ struct RecepcionEntregaView: View {
                     )
                     .padding()                }
             }
+        }.alert("Mensaje AVP", isPresented: $ios_mostrar_mensaje){
+            Button("OK"){}
+        } message: {
+            Text(ios_mensaje)
+        }.onAppear {
+           
         }
     }
 }
