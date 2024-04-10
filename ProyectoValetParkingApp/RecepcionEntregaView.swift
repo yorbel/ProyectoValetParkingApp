@@ -16,7 +16,7 @@ struct RecepcionEntregaView: View {
     
     var ticket: String = ""
 
-    @State private var parking: ParkingModel = ParkingModel(parking_id =nil, se_puede_recepcionar=false, vehiculo_solicitado= nil, buscando_vehiculo= nil, valet_parking_buscando_id=nil, listo_para_retirar=nil, entrega_realizada= nil)
+    @State private var parking: ParkingModel = ParkingModel(parking_id: nil, se_puede_recepcionar:false, vehiculo_solicitado: nil, buscando_vehiculo: nil, valet_parking_buscando_id:nil, listo_para_retirar:nil, entrega_realizada: nil)
     
     var body: some View {
         ZStack{
@@ -29,7 +29,7 @@ struct RecepcionEntregaView: View {
                     .frame(height: 125, alignment: .center)
                 
                 Text("**TICKET: \(ticket)**")
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .font(.title)
                     .foregroundColor(.white)
                 
                 Image("vehiculo")
@@ -49,7 +49,7 @@ struct RecepcionEntregaView: View {
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
-                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(red: 0.0, green: 0.0, blue: 0.6235294117647059)/*@END_MENU_TOKEN@*/)
+                    .background(Color(red: 0.0, green: 0.0, blue: 0.6235294117647059))
                     .cornerRadius(15)
                     .overlay( RoundedRectangle(cornerRadius: 15)
                         .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
