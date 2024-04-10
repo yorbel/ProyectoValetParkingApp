@@ -64,7 +64,7 @@ struct RecepcionEntregaView: View {
                     .alert("¿Confirma que realizo la recepción del vehículo?", isPresented: $confirmar_recepcion_realizada) {
                         Button("SI", role: .destructive) {
 
-                            if(parking.recepcion_realizada){
+                            if(!parking.se_puede_recepcionar){
 
                                 ios_mensaje = "Recepción del vehículo ya fue realizada."
                                 ios_mostrar_mensaje = true
