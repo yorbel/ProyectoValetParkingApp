@@ -79,6 +79,10 @@ struct RecepcionEntregaView: View {
                         .stroke(Color(red: 159, green: 0, blue: 0), lineWidth: 2)
                     )
                     .padding()
+                    .alert("¿Confirma que podra realizar la busqueda del vehículo?", isPresented: $confirmar_buscando_vehiculo) {
+                        Button("SI", role: .destructive) { }
+                        Button("NO", role: .cancel) { }
+                    }
                     
                     Button("**LISTO PARA RETIRAR**", systemImage: parking.listo_para_retirar == "SI" ? "checkmark.circle":  "circle" ) {
                         
@@ -93,6 +97,10 @@ struct RecepcionEntregaView: View {
                         .stroke(Color(red: 159, green: 0, blue: 0), lineWidth: 2)
                     )
                     .padding()
+                    .alert("¿Confirma que el vehículo esta listo para retirar?", isPresented: $confirmar_listo_para_retirar) {
+                        Button("SI", role: .destructive) { }
+                        Button("NO", role: .cancel) { }
+                    }
                     
                     Button("**ENTREGA REALIZADA**", systemImage: parking.entrega_realizada == "SI" ? "checkmark.circle":  "circle" ) {
                         
@@ -106,7 +114,13 @@ struct RecepcionEntregaView: View {
                     .overlay( RoundedRectangle(cornerRadius: 15)
                         .stroke(Color(red: 159, green: 0, blue: 0), lineWidth: 2)
                     )
-                    .padding()                }
+                    .padding()
+                    .alert("¿Confirma que realizo la entrega del vehículo?", isPresented: $confirmar_entrega_realizada) {
+                        Button("SI", role: .destructive) { }
+                        Button("NO", role: .cancel) { }
+                    }                
+                    
+                }
             }
         }.alert("Mensaje AVP", isPresented: $ios_mostrar_mensaje){
             Button("OK"){}
