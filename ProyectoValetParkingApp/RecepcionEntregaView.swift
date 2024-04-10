@@ -62,7 +62,17 @@ struct RecepcionEntregaView: View {
                     )
                     .padding()
                     .alert("¿Confirma que realizo la recepción del vehículo?", isPresented: $confirmar_recepcion_realizada) {
-                        Button("SI", role: .destructive) { }
+                        Button("SI", role: .destructive) {
+
+                            if(parking.recepcion_realizada){
+
+                                ios_mensaje = "Recepción del vehículo ya fue realizada."
+                                ios_mostrar_mensaje = true
+                                return   
+                            }
+                            
+                            accion_recepcion_realizada()
+                        }
                         Button("NO", role: .cancel) { }
                     }
                     
@@ -109,7 +119,7 @@ struct RecepcionEntregaView: View {
                     Button("**ENTREGA REALIZADA**", systemImage: parking.entrega_realizada == "SI" ? "checkmark.circle":  "circle" ) {
                         
                         confirmar_entrega_realizada = true 
-                        
+
                     }
                     .frame(maxWidth: .infinity)
                     .font(.headline)
@@ -241,6 +251,120 @@ struct RecepcionEntregaView: View {
         task.resume()
         
     }
+
+
+    func accion_recepcion_realizada(){
+
+        guard let lugar_id = globales.string(forKey: "lugar_id") else {
+
+            return
+        }
+    
+        guard let token = globales.string(forKey: "token") else {
+
+            return
+        }
+
+        
+        guard let url = (URL(string: Globales.url + "/api/parking/ticket_crear_recepcion/\(ticket)/\(lugar_id)")) else {
+           
+            return
+
+        }
+      
+        var request = URLRequest(url: url)
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token, forHTTPHeaderField: "x-access-token")
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request){ (data, response, error) in
+            
+            
+            if let error = error {
+                
+                ios_mensaje = "Error en comunicación con el sistema."
+                ios_mostrar_mensaje = true
+                return
+                
+            } else if let data = data {
+                
+               
+                
+                guard let response = response as? HTTPURLResponse else {
+                    
+                    ios_mensaje = "Error en operación de la aplicación"
+                    ios_mostrar_mensaje = true
+                    return
+                    
+                }
+                
+                if response.statusCode == 200 {
+                    
+                     DispatchQueue.main.async {
+                        do {
+                            
+                            parking_id = try JSONDecoder().decode(ParkingIDModel.self, from: data)
+                            parking.parking_id = parking_id.parking_id
+                            parking.se_puede_recepcionar = false
+                                                                        
+                        } catch let error {
+
+                            print(error)
+                            
+                            ios_mensaje = "Error en operación de la aplicación"
+                            ios_mostrar_mensaje = true
+                            return
+                            
+                        }
+                    }
+                    
+                } else {
+                    
+                     DispatchQueue.main.async {
+                        do {
+                            
+                            if response.statusCode == 400 {
+                                
+                                let dataError = try JSONDecoder().decode([DataErrorModel].self, from: data)
+                                
+                                ios_mensaje = dataError[0].msg
+                                ios_mostrar_mensaje = true
+                                return
+                                
+                            }else{
+                                
+                                let dataError = try JSONDecoder().decode(DataErrorModel.self, from: data)
+                                
+                                ios_mensaje = dataError.msg
+                                ios_mostrar_mensaje = true
+                                return
+                                
+                            }
+                            
+                        } catch let error {
+                            
+                            ios_mensaje = "Error en operación de la aplicación"
+                            ios_mostrar_mensaje = true
+                            return
+                            
+                        }
+                    }
+                }
+                
+            } else {
+                
+                ios_mensaje = "Error en comunicación con el sistema."
+                ios_mostrar_mensaje = true
+                return
+                
+            }
+        }
+        
+        task.resume()
+        
+    }
+
 }
 
 #Preview {

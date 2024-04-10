@@ -79,7 +79,6 @@ struct TicketModel: Decodable {
     
 }
 
-
 struct ParkingModel: Decodable {
     
     let parking_id: Int?
@@ -89,6 +88,13 @@ struct ParkingModel: Decodable {
     let valet_parking_buscando_id: Int?
     let listo_para_retirar: String?
     let entrega_realizada: String?
+
+}
+
+struct ParkingIDModel: Decodable {
+    
+    let parking_id: Int
+
 
 }
 
