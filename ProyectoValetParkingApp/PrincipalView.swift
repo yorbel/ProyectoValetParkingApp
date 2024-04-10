@@ -86,7 +86,7 @@ struct PrincipalView: View {
 
                         ForEach( 0...Int(ceil(Double(lista_tickets_solicitados.tickets_solicitados.count/3))), id: \.self ){ i in
                             HStack{
-                                ForEach(lista_tickets_solicitados.tickets_solicitados[(3*i)...( ((3*(i+1))-1) > ( lista_tickets_solicitados.tickets_solicitados.count-1 ) ? (lista_tickets_solicitados.tickets_solicitados.count-1) : ((3*(i+1))-1) )], id: \.id){ ticket_solicitado in
+                                ForEach(lista_tickets_solicitados.tickets_solicitados[(3*i)...( ((3*(i+1))-1) )], id: \.id){ ticket_solicitado in
                                     Label("**\(ticket_solicitado.ticket)**", systemImage: "car")
                                         .foregroundColor(.white)
                                         .padding(9)
@@ -202,7 +202,7 @@ struct PrincipalView: View {
                      DispatchQueue.main.async {
                         do {
                             
-                            lista_tickets_solicitados.tickets_solicitados = try JSONDecoder().decode(Array<TicketModel>.self, from: data)
+                            lista_tickets_solicitados.tickets_solicitados = try JSONDecoder().decode([TicketModel].self, from: data)
                             
                             print("NUEVOS TICKETS")
                             print(lista_tickets_solicitados.tickets_solicitados)
