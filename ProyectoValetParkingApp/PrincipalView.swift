@@ -197,6 +197,9 @@ struct PrincipalView: View {
                         do {
                             
                             tickets_solicitados = try JSONDecoder().decode([TicketModel].self, from: data)
+                            
+                            print("NUEVOS TICKETS")
+                            print(tickets_solicitados)
                                                                         
                         } catch let error {
 
