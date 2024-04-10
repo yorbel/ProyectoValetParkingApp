@@ -79,31 +79,32 @@ struct PrincipalView: View {
                     .padding()
                 }
                 
-               
-                ScrollView {
+                if(lista_tickets_solicitados.tickets_solicitados.count > 0){
+                    ScrollView {
 
-                    VStack(alignment: .leading){
+                        VStack(alignment: .leading){
 
-                        ForEach( 0...Int(ceil(Double(lista_tickets_solicitados.tickets_solicitados.count/3))), id: \.self ){ i in
-                            HStack{
-                                ForEach(lista_tickets_solicitados.tickets_solicitados[(3*i)..<( ((3*i)+2) > (lista_tickets_solicitados.tickets_solicitados.count-1) ? (lista_tickets_solicitados.tickets_solicitados.count-1) : ((3*i)+2) )], id: \.id){ ticket_solicitado in
-                                    Label("**\(ticket_solicitado.ticket)**", systemImage: "car")
-                                        .foregroundColor(.white)
-                                        .padding(9)
-                                        .background(Color(red: 0, green: 0, blue: 159))
-                                        .cornerRadius(15)
-                                        .onTapGesture{
-                       
-                                            ticket = ticket_solicitado.ticket
-                                        
-                                        }
-                                        
+                            ForEach( 0...Int(ceil(Double(lista_tickets_solicitados.tickets_solicitados.count/3))), id: \.self ){ i in
+                                HStack{
+                                    ForEach(lista_tickets_solicitados.tickets_solicitados[(3*i)...( ((3*i)+2) > (lista_tickets_solicitados.tickets_solicitados.count-1) ? (lista_tickets_solicitados.tickets_solicitados.count-1) : ((3*i)+2) )], id: \.id){ ticket_solicitado in
+                                        Label("**\(ticket_solicitado.ticket)**", systemImage: "car")
+                                            .foregroundColor(.white)
+                                            .padding(9)
+                                            .background(Color(red: 0, green: 0, blue: 159))
+                                            .cornerRadius(15)
+                                            .onTapGesture{
+                        
+                                                ticket = ticket_solicitado.ticket
+                                            
+                                            }
+                                            
+                                    }
                                 }
                             }
-                        }
 
+                        }
+                        .frame(maxHeight: 200)
                     }
-                    .frame(maxHeight: 200)
                 }
                
                 
