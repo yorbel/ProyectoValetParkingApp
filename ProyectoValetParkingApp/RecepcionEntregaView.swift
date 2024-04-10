@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Foundation
+import SocketIO
 
 struct RecepcionEntregaView: View {
 
