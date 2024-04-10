@@ -16,7 +16,7 @@ struct RecepcionEntregaView: View {
     
     var ticket: String = ""
 
-    @State private var parking: ParkingModel?
+    @State private var parking: ParkingModel = ParkingModel(parking_id =nil, se_puede_recepcionar=false, vehiculo_solicitado= nil, buscando_vehiculo= nil, valet_parking_buscando_id=nil, listo_para_retirar=nil, entrega_realizada= nil)
     
     var body: some View {
         ZStack{
