@@ -82,13 +82,13 @@ struct TicketModel: Decodable {
 
 struct ParkingModel: Decodable {
     
-    let parking_id: Int
+    let parking_id: Int?
     let se_puede_recepcionar: Bool // SI FALSE recepcion_realizada es 'SI'
-    let vehiculo_solicitado: String
-    let buscando_vehiculo: String
-    let valet_parking_buscando_id: Int
-    let listo_para_retirar: String
-    let entrega_realizada: String
+    let vehiculo_solicitado: String?
+    let buscando_vehiculo: String?
+    let valet_parking_buscando_id: Int?
+    let listo_para_retirar: String?
+    let entrega_realizada: String?
 
 }
 
