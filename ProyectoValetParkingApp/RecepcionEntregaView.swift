@@ -96,7 +96,18 @@ struct RecepcionEntregaView: View {
                     )
                     .padding()
                     .alert("¿Confirma que podra realizar la busqueda del vehículo?", isPresented: $confirmar_buscando_vehiculo) {
-                        Button("SI", role: .destructive) { }
+                        Button("SI", role: .destructive) {
+                            
+                            if( parking.buscando_vehiculo == "SI" ){
+
+                                ios_mensaje = "La busqueda del vehículo ya esta siendo realizada."
+                                ios_mostrar_mensaje = true
+                                return   
+                            }
+
+                            accion_buscando_vehiculo()
+
+                        }
                         Button("NO", role: .cancel) { }
                     }
                     
