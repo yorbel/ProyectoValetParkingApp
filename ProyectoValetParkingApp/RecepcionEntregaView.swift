@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct RecepcionEntregaView: View {
 
@@ -21,6 +22,8 @@ struct RecepcionEntregaView: View {
     @State private var confirmar_buscando_vehiculo : Bool = false
     @State private var confirmar_listo_para_retirar : Bool = false
     @State private var confirmar_entrega_realizada : Bool = false
+
+    var socket: SocketIOClient
 
     var body: some View {
         ZStack{
@@ -143,7 +146,11 @@ struct RecepcionEntregaView: View {
         } message: {
             Text(ios_mensaje)
         }.onAppear {
-           accion_ticket_se_puede_recepcionar()
+            accion_conectar_al_socket()
+            accion_ticket_se_puede_recepcionar()
+        }
+        .onDisappear {
+            accion_desconectar_al_socket()
         }
     }
 
@@ -363,6 +370,140 @@ struct RecepcionEntregaView: View {
         
         task.resume()
         
+    }
+
+    func accion_buscando_vehiculo(){
+    
+        guard let token = globales.string(forKey: "token") else {
+
+            return
+        }
+
+        
+        guard let url = (URL(string: Globales.url + "/api/parking/ticket_buscando_vehiculo/\(parking_id.parking_id)")) else {
+           
+            return
+
+        }
+      
+        var request = URLRequest(url: url)
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token, forHTTPHeaderField: "x-access-token")
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request){ (data, response, error) in
+            
+            
+            if let error = error {
+                
+                ios_mensaje = "Error en comunicación con el sistema."
+                ios_mostrar_mensaje = true
+                return
+                
+            } else if let data = data {
+                
+               
+                
+                guard let response = response as? HTTPURLResponse else {
+                    
+                    ios_mensaje = "Error en operación de la aplicación"
+                    ios_mostrar_mensaje = true
+                    return
+                    
+                }
+                
+                if response.statusCode == 200 {
+                    
+                     DispatchQueue.main.async {
+                        do {
+                            
+                           
+                            parking.buscando_vehiculo = "SI"
+                                                                        
+                        } catch let error {
+
+                            print(error)
+                            
+                            ios_mensaje = "Error en operación de la aplicación"
+                            ios_mostrar_mensaje = true
+                            return
+                            
+                        }
+                    }
+                    
+                } else {
+                    
+                     DispatchQueue.main.async {
+                        do {
+                            
+                            if response.statusCode == 400 {
+                                
+                                let dataError = try JSONDecoder().decode([DataErrorModel].self, from: data)
+                                
+                                ios_mensaje = dataError[0].msg
+                                ios_mostrar_mensaje = true
+                                return
+                                
+                            }else{
+                                
+                                let dataError = try JSONDecoder().decode(DataErrorModel.self, from: data)
+                                
+                                ios_mensaje = dataError.msg
+                                ios_mostrar_mensaje = true
+                                return
+                                
+                            }
+                            
+                        } catch let error {
+                            
+                            ios_mensaje = "Error en operación de la aplicación"
+                            ios_mostrar_mensaje = true
+                            return
+                            
+                        }
+                    }
+                }
+                
+            } else {
+                
+                ios_mensaje = "Error en comunicación con el sistema."
+                ios_mostrar_mensaje = true
+                return
+                
+            }
+        }
+        
+        task.resume()
+        
+    }
+
+    func accion_conectar_al_socket(){
+
+        guard let lugar_id = globales.string(forKey: "lugar_id") else {
+
+            return
+        }
+
+        socket = SocketIOClient(socketURL: Globales.url + "/?ticket=\(ticket)&lugar_id=\(lugar_id)")
+        socket.connect()
+        socket.on("connect") {data, ack in
+
+            print("SOCKET CONECTADO")
+
+        }
+        socket.on("disconnect") {data, ack in
+
+            print("SOCKET DESCONECTADO")
+
+        }
+
+    }
+
+    func accion_desconectar_al_socket(){
+
+        socket.disconnect();
+
     }
 
 }
