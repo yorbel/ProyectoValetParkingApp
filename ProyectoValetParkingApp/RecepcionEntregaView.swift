@@ -397,6 +397,10 @@ struct RecepcionEntregaView: View {
             return
 
         }
+
+        print("####################################################")
+        print(url)
+        print("####################################################")
       
         var request = URLRequest(url: url)
         
