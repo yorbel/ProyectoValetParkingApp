@@ -90,7 +90,7 @@ struct PrincipalView: View {
                                         Label("**\(ticket_solicitado.ticket)**", systemImage: "car")
                                             .foregroundColor(.white)
                                             .padding(9)
-                                            .background(Color(red: 0, green: 0, blue: 159))
+                                            .background( ticket == ticket_solicitado.ticket ? Color(red: 0, green: 212, blue: 42) : Color(red: 0, green: 0, blue: 159) )
                                             .cornerRadius(15)
                                             .onTapGesture{
                         
