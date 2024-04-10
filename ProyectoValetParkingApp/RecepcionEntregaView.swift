@@ -16,7 +16,7 @@ struct RecepcionEntregaView: View {
     @State private var ios_mostrar_mensaje : Bool  = false
     @State private var ios_mensaje : String = ""
     
-    var ticket: String = ""
+     var ticket: String = ""
 
     @State private var parking: ParkingModel = ParkingModel(parking_id: nil, se_puede_recepcionar:false, vehiculo_solicitado: nil, buscando_vehiculo: nil, valet_parking_buscando_id:nil, listo_para_retirar:nil, entrega_realizada: nil)
     @State private var confirmar_recepcion_realizada : Bool = false
@@ -24,7 +24,7 @@ struct RecepcionEntregaView: View {
     @State private var confirmar_listo_para_retirar : Bool = false
     @State private var confirmar_entrega_realizada : Bool = false
 
-    var socket: SocketIOClient
+    // var socket: SocketIOClient
 
     var body: some View {
         ZStack{
@@ -486,7 +486,7 @@ struct RecepcionEntregaView: View {
             return
         }
 
-        socket = SocketIOClient(socketURL: Globales.url + "/?ticket=\(ticket)&lugar_id=\(lugar_id)")
+       /* socket = SocketIOClient(socketURL: Globales.url + "/?ticket=\(ticket)&lugar_id=\(lugar_id)")
         socket.connect()
         socket.on("connect") {data, ack in
 
@@ -497,13 +497,13 @@ struct RecepcionEntregaView: View {
 
             print("SOCKET DESCONECTADO")
 
-        }
+        }*/
 
     }
 
     func accion_desconectar_al_socket(){
 
-        socket.disconnect();
+        // socket.disconnect();
 
     }
 
