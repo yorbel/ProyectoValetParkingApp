@@ -8,6 +8,12 @@
 import SwiftUI
 
 
+class ListaTicketModel: ObservableObject {
+
+    @Published var tickets_solicitados : [TicketModel] = []
+
+}
+
 
 struct PrincipalView: View {
     
@@ -18,7 +24,7 @@ struct PrincipalView: View {
     
     @State private var ticket : String = ""
     
-    @State private var tickets_solicitados : [TicketModel] = []
+    @ObservedObject var lista_tickets_solicitados = ListaTicketModel()
 
     @State private var pantalla_recepcion_entrega = false
     
@@ -78,9 +84,9 @@ struct PrincipalView: View {
 
                     VStack(alignment: .leading){
 
-                        ForEach( 0..<Int(ceil(Double(tickets_solicitados.count/3))), id: \.self ){ i in
+                        ForEach( 0..<Int(ceil(Double(lista_tickets_solicitados.tickets_solicitados.count/3))), id: \.self ){ i in
                             HStack{
-                                ForEach(tickets_solicitados[(3*i)...((3*(i+1) > tickets_solicitados.count ? (tickets_solicitados.count-1) : ((3*(i+1))-1) ))], id: \.id){ ticket_solicitado in
+                                ForEach(lista_tickets_solicitados.tickets_solicitados[(3*i)...((3*(i+1) > lista_tickets_solicitados.tickets_solicitados.count ? (lista_tickets_solicitados.tickets_solicitados.count-1) : ((3*(i+1))-1) ))], id: \.id){ ticket_solicitado in
                                     Label("**\(ticket_solicitado.ticket)**", systemImage: "car")
                                         .foregroundColor(.white)
                                         .padding(9)
@@ -196,10 +202,10 @@ struct PrincipalView: View {
                      DispatchQueue.main.async {
                         do {
                             
-                            tickets_solicitados = try JSONDecoder().decode([TicketModel].self, from: data)
+                            lista_tickets_solicitados.tickets_solicitados = try JSONDecoder().decode([TicketModel].self, from: data)
                             
                             print("NUEVOS TICKETS")
-                            print(tickets_solicitados)
+                            print(lista_tickets_solicitados.tickets_solicitados)
                                                                         
                         } catch let error {
 
