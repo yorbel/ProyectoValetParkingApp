@@ -9,91 +9,91 @@ import Foundation
 
 struct DataErrorModel: Decodable {
     
-    let msg : String
+    var msg : String
     
 }
 
 struct ValetParkingModel: Decodable {
     
-    let id: Int
-    let nombre_usuario: String
-    let nombre: String
-    let apellido: String
-    let sesion_id: Int
+    var id: Int
+    var nombre_usuario: String
+    var nombre: String
+    var apellido: String
+    var sesion_id: Int
     
 }
 
 struct UsuarioModel: Decodable {
     
-    let token: String
-    let valet_parking: ValetParkingModel
+    var token: String
+    var valet_parking: ValetParkingModel
   
 }
 
 struct LugarModel: Decodable {
     
-    let id: Int
-    let nombre: String
-    let direccion: String
-    let imagen: String
-    let latitud: Double
-    let longitud: Double
+    var id: Int
+    var nombre: String
+    var direccion: String
+    var imagen: String
+    var latitud: Double
+    var longitud: Double
     
 }
 
 
 struct TicketModel: Decodable {
     
-    let id: Int
-    let lugar_id: Int
-    let sesion_recepcion_id: Int
+    var id: Int
+    var lugar_id: Int
+    var sesion_recepcion_id: Int
 
-    let ticket: String
+    var ticket: String
 
-    let recepcion_realizada: String
-    let recepcion_realizada_fecha: String?
-    let valet_parking_recepcion_id: Int?
+    var recepcion_realizada: String
+    var recepcion_realizada_fecha: String?
+    var valet_parking_recepcion_id: Int?
 
-    let cliente_conectado: String
-    let cliente_conectado_fecha: String?
+    var cliente_conectado: String
+    var cliente_conectado_fecha: String?
 
-    let vehiculo_solicitado: String
-    let vehiculo_solicitado_fecha: String?
+    var vehiculo_solicitado: String
+    var vehiculo_solicitado_fecha: String?
 
-    let sesion_busqueda_id : Int?
-    let buscando_vehiculo: String
-    let buscando_vehiculo_fecha: String?
-    let valet_parking_buscando_id: Int?
+    var sesion_busqueda_id : Int?
+    var buscando_vehiculo: String
+    var buscando_vehiculo_fecha: String?
+    var valet_parking_buscando_id: Int?
 
-    let listo_para_retirar: String
-    let listo_para_retirar_fecha: String?
+    var listo_para_retirar: String
+    var listo_para_retirar_fecha: String?
 
-    let entrega_realizada: String
-    let entrega_realizada_fecha: String?
+    var entrega_realizada: String
+    var entrega_realizada_fecha: String?
 
-    let acepto_terminos_y_condiciones: String
-    let marca: String?
-    let color: String?
-    let sexo_del_conductor: String?
+    var acepto_terminos_y_condiciones: String
+    var marca: String?
+    var color: String?
+    var sexo_del_conductor: String?
 
     
 }
 
 struct ParkingModel: Decodable {
     
-    let parking_id: Int?
-    let se_puede_recepcionar: Bool // SI FALSE recepcion_realizada es 'SI'
-    let vehiculo_solicitado: String?
-    let buscando_vehiculo: String?
-    let valet_parking_buscando_id: Int?
-    let listo_para_retirar: String?
-    let entrega_realizada: String?
+    var parking_id: Int?
+    var se_puede_recepcionar: Bool // SI FALSE recepcion_realizada es 'SI'
+    var vehiculo_solicitado: String?
+    var buscando_vehiculo: String?
+    var valet_parking_buscando_id: Int?
+    var listo_para_retirar: String?
+    var entrega_realizada: String?
 
 }
 
 struct ParkingIDModel: Decodable {
     
-    let parking_id: Int
+    var parking_id: Int
 
 
 }
