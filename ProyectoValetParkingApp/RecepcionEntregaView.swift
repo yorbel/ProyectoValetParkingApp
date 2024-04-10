@@ -24,7 +24,7 @@ struct RecepcionEntregaView: View {
     @State private var confirmar_listo_para_retirar : Bool = false
     @State private var confirmar_entrega_realizada : Bool = false
 
-    var socket: SocketIOClient!
+    @State private var socket: SocketIOClient!
 
     var body: some View {
         ZStack{
