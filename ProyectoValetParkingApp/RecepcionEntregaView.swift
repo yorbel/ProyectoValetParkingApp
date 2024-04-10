@@ -399,6 +399,7 @@ struct RecepcionEntregaView: View {
         }
 
         print("####################################################")
+        print(parking)
         print(url)
         print("####################################################")
       
