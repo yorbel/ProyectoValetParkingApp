@@ -17,7 +17,11 @@ struct RecepcionEntregaView: View {
     var ticket: String = ""
 
     @State private var parking: ParkingModel = ParkingModel(parking_id: nil, se_puede_recepcionar:false, vehiculo_solicitado: nil, buscando_vehiculo: nil, valet_parking_buscando_id:nil, listo_para_retirar:nil, entrega_realizada: nil)
-    
+    @State confirmar_recepcion_realizada : Bool = false
+    @State confirmar_buscando_vehiculo : Bool = false
+    @State confirmar_listo_para_retirar : Bool = false
+    @State confirmar_entrega_realizada : Bool = false
+
     var body: some View {
         ZStack{
             Image("fondo")
@@ -44,6 +48,8 @@ struct RecepcionEntregaView: View {
                     
                     Button("**RECEPCION REALIZADA**", systemImage: parking.se_puede_recepcionar ? "circle" : "checkmark.circle") {
                         
+                        confirmar_recepcion_realizada = true
+
                     }
                     .frame(maxWidth: .infinity)
                     .font(.headline)
@@ -55,6 +61,10 @@ struct RecepcionEntregaView: View {
                         .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
                     )
                     .padding()
+                    .alert("¿Confirma que realizo la recepción del vehículo?", isPresented: $confirmar_recepcion_realizada) {
+                        Button("SI", role: .destructive) { }
+                        Button("NO", role: .cancel) { }
+                    }
                     
                     Button("**BUSCANDO VEHICULO**", systemImage: parking.buscando_vehiculo == "SI" ? "checkmark.circle":  "circle" ) {
                         
