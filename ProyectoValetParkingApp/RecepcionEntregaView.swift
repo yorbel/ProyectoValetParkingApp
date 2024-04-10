@@ -304,7 +304,7 @@ struct RecepcionEntregaView: View {
                      DispatchQueue.main.async {
                         do {
                             
-                            parking_id = try JSONDecoder().decode(ParkingIDModel.self, from: data)
+                            let parking_id = try JSONDecoder().decode(ParkingIDModel.self, from: data)
                             parking.parking_id = parking_id.parking_id
                             parking.se_puede_recepcionar = false
                                                                         
