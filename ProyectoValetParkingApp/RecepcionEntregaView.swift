@@ -68,6 +68,8 @@ struct RecepcionEntregaView: View {
                     
                     Button("**BUSCANDO VEHICULO**", systemImage: parking.buscando_vehiculo == "SI" ? "checkmark.circle":  "circle" ) {
                         
+                        confirmar_buscando_vehiculo = true
+
                     }
                     .frame(maxWidth: .infinity)
                     .font(.headline)
@@ -86,6 +88,8 @@ struct RecepcionEntregaView: View {
                     
                     Button("**LISTO PARA RETIRAR**", systemImage: parking.listo_para_retirar == "SI" ? "checkmark.circle":  "circle" ) {
                         
+                        confirmar_listo_para_retirar = true
+
                     }
                     .frame(maxWidth: .infinity)
                     .font(.headline)
@@ -103,6 +107,8 @@ struct RecepcionEntregaView: View {
                     }
                     
                     Button("**ENTREGA REALIZADA**", systemImage: parking.entrega_realizada == "SI" ? "checkmark.circle":  "circle" ) {
+                        
+                        confirmar_entrega_realizada = true 
                         
                     }
                     .frame(maxWidth: .infinity)
