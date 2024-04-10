@@ -17,10 +17,10 @@ struct RecepcionEntregaView: View {
     var ticket: String = ""
 
     @State private var parking: ParkingModel = ParkingModel(parking_id: nil, se_puede_recepcionar:false, vehiculo_solicitado: nil, buscando_vehiculo: nil, valet_parking_buscando_id:nil, listo_para_retirar:nil, entrega_realizada: nil)
-    @State confirmar_recepcion_realizada : Bool = false
-    @State confirmar_buscando_vehiculo : Bool = false
-    @State confirmar_listo_para_retirar : Bool = false
-    @State confirmar_entrega_realizada : Bool = false
+    @State private var confirmar_recepcion_realizada : Bool = false
+    @State private var confirmar_buscando_vehiculo : Bool = false
+    @State private var confirmar_listo_para_retirar : Bool = false
+    @State private var confirmar_entrega_realizada : Bool = false
 
     var body: some View {
         ZStack{
