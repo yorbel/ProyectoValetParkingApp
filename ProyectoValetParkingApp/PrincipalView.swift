@@ -202,7 +202,7 @@ struct PrincipalView: View {
                      DispatchQueue.main.async {
                         do {
                             
-                            lista_tickets_solicitados.tickets_solicitados = try JSONDecoder().decode([TicketModel].self, from: data)
+                            lista_tickets_solicitados.tickets_solicitados = try JSONDecoder().decode(Array<TicketModel>.self, from: data)
                             
                             print("NUEVOS TICKETS")
                             print(lista_tickets_solicitados.tickets_solicitados)
