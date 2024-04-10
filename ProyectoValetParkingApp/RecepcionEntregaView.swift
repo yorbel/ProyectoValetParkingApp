@@ -42,7 +42,7 @@ struct RecepcionEntregaView: View {
                 
                 VStack(alignment: .center, spacing: -20){
                     
-                    Button("**RECEPCION REALIZADA**", systemImage: parking.se_puede_recepcionar ? "circle" : "checkmark.circle") {
+                    Button("**RECEPCION REALIZADA**", systemImage: parking?.se_puede_recepcionar ? "circle" : "checkmark.circle") {
                         
                     }
                     .frame(maxWidth: .infinity)
