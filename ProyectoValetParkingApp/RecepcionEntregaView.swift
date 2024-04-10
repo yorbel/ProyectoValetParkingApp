@@ -486,7 +486,7 @@ struct RecepcionEntregaView: View {
             return
         }
 
-        manager = SocketManager(socketURL:  URL(string: Globales.url + "/?ticket=\(ticket)&lugar_id=\(lugar_id)")!, config: [.log(true), .compress] )
+        let manager = SocketManager(socketURL:  URL(string: Globales.url + "/?ticket=\(ticket)&lugar_id=\(lugar_id)")!, config: [.log(true), .compress] )
         socket =  manager.defaultSocket
        
         socket.on("connect") {data, ack in
