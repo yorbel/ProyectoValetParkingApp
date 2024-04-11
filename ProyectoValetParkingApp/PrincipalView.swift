@@ -311,7 +311,7 @@ struct PrincipalView: View {
 
         do {
 
-            player = try! AVAudioPlayer(contentsOf: url!)
+            player = try! AVAudioPlayer(contentsOf: url)
             player!.play()
             
         } catch let error {
