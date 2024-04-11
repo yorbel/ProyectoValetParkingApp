@@ -10,6 +10,7 @@
 		8428A10D2B6ABBFC00C35C6F /* PrincipalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8428A10C2B6ABBFB00C35C6F /* PrincipalView.swift */; };
 		8428A10F2B6B0E3000C35C6F /* RecepcionEntregaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8428A10E2B6B0E3000C35C6F /* RecepcionEntregaView.swift */; };
 		84AF6AB32BC747A00041B9D9 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 84AF6AB22BC747A00041B9D9 /* SocketIO */; };
+		84AF6AB62BC828D80041B9D9 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 84AF6AB52BC828D80041B9D9 /* CodeScanner */; };
 		84D9E5DE2B680621009A9E0E /* ProyectoValetParkingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9E5DD2B680621009A9E0E /* ProyectoValetParkingAppApp.swift */; };
 		84D9E5E02B680621009A9E0E /* IngresarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9E5DF2B680621009A9E0E /* IngresarView.swift */; };
 		84D9E5E22B680623009A9E0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5E12B680623009A9E0E /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84AF6AB62BC828D80041B9D9 /* CodeScanner in Frameworks */,
 				84AF6AB32BC747A00041B9D9 /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,6 +109,7 @@
 			name = ProyectoValetParkingApp;
 			packageProductDependencies = (
 				84AF6AB22BC747A00041B9D9 /* SocketIO */,
+				84AF6AB52BC828D80041B9D9 /* CodeScanner */,
 			);
 			productName = ProyectoValetParkingApp;
 			productReference = 84D9E5DA2B680621009A9E0E /* ProyectoValetParkingApp.app */;
@@ -138,6 +141,7 @@
 			mainGroup = 84D9E5D12B680620009A9E0E;
 			packageReferences = (
 				84AF6AB12BC7479F0041B9D9 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
+				84AF6AB42BC828D80041B9D9 /* XCRemoteSwiftPackageReference "CodeScanner" */,
 			);
 			productRefGroup = 84D9E5DB2B680621009A9E0E /* Products */;
 			projectDirPath = "";
@@ -402,6 +406,14 @@
 				kind = branch;
 			};
 		};
+		84AF6AB42BC828D80041B9D9 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -409,6 +421,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 84AF6AB12BC7479F0041B9D9 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
 			productName = SocketIO;
+		};
+		84AF6AB52BC828D80041B9D9 /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84AF6AB42BC828D80041B9D9 /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
