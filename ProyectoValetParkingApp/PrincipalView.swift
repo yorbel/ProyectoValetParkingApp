@@ -312,6 +312,8 @@ struct PrincipalView: View {
 
     func accion_activar_alerta(){
 
+        print("INICIA ALERTA")
+
         guard let url = Bundle.main.url(forResource: "panic", withExtension: "mp3") else {
             return
         }
@@ -322,6 +324,8 @@ struct PrincipalView: View {
 
             player?.play()
             mostrar_alerta = true
+
+            print("FINALIZA ALERTA")
             
         } catch let error {
             print(error.localizedDescription)
