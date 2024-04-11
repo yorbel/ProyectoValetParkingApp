@@ -392,7 +392,7 @@ struct RecepcionEntregaView: View {
         }
 
         
-        guard let url = (URL(string: Globales.url + "/api/parking/ticket_buscando_vehiculo/\(parking.parking_id)")) else {
+        guard let url = (URL(string: Globales.url + "/api/parking/ticket_buscando_vehiculo/\(parking.parking_id!)")) else {
            
             return
 
