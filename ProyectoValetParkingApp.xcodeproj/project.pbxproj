@@ -11,6 +11,9 @@
 		8428A10F2B6B0E3000C35C6F /* RecepcionEntregaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8428A10E2B6B0E3000C35C6F /* RecepcionEntregaView.swift */; };
 		84AF6AB32BC747A00041B9D9 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 84AF6AB22BC747A00041B9D9 /* SocketIO */; };
 		84AF6AB62BC828D80041B9D9 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 84AF6AB52BC828D80041B9D9 /* CodeScanner */; };
+		84AF6ABA2BC8646B0041B9D9 /* panic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84AF6AB92BC8646B0041B9D9 /* panic.mp3 */; };
+		84AF6ABD2BC8678B0041B9D9 /* back.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84AF6ABC2BC8678B0041B9D9 /* back.gif */; };
+		84AF6AC02BC8681C0041B9D9 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 84AF6ABF2BC8681C0041B9D9 /* SDWebImageSwiftUI */; };
 		84D9E5DE2B680621009A9E0E /* ProyectoValetParkingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9E5DD2B680621009A9E0E /* ProyectoValetParkingAppApp.swift */; };
 		84D9E5E02B680621009A9E0E /* IngresarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9E5DF2B680621009A9E0E /* IngresarView.swift */; };
 		84D9E5E22B680623009A9E0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D9E5E12B680623009A9E0E /* Assets.xcassets */; };
@@ -24,6 +27,8 @@
 /* Begin PBXFileReference section */
 		8428A10C2B6ABBFB00C35C6F /* PrincipalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalView.swift; sourceTree = "<group>"; };
 		8428A10E2B6B0E3000C35C6F /* RecepcionEntregaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecepcionEntregaView.swift; sourceTree = "<group>"; };
+		84AF6AB92BC8646B0041B9D9 /* panic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = panic.mp3; sourceTree = "<group>"; };
+		84AF6ABC2BC8678B0041B9D9 /* back.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = back.gif; sourceTree = "<group>"; };
 		84D9E5DA2B680621009A9E0E /* ProyectoValetParkingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProyectoValetParkingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D9E5DD2B680621009A9E0E /* ProyectoValetParkingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProyectoValetParkingAppApp.swift; sourceTree = "<group>"; };
 		84D9E5DF2B680621009A9E0E /* IngresarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngresarView.swift; sourceTree = "<group>"; };
@@ -41,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84AF6AC02BC8681C0041B9D9 /* SDWebImageSwiftUI in Frameworks */,
 				84AF6AB62BC828D80041B9D9 /* CodeScanner in Frameworks */,
 				84AF6AB32BC747A00041B9D9 /* SocketIO in Frameworks */,
 			);
@@ -49,11 +55,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		84AF6AB72BC853F20041B9D9 /* Sounds */ = {
+		84AF6AB82BC8646B0041B9D9 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				84AF6AB92BC8646B0041B9D9 /* panic.mp3 */,
 			);
-			path = Sounds;
+			name = Sounds;
+			path = ../../../Downloads/Sounds;
+			sourceTree = "<group>";
+		};
+		84AF6ABB2BC8678B0041B9D9 /* Gifs */ = {
+			isa = PBXGroup;
+			children = (
+				84AF6ABC2BC8678B0041B9D9 /* back.gif */,
+			);
+			path = Gifs;
 			sourceTree = "<group>";
 		};
 		84D9E5D12B680620009A9E0E = {
@@ -75,7 +91,8 @@
 		84D9E5DC2B680621009A9E0E /* ProyectoValetParkingApp */ = {
 			isa = PBXGroup;
 			children = (
-				84AF6AB72BC853F20041B9D9 /* Sounds */,
+				84AF6ABB2BC8678B0041B9D9 /* Gifs */,
+				84AF6AB82BC8646B0041B9D9 /* Sounds */,
 				84E13C3D2B881AEB001DEF3B /* LocationDataManager.swift */,
 				84E13C3C2B86D5F8001DEF3B /* Info.plist */,
 				84D9E5DD2B680621009A9E0E /* ProyectoValetParkingAppApp.swift */,
@@ -118,6 +135,7 @@
 			packageProductDependencies = (
 				84AF6AB22BC747A00041B9D9 /* SocketIO */,
 				84AF6AB52BC828D80041B9D9 /* CodeScanner */,
+				84AF6ABF2BC8681C0041B9D9 /* SDWebImageSwiftUI */,
 			);
 			productName = ProyectoValetParkingApp;
 			productReference = 84D9E5DA2B680621009A9E0E /* ProyectoValetParkingApp.app */;
@@ -150,6 +168,7 @@
 			packageReferences = (
 				84AF6AB12BC7479F0041B9D9 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
 				84AF6AB42BC828D80041B9D9 /* XCRemoteSwiftPackageReference "CodeScanner" */,
+				84AF6ABE2BC8681C0041B9D9 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 84D9E5DB2B680621009A9E0E /* Products */;
 			projectDirPath = "";
@@ -166,7 +185,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				84D9E5E52B680623009A9E0E /* Preview Assets.xcassets in Resources */,
+				84AF6ABD2BC8678B0041B9D9 /* back.gif in Resources */,
 				84D9E5E22B680623009A9E0E /* Assets.xcassets in Resources */,
+				84AF6ABA2BC8646B0041B9D9 /* panic.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +443,14 @@
 				minimumVersion = 2.4.0;
 			};
 		};
+		84AF6ABE2BC8681C0041B9D9 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -434,6 +463,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 84AF6AB42BC828D80041B9D9 /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
+		};
+		84AF6ABF2BC8681C0041B9D9 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84AF6ABE2BC8681C0041B9D9 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
