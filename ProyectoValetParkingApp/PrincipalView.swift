@@ -195,9 +195,10 @@ struct PrincipalView: View {
                 .indicator(.progress)
                 .resizable()
                 .scaledToFit()
-            }
+            }.background(Color(red: 0.0, green: 0.0, blue: 0.6235294117647059))
 
-        }.onAppear {
+        }
+        .onAppear {
             accion_buscar_tickes_solicitados() 
         }
     }
