@@ -33,7 +33,7 @@ struct PrincipalView: View {
 
     @State private var mostrar_scanner_qr = false
 
-    var player : AVAudioPlayer!
+    @State private var player : AVAudioPlayer!
     
     var body: some View {
         ZStack{
