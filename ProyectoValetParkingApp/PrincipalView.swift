@@ -8,6 +8,7 @@
 import SwiftUI
 import CodeScanner
 import AVFoundation
+import SDWebImageSwiftUI
 
 class ListaTicketModel: ObservableObject {
 
@@ -35,6 +36,8 @@ struct PrincipalView: View {
 
     @State private var player : AVAudioPlayer?
     @State private var mostrar_alerta = false
+
+    @State private var animar_imagen_alerta : Bool  = true
     
     var body: some View {
         ZStack{
@@ -188,9 +191,10 @@ struct PrincipalView: View {
         }.sheet(isPresented: $mostrar_alerta, onDismiss: accion_desactivar_alerta ) {
 
             VStack {
-                Text("MOSTRAR IMAGEN")
-                    .font(.title)
-                    .padding(50)
+                AnimatedImage(name: "back.gif", isAnimating: $animar_imagen_alerta)
+                .indicator(.progress)
+                .resizable()
+                .scaledToFit()
             }
 
         }.onAppear {
@@ -333,6 +337,7 @@ struct PrincipalView: View {
 
         player?.pause()
         mostrar_alerta = false
+        animar_imagen_alerta = false
 
     }
 }
