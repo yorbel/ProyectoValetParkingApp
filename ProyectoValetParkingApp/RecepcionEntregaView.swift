@@ -59,7 +59,7 @@ struct RecepcionEntregaView: View {
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
-                    .background(Color(red: 0.0, green: 0.0, blue: 0.6235294117647059))
+                    .background(parking.se_puede_recepcionar ? Color(red: 196, green: 0.0, blue: 0) : Color(red: 0.0, green: 0.0, blue: 0.6235294117647059))
                     .cornerRadius(15)
                     .overlay( RoundedRectangle(cornerRadius: 15)
                         .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
@@ -80,7 +80,7 @@ struct RecepcionEntregaView: View {
                         Button("NO", role: .cancel) { }
                     }
                     
-                    Button("**BUSCANDO VEHICULO**", systemImage: parking.buscando_vehiculo == "SI" ? "checkmark.circle":  "circle" ) {
+                    Button("**BUSCANDO VEHICULO**", systemImage: parking.buscando_vehiculo! == "SI" ? "checkmark.circle":  "circle" ) {
                         
                         confirmar_buscando_vehiculo = true
 
@@ -89,7 +89,7 @@ struct RecepcionEntregaView: View {
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
-                    .background(Color(red: 159, green: 0, blue: 0))
+                    .background( parking.buscando_vehiculo! == "SI" ? Color(red: 0.0, green: 0.0, blue: 0.6235294117647059) : Color(red: 159, green: 0, blue: 0))
                     .cornerRadius(15)
                     .overlay( RoundedRectangle(cornerRadius: 15)
                         .stroke(Color(red: 159, green: 0, blue: 0), lineWidth: 2)
@@ -111,7 +111,7 @@ struct RecepcionEntregaView: View {
                         Button("NO", role: .cancel) { }
                     }
                     
-                    Button("**LISTO PARA RETIRAR**", systemImage: parking.listo_para_retirar == "SI" ? "checkmark.circle":  "circle" ) {
+                    Button("**LISTO PARA RETIRAR**", systemImage: parking.listo_para_retirar! == "SI" ? "checkmark.circle":  "circle" ) {
                         
                         confirmar_listo_para_retirar = true
 
@@ -120,7 +120,7 @@ struct RecepcionEntregaView: View {
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
-                    .background(Color(red: 159, green: 0, blue: 0))
+                    .background( parking.listo_para_retirar! == "SI" ? Color(red: 0.0, green: 0.0, blue: 0.6235294117647059) : Color(red: 159, green: 0, blue: 0))
                     .cornerRadius(15)
                     .overlay( RoundedRectangle(cornerRadius: 15)
                         .stroke(Color(red: 159, green: 0, blue: 0), lineWidth: 2)
@@ -131,7 +131,7 @@ struct RecepcionEntregaView: View {
                         Button("NO", role: .cancel) { }
                     }
                     
-                    Button("**ENTREGA REALIZADA**", systemImage: parking.entrega_realizada == "SI" ? "checkmark.circle":  "circle" ) {
+                    Button("**ENTREGA REALIZADA**", systemImage: parking.entrega_realizada! == "SI" ? "checkmark.circle":  "circle" ) {
                         
                         confirmar_entrega_realizada = true 
 
@@ -140,7 +140,7 @@ struct RecepcionEntregaView: View {
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
-                    .background(Color(red: 159, green: 0, blue: 0))
+                    .background( parking.entrega_realizada! == "SI" ? Color(red: 0.0, green: 0.0, blue: 0.6235294117647059) :  Color(red: 159, green: 0, blue: 0))
                     .cornerRadius(15)
                     .overlay( RoundedRectangle(cornerRadius: 15)
                         .stroke(Color(red: 159, green: 0, blue: 0), lineWidth: 2)
@@ -432,22 +432,22 @@ struct RecepcionEntregaView: View {
                 
                 if response.statusCode == 200 {
                     
-                     DispatchQueue.main.async {
-                        do {
+                    //  DispatchQueue.main.async {
+                    //     do {
                             
-                            parking.buscando_vehiculo = "SI"
-                            // socket.emit("buscando_vehiculo_valet_parking", ["ticket": ticket] )
+                    parking.buscando_vehiculo = "SI"
+                    socket.emit("buscando_vehiculo_valet_parking", ["ticket": ticket] )
                                                                         
-                        } catch let error {
+                    //     } catch let error {
 
-                            print(error)
+                    //         print(error)
                             
-                            ios_mensaje = "Error en operación de la aplicaciónn"
-                            ios_mostrar_mensaje = true
-                            return
+                    //         ios_mensaje = "Error en operación de la aplicaciónn"
+                    //         ios_mostrar_mensaje = true
+                    //         return
                             
-                        }
-                    }
+                    //     }
+                    // }
                     
                 } else {
                     
