@@ -323,8 +323,9 @@ struct PrincipalView: View {
 
             player = try AVAudioPlayer(contentsOf: url)
 
-            player?.play()
+            animar_imagen_alerta = true
             mostrar_alerta = true
+            player?.play()
 
             print("FINALIZA ALERTA")
             
