@@ -197,7 +197,6 @@ struct PrincipalView: View {
                 .scaledToFit()
             }
             .background(Color(red: 0.0, green: 0.0, blue: 0.6235294117647059))
-            .opacity(0.7)
 
         }
         .onAppear {
