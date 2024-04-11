@@ -92,7 +92,7 @@ struct RecepcionEntregaView: View {
                     .background( parking.buscando_vehiculo == "SI" ? Color(red: 0.0, green: 0.0, blue: 0.6235294117647059) : Color(red: 159, green: 0, blue: 0))
                     .cornerRadius(15)
                     .overlay( RoundedRectangle(cornerRadius: 15)
-                        .stroke(Color(red: 159, green: 0, blue: 0), lineWidth: 2)
+                        .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
                     )
                     .padding()
                     .alert("¿Confirma que podra realizar la busqueda del vehículo?", isPresented: $confirmar_buscando_vehiculo) {
@@ -123,7 +123,7 @@ struct RecepcionEntregaView: View {
                     .background( parking.listo_para_retirar == "SI" ? Color(red: 0.0, green: 0.0, blue: 0.6235294117647059) : Color(red: 159, green: 0, blue: 0))
                     .cornerRadius(15)
                     .overlay( RoundedRectangle(cornerRadius: 15)
-                        .stroke(Color(red: 159, green: 0, blue: 0), lineWidth: 2)
+                        .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
                     )
                     .padding()
                     .alert("¿Confirma que el vehículo esta listo para retirar?", isPresented: $confirmar_listo_para_retirar) {
@@ -143,7 +143,7 @@ struct RecepcionEntregaView: View {
                     .background( parking.entrega_realizada == "SI" ? Color(red: 0.0, green: 0.0, blue: 0.6235294117647059) :  Color(red: 159, green: 0, blue: 0))
                     .cornerRadius(15)
                     .overlay( RoundedRectangle(cornerRadius: 15)
-                        .stroke(Color(red: 159, green: 0, blue: 0), lineWidth: 2)
+                        .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
                     )
                     .padding()
                     .alert("¿Confirma que realizo la entrega del vehículo?", isPresented: $confirmar_entrega_realizada) {
@@ -398,11 +398,7 @@ struct RecepcionEntregaView: View {
 
         }
 
-        print("####################################################")
-        print(parking)
-        print(url)
-        print("####################################################")
-      
+
         var request = URLRequest(url: url)
         
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -431,23 +427,9 @@ struct RecepcionEntregaView: View {
                 }
                 
                 if response.statusCode == 200 {
-                    
-                    //  DispatchQueue.main.async {
-                    //     do {
-                            
+                 
                     parking.buscando_vehiculo = "SI"
-                    socket.emit("buscando_vehiculo_valet_parking", ["ticket": ticket] )
-                                                                        
-                    //     } catch let error {
-
-                    //         print(error)
-                            
-                    //         ios_mensaje = "Error en operación de la aplicaciónn"
-                    //         ios_mostrar_mensaje = true
-                    //         return
-                            
-                    //     }
-                    // }
+                    socket.emit("buscando_vehiculo_valet_parking", ["ticket": ticket] )                                                         
                     
                 } else {
                     
