@@ -106,11 +106,11 @@ struct PrincipalView: View {
                         VStack(alignment: .leading, spacing: 3){
 
                             ForEach( 0...Int(ceil(Double(lista_tickets_solicitados.tickets_solicitados.count/3))), id: \.self ){ i in
-                                HStack(spacing: 3){
+                                HStack(spacing: 6){
                                     ForEach(lista_tickets_solicitados.tickets_solicitados[(3*i)...( ((3*i)+2) > (lista_tickets_solicitados.tickets_solicitados.count-1) ? (lista_tickets_solicitados.tickets_solicitados.count-1) : ((3*i)+2) )], id: \.id){ ticket_solicitado in
                                         Label("**\(ticket_solicitado.ticket)**", systemImage: ticket_solicitado.vehiculo_solicitado == "SI" ? "clock" : "car" )
                                             .foregroundColor(.white)
-                                            .padding(6)
+                                            .padding(9)
                                             .background( ticket == ticket_solicitado.ticket ? Color(red: 0, green: 212 / 255 , blue: 42 / 255) : ( ticket_solicitado.vehiculo_solicitado == "SI" ? Color(red: 196, green: 0, blue: 0) : Color(red: 0, green: 0, blue: 159) ) )
                                             .cornerRadius(15)
                                             .onTapGesture{
