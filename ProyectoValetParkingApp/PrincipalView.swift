@@ -249,10 +249,7 @@ struct PrincipalView: View {
                         do {
                             
                             lista_tickets_solicitados.tickets_solicitados = try JSONDecoder().decode([TicketModel].self, from: data)
-                            
-                            print("NUEVOS TICKETS")
-                            print(lista_tickets_solicitados.tickets_solicitados)
-                                                                        
+                                                                     
                         } catch let error {
 
                             print(error)
@@ -328,7 +325,7 @@ struct PrincipalView: View {
             print("FINALIZA ALERTA")
             
         } catch let error {
-            print(error.localizedDescription)
+            print(error)
         }
     }
 
