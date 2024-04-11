@@ -34,6 +34,7 @@ struct PrincipalView: View {
     @State private var mostrar_scanner_qr = false
 
     @State private var player : AVAudioPlayer?
+    @State private var mostrar_alerta = false
     
     var body: some View {
         ZStack{
@@ -184,6 +185,14 @@ struct PrincipalView: View {
             Button("OK"){}
         } message: {
             Text(ios_mensaje)
+        }.sheet(isPresented: $mostrar_alerta, onDismiss: accion_desactivar_alerta ) {
+
+            VStack {
+                Text("MOSTRAR IMAGEN")
+                    .font(.title)
+                    .padding(50)
+            }
+
         }.onAppear {
             accion_buscar_tickes_solicitados() 
         }
@@ -310,7 +319,9 @@ struct PrincipalView: View {
         do {
 
             player = try AVAudioPlayer(contentsOf: url)
+
             player?.play()
+            mostrar_alerta = true
             
         } catch let error {
             print(error.localizedDescription)
@@ -320,6 +331,7 @@ struct PrincipalView: View {
     func accion_desactivar_alerta(){
 
         player?.pause()
+        mostrar_alerta = false
 
     }
 }
