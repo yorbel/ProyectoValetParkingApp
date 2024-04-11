@@ -103,7 +103,7 @@ struct PrincipalView: View {
                 if(lista_tickets_solicitados.tickets_solicitados.count > 0){
                     ScrollView {
 
-                        VStack(alignment: .leading, spacing: 3){
+                        VStack(alignment: .leading, spacing: 6){
 
                             ForEach( 0...Int(ceil(Double(lista_tickets_solicitados.tickets_solicitados.count/3))), id: \.self ){ i in
                                 HStack(spacing: 6){
