@@ -303,7 +303,7 @@ struct PrincipalView: View {
 
     func accion_activar_alerta(){
 
-        guard let url = Bundle.main.url(forResource: 'panic', withExtension: "mp3") else {
+        guard let url = Bundle.main.url(forResource: "panic", withExtension: "mp3") else {
             return
         }
 
