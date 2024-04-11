@@ -190,7 +190,7 @@ struct PrincipalView: View {
             Text(ios_mensaje)
         }.sheet(isPresented: $mostrar_alerta, onDismiss: accion_desactivar_alerta ) {
 
-            VStack {
+            VStack{
                 AnimatedImage(name: "back.gif", isAnimating: $animar_imagen_alerta)
                 .indicator(.progress)
                 .resizable()
@@ -199,6 +199,8 @@ struct PrincipalView: View {
                 Text("(\(ticket)) VEHICULO SOLICITADO POR EL CONDUCTOR")
                 .font(.caption)
                 .foregroundColor(.white)
+
+                Spacer()
             }
             .background(Color(red: 0.0, green: 0.0, blue: 0.6235294117647059))
 
