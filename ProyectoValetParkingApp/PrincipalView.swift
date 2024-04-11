@@ -29,6 +29,8 @@ struct PrincipalView: View {
     @State private var pantalla_recepcion_entrega = false
     
     @State private var activo = true
+
+    @State private var mostrar_scanner_qr = false
     
     var body: some View {
         ZStack{
@@ -65,6 +67,8 @@ struct PrincipalView: View {
                         )
                         .padding()
                     Button("**CODIGO QR**", systemImage: "camera") {
+
+                        mostrar_scanner_qr = true
                         
                     }
                     .frame(maxWidth: .infinity)
@@ -77,6 +81,22 @@ struct PrincipalView: View {
                         .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
                     )
                     .padding()
+                    .sheet(isPresented: $mostrar_scanner_qr) {
+
+                        CodeScannerView(codeTypes: [.qr]) { response in
+
+                            mostrar_scanner_qr = false
+
+                            switch response {
+                                case .success(let result):
+                                    ticket = result.string
+                                case .failure(let error):
+                                    ios_mensaje = "Error al realizar lectura del QR."
+                                    ios_mostrar_mensaje = true
+                            }
+
+                        }
+                    }
                 }
                 
                 if(lista_tickets_solicitados.tickets_solicitados.count > 0){
@@ -110,6 +130,14 @@ struct PrincipalView: View {
                 
                 VStack(alignment: .center, spacing: -20){
                     Button("**PROCESAR TICKET**") {
+
+                        if(ticket == ""){
+
+                            ios_mensaje = "Debe ingresar número de ticket."
+                            ios_mostrar_mensaje = true
+                            return
+
+                        }
                         
                         pantalla_recepcion_entrega = true
                         
