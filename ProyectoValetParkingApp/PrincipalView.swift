@@ -7,7 +7,7 @@
 
 import SwiftUI
 import CodeScanner
-
+import AVFoundation
 
 class ListaTicketModel: ObservableObject {
 
@@ -32,6 +32,8 @@ struct PrincipalView: View {
     @State private var activo = true
 
     @State private var mostrar_scanner_qr = false
+
+    var player : AVAudioPlayer!
     
     var body: some View {
         ZStack{
@@ -132,15 +134,18 @@ struct PrincipalView: View {
                 VStack(alignment: .center, spacing: -20){
                     Button("**PROCESAR TICKET**") {
 
-                        if(ticket == ""){
+                        // if(ticket == ""){
 
-                            ios_mensaje = "Debe ingresar número de ticket."
-                            ios_mostrar_mensaje = true
-                            return
+                        //     ios_mensaje = "Debe ingresar número de ticket."
+                        //     ios_mostrar_mensaje = true
+                        //     return
 
-                        }
+                        // }
                         
-                        pantalla_recepcion_entrega = true
+                        // pantalla_recepcion_entrega = true
+
+                        accion_activar_alerta()
+
                         
                     }
                     .frame(maxWidth: .infinity)
@@ -158,6 +163,8 @@ struct PrincipalView: View {
                     }
 
                     Button("**CERRAR SESION**") {
+
+                        accion_desactivar_alerta()
                         
                     }
                     .frame(maxWidth: .infinity)
@@ -292,6 +299,30 @@ struct PrincipalView: View {
         
         task.resume()
         
+    }
+
+    func accion_activar_alerta(){
+
+        guard let path = Bundle.main.path(forResource: "panic", ofType:"mp3") else {
+            return 
+        }
+        
+        let url = URL(fileURLWithPath: path)
+
+        do {
+
+            player = try! AVAudioPlayer(contentsOf: url!)
+            player!.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+
+    func accion_desactivar_alerta(){
+
+        player.pause()
+
     }
 }
 
