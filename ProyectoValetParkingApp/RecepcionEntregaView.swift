@@ -80,7 +80,7 @@ struct RecepcionEntregaView: View {
                         Button("NO", role: .cancel) { }
                     }
                     
-                    Button("**BUSCANDO VEHICULO**", systemImage: parking.buscando_vehiculo! == "SI" ? "checkmark.circle":  "circle" ) {
+                    Button("**BUSCANDO VEHICULO**", systemImage: parking.buscando_vehiculo == "SI" ? "checkmark.circle":  "circle" ) {
                         
                         confirmar_buscando_vehiculo = true
 
@@ -89,7 +89,7 @@ struct RecepcionEntregaView: View {
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
-                    .background( parking.buscando_vehiculo! == "SI" ? Color(red: 0.0, green: 0.0, blue: 0.6235294117647059) : Color(red: 159, green: 0, blue: 0))
+                    .background( parking.buscando_vehiculo == "SI" ? Color(red: 0.0, green: 0.0, blue: 0.6235294117647059) : Color(red: 159, green: 0, blue: 0))
                     .cornerRadius(15)
                     .overlay( RoundedRectangle(cornerRadius: 15)
                         .stroke(Color(red: 159, green: 0, blue: 0), lineWidth: 2)
@@ -111,7 +111,7 @@ struct RecepcionEntregaView: View {
                         Button("NO", role: .cancel) { }
                     }
                     
-                    Button("**LISTO PARA RETIRAR**", systemImage: parking.listo_para_retirar! == "SI" ? "checkmark.circle":  "circle" ) {
+                    Button("**LISTO PARA RETIRAR**", systemImage: parking.listo_para_retirar == "SI" ? "checkmark.circle":  "circle" ) {
                         
                         confirmar_listo_para_retirar = true
 
@@ -120,7 +120,7 @@ struct RecepcionEntregaView: View {
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
-                    .background( parking.listo_para_retirar! == "SI" ? Color(red: 0.0, green: 0.0, blue: 0.6235294117647059) : Color(red: 159, green: 0, blue: 0))
+                    .background( parking.listo_para_retirar == "SI" ? Color(red: 0.0, green: 0.0, blue: 0.6235294117647059) : Color(red: 159, green: 0, blue: 0))
                     .cornerRadius(15)
                     .overlay( RoundedRectangle(cornerRadius: 15)
                         .stroke(Color(red: 159, green: 0, blue: 0), lineWidth: 2)
@@ -131,7 +131,7 @@ struct RecepcionEntregaView: View {
                         Button("NO", role: .cancel) { }
                     }
                     
-                    Button("**ENTREGA REALIZADA**", systemImage: parking.entrega_realizada! == "SI" ? "checkmark.circle":  "circle" ) {
+                    Button("**ENTREGA REALIZADA**", systemImage: parking.entrega_realizada == "SI" ? "checkmark.circle":  "circle" ) {
                         
                         confirmar_entrega_realizada = true 
 
@@ -140,7 +140,7 @@ struct RecepcionEntregaView: View {
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
-                    .background( parking.entrega_realizada! == "SI" ? Color(red: 0.0, green: 0.0, blue: 0.6235294117647059) :  Color(red: 159, green: 0, blue: 0))
+                    .background( parking.entrega_realizada == "SI" ? Color(red: 0.0, green: 0.0, blue: 0.6235294117647059) :  Color(red: 159, green: 0, blue: 0))
                     .cornerRadius(15)
                     .overlay( RoundedRectangle(cornerRadius: 15)
                         .stroke(Color(red: 159, green: 0, blue: 0), lineWidth: 2)
