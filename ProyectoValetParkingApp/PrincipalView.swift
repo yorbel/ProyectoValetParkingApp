@@ -33,7 +33,7 @@ struct PrincipalView: View {
 
     @State private var mostrar_scanner_qr = false
 
-    @State private var player : AVAudioPlayer!
+    @State private var player : AVAudioPlayer?
     
     var body: some View {
         ZStack{
@@ -303,16 +303,14 @@ struct PrincipalView: View {
 
     func accion_activar_alerta(){
 
-        guard let path = Bundle.main.path(forResource: "panic", ofType:"mp3") else {
-            return 
+        guard let url = Bundle.main.url(forResource: 'panic', withExtension: "mp3") else {
+            return
         }
-        
-        let url = URL(fileURLWithPath: path)
 
         do {
 
-            player = try! AVAudioPlayer(contentsOf: url)
-            player!.play()
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.play()
             
         } catch let error {
             print(error.localizedDescription)
@@ -321,7 +319,7 @@ struct PrincipalView: View {
 
     func accion_desactivar_alerta(){
 
-        player.pause()
+        player?.pause()
 
     }
 }
