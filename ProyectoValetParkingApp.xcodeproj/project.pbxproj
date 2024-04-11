@@ -49,6 +49,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84AF6AB72BC853F20041B9D9 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		84D9E5D12B680620009A9E0E = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +75,7 @@
 		84D9E5DC2B680621009A9E0E /* ProyectoValetParkingApp */ = {
 			isa = PBXGroup;
 			children = (
+				84AF6AB72BC853F20041B9D9 /* Sounds */,
 				84E13C3D2B881AEB001DEF3B /* LocationDataManager.swift */,
 				84E13C3C2B86D5F8001DEF3B /* Info.plist */,
 				84D9E5DD2B680621009A9E0E /* ProyectoValetParkingAppApp.swift */,
@@ -329,7 +337,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.apolovalet.com.ProyectoValetParkingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -364,7 +372,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.apolovalet.com.ProyectoValetParkingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
