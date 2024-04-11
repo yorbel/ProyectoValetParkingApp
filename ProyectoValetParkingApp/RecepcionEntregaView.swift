@@ -442,7 +442,7 @@ struct RecepcionEntregaView: View {
 
                             print(error)
                             
-                            ios_mensaje = "Error en operación de la aplicación"
+                            ios_mensaje = "Error en operación de la aplicaciónn"
                             ios_mostrar_mensaje = true
                             return
                             
