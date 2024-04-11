@@ -195,6 +195,10 @@ struct PrincipalView: View {
                 .indicator(.progress)
                 .resizable()
                 .scaledToFit()
+
+                Text("(\(ticket)) VEHICULO SOLICITADO POR EL CONDUCTOR")
+                    .font(.body)
+                    .foregroundColor(.white)
             }
             .background(Color(red: 0.0, green: 0.0, blue: 0.6235294117647059))
 
