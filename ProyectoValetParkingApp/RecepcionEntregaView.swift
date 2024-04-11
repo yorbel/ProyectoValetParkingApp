@@ -429,7 +429,7 @@ struct RecepcionEntregaView: View {
                 if response.statusCode == 200 {
                  
                     parking.buscando_vehiculo = "SI"
-                    socket.emit("buscando_vehiculo_valet_parking", ["ticket": ticket] )                                                         
+                    // socket.emit("buscando_vehiculo_valet_parking", ["ticket": ticket] )                                                         
                     
                 } else {
                     
