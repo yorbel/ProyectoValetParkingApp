@@ -113,6 +113,7 @@ struct RecepcionEntregaView: View {
                     
                     Button("**LISTO PARA RETIRAR**", systemImage: parking.listo_para_retirar == "SI" ? "checkmark.circle":  "circle" ) {
                         
+            
                         confirmar_listo_para_retirar = true
 
                     }
@@ -127,7 +128,25 @@ struct RecepcionEntregaView: View {
                     )
                     .padding()
                     .alert("¿Confirma que el vehículo esta listo para retirar?", isPresented: $confirmar_listo_para_retirar) {
-                        Button("SI", role: .destructive) { }
+                        Button("SI", role: .destructive) { 
+
+                            if( parking.buscando_vehiculo == "NO" ){
+
+                                ios_mensaje = "Primero debe marcar BUSCANDO VEHÍCULO."
+                                ios_mostrar_mensaje = true
+                                return   
+                            }
+
+                            if( parking.listo_para_retirar == "SI" ){
+
+                                ios_mensaje = "El vehículo ya se encuentra listo para retirar."
+                                ios_mostrar_mensaje = true
+                                return   
+                            }
+
+                            accion_listo_para_retirar()
+
+                        }
                         Button("NO", role: .cancel) { }
                     }
                     
@@ -147,7 +166,25 @@ struct RecepcionEntregaView: View {
                     )
                     .padding()
                     .alert("¿Confirma que realizo la entrega del vehículo?", isPresented: $confirmar_entrega_realizada) {
-                        Button("SI", role: .destructive) { }
+                        Button("SI", role: .destructive) { 
+
+                            if( parking.listo_para_retirar == "NO" ){
+
+                                ios_mensaje = "Primero debe marcar LISTO PARA RETIRAR."
+                                ios_mostrar_mensaje = true
+                                return   
+                            }
+
+                            if( parking.entrega_realizada == "SI" ){
+
+                                ios_mensaje = "La entrega del vehículo ya fue realizada."
+                                ios_mostrar_mensaje = true
+                                return   
+                            }
+
+                            accion_entrega_realizada()
+
+                        }
                         Button("NO", role: .cancel) { }
                     }                
                     
@@ -429,7 +466,193 @@ struct RecepcionEntregaView: View {
                 if response.statusCode == 200 {
                  
                     parking.buscando_vehiculo = "SI"
-                    // socket.emit("buscando_vehiculo_valet_parking", ["ticket": ticket] )                                                         
+                    socket.emit("buscando_vehiculo_valet_parking", ["ticket": ticket] )                                                         
+                    
+                } else {
+                    
+                     DispatchQueue.main.async {
+                        do {
+                            
+                            if response.statusCode == 400 {
+                                
+                                let dataError = try JSONDecoder().decode([DataErrorModel].self, from: data)
+                                
+                                ios_mensaje = dataError[0].msg
+                                ios_mostrar_mensaje = true
+                                return
+                                
+                            }else{
+                                
+                                let dataError = try JSONDecoder().decode(DataErrorModel.self, from: data)
+                                
+                                ios_mensaje = dataError.msg
+                                ios_mostrar_mensaje = true
+                                return
+                                
+                            }
+                            
+                        } catch let error {
+                            
+                            ios_mensaje = "Error en operación de la aplicación"
+                            ios_mostrar_mensaje = true
+                            return
+                            
+                        }
+                    }
+                }
+                
+            } else {
+                
+                ios_mensaje = "Error en comunicación con el sistema."
+                ios_mostrar_mensaje = true
+                return
+                
+            }
+        }
+        
+        task.resume()
+        
+    }
+
+    func accion_listo_para_retirar(){
+    
+        guard let token = globales.string(forKey: "token") else {
+
+            return
+        }
+
+        
+        guard let url = (URL(string: Globales.url + "/api/parking/ticket_listo_para_retirar/\(parking.parking_id!)")) else {
+           
+            return
+
+        }
+
+
+        var request = URLRequest(url: url)
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token, forHTTPHeaderField: "x-access-token")
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request){ (data, response, error) in
+            
+            
+            if let error = error {
+                
+                ios_mensaje = "Error en comunicación con el sistema."
+                ios_mostrar_mensaje = true
+                return
+                
+            } else if let data = data {
+                
+               
+                
+                guard let response = response as? HTTPURLResponse else {
+                    
+                    ios_mensaje = "Error en operación de la aplicación"
+                    ios_mostrar_mensaje = true
+                    return
+                    
+                }
+                
+                if response.statusCode == 200 {
+                 
+                    parking.listo_para_retirar = "SI"
+                    socket.emit("listo_para_retirar_valet_parking", ["ticket": ticket] )                                                         
+                    
+                } else {
+                    
+                     DispatchQueue.main.async {
+                        do {
+                            
+                            if response.statusCode == 400 {
+                                
+                                let dataError = try JSONDecoder().decode([DataErrorModel].self, from: data)
+                                
+                                ios_mensaje = dataError[0].msg
+                                ios_mostrar_mensaje = true
+                                return
+                                
+                            }else{
+                                
+                                let dataError = try JSONDecoder().decode(DataErrorModel.self, from: data)
+                                
+                                ios_mensaje = dataError.msg
+                                ios_mostrar_mensaje = true
+                                return
+                                
+                            }
+                            
+                        } catch let error {
+                            
+                            ios_mensaje = "Error en operación de la aplicación"
+                            ios_mostrar_mensaje = true
+                            return
+                            
+                        }
+                    }
+                }
+                
+            } else {
+                
+                ios_mensaje = "Error en comunicación con el sistema."
+                ios_mostrar_mensaje = true
+                return
+                
+            }
+        }
+        
+        task.resume()
+        
+    }
+
+    func accion_entrega_realizada(){
+    
+        guard let token = globales.string(forKey: "token") else {
+
+            return
+        }
+
+        
+        guard let url = (URL(string: Globales.url + "/api/parking/ticket_entrega_realizada/\(parking.parking_id!)")) else {
+           
+            return
+
+        }
+
+
+        var request = URLRequest(url: url)
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token, forHTTPHeaderField: "x-access-token")
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request){ (data, response, error) in
+            
+            
+            if let error = error {
+                
+                ios_mensaje = "Error en comunicación con el sistema."
+                ios_mostrar_mensaje = true
+                return
+                
+            } else if let data = data {
+                
+               
+                
+                guard let response = response as? HTTPURLResponse else {
+                    
+                    ios_mensaje = "Error en operación de la aplicación"
+                    ios_mostrar_mensaje = true
+                    return
+                    
+                }
+                
+                if response.statusCode == 200 {
+                 
+                    parking.entrega_realizada = "SI"
+                    socket.emit("vehiculo_entregado_valet_parking", ["ticket": ticket] )                                                         
                     
                 } else {
                     
