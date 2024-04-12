@@ -138,17 +138,15 @@ struct PrincipalView: View {
                 VStack(alignment: .center, spacing: -20){
                     Button("**PROCESAR TICKET**") {
 
-                        // if(ticket == ""){
+                        if(ticket == ""){
 
-                        //     ios_mensaje = "Debe ingresar número de ticket."
-                        //     ios_mostrar_mensaje = true
-                        //     return
+                            ios_mensaje = "Debe ingresar número de ticket."
+                            ios_mostrar_mensaje = true
+                            return
 
-                        // }
+                        }
                         
-                        // pantalla_recepcion_entrega = true
-
-                        accion_activar_alerta()
+                        pantalla_recepcion_entrega = true
 
                         
                     }
@@ -168,8 +166,8 @@ struct PrincipalView: View {
 
                     Button("**CERRAR SESION**") {
 
-                        accion_desactivar_alerta()
-                        
+                        accion_activar_alerta()
+
                     }
                     .frame(maxWidth: .infinity)
                     .font(.headline)
