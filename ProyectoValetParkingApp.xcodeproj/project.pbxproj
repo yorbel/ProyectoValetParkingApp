@@ -58,6 +58,7 @@
 		84AF6AB92BC8646B0041B9D9 /* panic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = panic.mp3; sourceTree = "<group>"; };
 		84AF6ABC2BC8678B0041B9D9 /* back.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = back.gif; sourceTree = "<group>"; };
 		84AF6AC12BCC70C10041B9D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84AF6AFA2BCC999D0041B9D9 /* ProyectoValetParkingApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ProyectoValetParkingApp.entitlements; sourceTree = "<group>"; };
 		84D9E5DA2B680621009A9E0E /* ProyectoValetParkingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProyectoValetParkingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D9E5DD2B680621009A9E0E /* ProyectoValetParkingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProyectoValetParkingAppApp.swift; sourceTree = "<group>"; };
 		84D9E5DF2B680621009A9E0E /* IngresarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngresarView.swift; sourceTree = "<group>"; };
@@ -147,6 +148,7 @@
 		84D9E5DC2B680621009A9E0E /* ProyectoValetParkingApp */ = {
 			isa = PBXGroup;
 			children = (
+				84AF6AFA2BCC999D0041B9D9 /* ProyectoValetParkingApp.entitlements */,
 				84AF6AC12BCC70C10041B9D9 /* GoogleService-Info.plist */,
 				84AF6ABB2BC8678B0041B9D9 /* Gifs */,
 				84AF6AB82BC8646B0041B9D9 /* Sounds */,
@@ -423,6 +425,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ProyectoValetParkingApp/ProyectoValetParkingApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ProyectoValetParkingApp/Preview Content\"";
@@ -458,6 +461,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ProyectoValetParkingApp/ProyectoValetParkingApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ProyectoValetParkingApp/Preview Content\"";
