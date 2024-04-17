@@ -376,7 +376,7 @@ struct PrincipalView: View {
 
             animar_imagen_alerta = true
             mostrar_alerta = true
-            player.numberOfLoops =  -1
+            player?.numberOfLoops =  -1
             player?.play()
 
             print("FINALIZA ALERTA")
