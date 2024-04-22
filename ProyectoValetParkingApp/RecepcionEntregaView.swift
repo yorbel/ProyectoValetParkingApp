@@ -452,9 +452,6 @@ struct RecepcionEntregaView: View {
                 return
                 
             } else if let data = data {
-                
-               
-                print("PRIMERA")
 
                 guard let response = response as? HTTPURLResponse else {
                     
@@ -463,13 +460,10 @@ struct RecepcionEntregaView: View {
                     return
                     
                 }
-
-                print("SEGUNDA")
                 
                 if response.statusCode == 204 {
                  
-                    // parking.buscando_vehiculo = "SI"
-                    print("QUE PASA")
+                    parking.buscando_vehiculo = "SI"
                     socket.emit("buscando_vehiculo_valet_parking", ["ticket": ticket] )                                                         
                     
                 } else {
