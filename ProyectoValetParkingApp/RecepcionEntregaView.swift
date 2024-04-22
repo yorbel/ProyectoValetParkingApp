@@ -466,7 +466,7 @@ struct RecepcionEntregaView: View {
                 if response.statusCode == 200 {
                  
                     parking.buscando_vehiculo = "SI"
-                    socket.emit("buscando_vehiculo_valet_parking", with: ["ticket": ticket] )                                                         
+                    socket.emit("buscando_vehiculo_valet_parking", ["ticket": ticket] )                                                         
                     
                 } else {
                     
@@ -559,7 +559,7 @@ struct RecepcionEntregaView: View {
                 if response.statusCode == 200 {
                  
                     parking.listo_para_retirar = "SI"
-                    socket.emit("listo_para_retirar_valet_parking", with: ["ticket": ticket] )                                                         
+                    socket.emit("listo_para_retirar_valet_parking", ["ticket": ticket] )                                                         
                     
                 } else {
                     
@@ -652,7 +652,7 @@ struct RecepcionEntregaView: View {
                 if response.statusCode == 200 {
                  
                     parking.entrega_realizada = "SI"
-                    socket.emit("vehiculo_entregado_valet_parking", with: ["ticket": ticket] )                                                         
+                    socket.emit("vehiculo_entregado_valet_parking", ["ticket": ticket] )                                                         
                     
                 } else {
                     
