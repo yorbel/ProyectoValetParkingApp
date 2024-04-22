@@ -466,7 +466,7 @@ struct RecepcionEntregaView: View {
 
                 print("SEGUNDA")
                 
-                if response.statusCode == 200 {
+                if response.statusCode == 204 {
                  
                     // parking.buscando_vehiculo = "SI"
                     print("QUE PASA")
@@ -560,7 +560,7 @@ struct RecepcionEntregaView: View {
                     
                 }
                 
-                if response.statusCode == 200 {
+                if response.statusCode == 204 {
                  
                     parking.listo_para_retirar = "SI"
                     socket.emit("listo_para_retirar_valet_parking", ["ticket": ticket] )                                                         
@@ -653,7 +653,7 @@ struct RecepcionEntregaView: View {
                     
                 }
                 
-                if response.statusCode == 200 {
+                if response.statusCode == 204 {
                  
                     parking.entrega_realizada = "SI"
                     socket.emit("vehiculo_entregado_valet_parking", ["ticket": ticket] )                                                         
