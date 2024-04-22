@@ -454,7 +454,8 @@ struct RecepcionEntregaView: View {
             } else if let data = data {
                 
                
-                
+                print("PRIMERA")
+
                 guard let response = response as? HTTPURLResponse else {
                     
                     ios_mensaje = "Error en operación de la aplicación"
@@ -462,10 +463,13 @@ struct RecepcionEntregaView: View {
                     return
                     
                 }
+
+                print("SEGUNDA")
                 
                 if response.statusCode == 200 {
                  
-                    parking.buscando_vehiculo = "SI"
+                    // parking.buscando_vehiculo = "SI"
+                    print("QUE PASA")
                     socket.emit("buscando_vehiculo_valet_parking", ["ticket": ticket] )                                                         
                     
                 } else {
