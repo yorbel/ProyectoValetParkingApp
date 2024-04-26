@@ -9,7 +9,6 @@ import SwiftUI
 import Foundation
 import SocketIO
 
-
 struct RecepcionEntregaView: View {
 
     let globales = UserDefaults.standard
@@ -25,9 +24,9 @@ struct RecepcionEntregaView: View {
     @State private var confirmar_listo_para_retirar : Bool = false
     @State private var confirmar_entrega_realizada : Bool = false
 
-    let manager = SocketManager(socketURL:  URL(string: Globales.url + "/?ticket=\(ticket)&lugar_id=\(lugar_id)")!, config: [.log(true), .compress] )
+    @State private var socket: SocketIOClient!
 
-    @State private var socket: SocketIOClient =  manager.defaultSocket
+    let manager = SocketManager(socketURL:  URL(string: Globales.url + "/?ticket=\(ticket)&lugar_id=\(34)")!, config: [.log(true), .compress] )
        
     var body: some View {
         ZStack{
@@ -707,6 +706,8 @@ struct RecepcionEntregaView: View {
 
             return
         }
+
+        socket =  manager.defaultSocket
 
         socket.on("connect") {data, ack in
 
