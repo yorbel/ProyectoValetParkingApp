@@ -24,9 +24,9 @@ struct RecepcionEntregaView: View {
     @State private var confirmar_listo_para_retirar : Bool = false
     @State private var confirmar_entrega_realizada : Bool = false
 
-    @State private var socket: SocketIOClient!
+    var manager: SocketManager!
 
-    let manager = SocketManager(socketURL:  URL(string: Globales.url)!, config: [.log(true), .compress, .connectParams(["ticket": "050607", "lugar_id": 34])] )
+    @State private var socket: SocketIOClient!
        
     var body: some View {
         ZStack{
@@ -706,6 +706,8 @@ struct RecepcionEntregaView: View {
 
             return
         }
+
+        manager = SocketManager(socketURL:  URL(string: Globales.url)!, config: [.log(true), .compress, .connectParams(["ticket": ticket, "lugar_id": lugar_id])] )
 
         socket =  manager.defaultSocket
 
