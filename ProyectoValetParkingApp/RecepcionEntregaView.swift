@@ -24,7 +24,7 @@ struct RecepcionEntregaView: View {
     @State private var confirmar_listo_para_retirar : Bool = false
     @State private var confirmar_entrega_realizada : Bool = false
 
-    var manager: SocketManager!
+    @State private var manager: SocketManager!
 
     @State private var socket: SocketIOClient!
        
