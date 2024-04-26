@@ -9,6 +9,7 @@ import SwiftUI
 import Foundation
 import SocketIO
 
+
 struct RecepcionEntregaView: View {
 
     let globales = UserDefaults.standard
@@ -24,8 +25,10 @@ struct RecepcionEntregaView: View {
     @State private var confirmar_listo_para_retirar : Bool = false
     @State private var confirmar_entrega_realizada : Bool = false
 
-    @State private var socket: SocketIOClient!
+    let manager = SocketManager(socketURL:  URL(string: Globales.url + "/?ticket=\(ticket)&lugar_id=\(lugar_id)")!, config: [.log(true), .compress] )
 
+    @State private var socket: SocketIOClient =  manager.defaultSocket
+       
     var body: some View {
         ZStack{
             Image("fondo")
@@ -705,9 +708,6 @@ struct RecepcionEntregaView: View {
             return
         }
 
-        let manager = SocketManager(socketURL:  URL(string: Globales.url + "/?ticket=\(ticket)&lugar_id=\(lugar_id)")!, config: [.log(true), .compress] )
-        socket =  manager.defaultSocket
-       
         socket.on("connect") {data, ack in
 
             print("SOCKET CONECTADO")
