@@ -26,7 +26,7 @@ struct RecepcionEntregaView: View {
 
     @State private var socket: SocketIOClient!
 
-    let manager = SocketManager(socketURL:  URL(string: Globales.url + "/?ticket=050607&lugar_id=\(34)")!, config: [.log(true), .compress] )
+    let manager = SocketManager(socketURL:  URL(string: Globales.url)!, config: [.log(true), .compress, .connectParams(["ticket": "050607", "lugar_id": 34])] )
        
     var body: some View {
         ZStack{
