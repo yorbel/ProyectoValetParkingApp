@@ -290,6 +290,7 @@ struct PrincipalView: View {
 
         }
         .task {
+            ticket = ""
             accion_buscar_si_activo()
             accion_buscar_tickes_solicitados() 
         }
