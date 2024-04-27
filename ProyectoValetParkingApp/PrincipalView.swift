@@ -161,7 +161,7 @@ struct PrincipalView: View {
 
                                         ios_mensaje = "Error al realizar lectura de la URL."
                                         ios_mostrar_mensaje = true
-
+                                        return
                                     }
 
                                     print("RESTO PASO")
