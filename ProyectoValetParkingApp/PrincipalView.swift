@@ -217,7 +217,7 @@ struct PrincipalView: View {
 
                         }
                         
-                        router.path.append(3)
+                        // router.path.append(3)
 
                         
                     }
@@ -231,15 +231,18 @@ struct PrincipalView: View {
                         .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
                     )
                     .padding()
-                    .navigationDestination(for: Int.self){ destination in
+                    // .navigationDestination(for: Int.self){ destination in
 
-                        if destination == 3 {
-
-                            RecepcionEntregaView(ticket: ticket).environmentObject(router)
-                            
-                        }
+                    //     switch destination {
+                    //         case 1:
+                    //             UbicacionView().environmentObject(router)
+                    //         case 2:
+                    //             PrincipalView().environmentObject(router)
+                    //         case 3:
+                    //             RecepcionEntregaView(ticket: ticket).environmentObject(router)
+                    //     }
                        
-                    }
+                    // }
                     
 
                     Button("**CERRAR SESION**") {
