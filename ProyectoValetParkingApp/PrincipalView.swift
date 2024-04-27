@@ -163,39 +163,8 @@ struct PrincipalView: View {
                                         ios_mostrar_mensaje = true
                                         return
                                     }
-
-                                    print("RESTO PASO")
-                                    print(ticket_query)
-                                    print("TICKET")
-
+                                    
                                     ticket = ticket_query
-
-                                    // if let ticket_query = url_qr["ticket"] {
-                                        
-                                    //     print("RESTO PASO")
-                                    //     print(ticket_query)
-                                    //     print("TICKET")
-
-                                    //     ticket = ticket_query
-
-                                    // }else{
-
-                                    //     ios_mensaje = "Error al realizar lectura de la URL."
-                                    //     ios_mostrar_mensaje = true
-
-                                    // }
-
-                                    // if let ticket_query = url_qr[queryParam: "ticket"]{
-
-                                        
- 
-                                    // }else{
-
-                                    //     ios_mensaje = "Error al realizar lectura de la URL."
-                                    //     ios_mostrar_mensaje = true
-
-                                    // }
-
 
                                 case .failure(let error):
                                     ios_mensaje = "Error al realizar lectura del QR."
