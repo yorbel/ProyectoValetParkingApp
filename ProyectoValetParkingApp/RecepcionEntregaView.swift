@@ -52,13 +52,13 @@ struct RecepcionEntregaView: View {
                             ios_mostrar_mensaje = true
                         
                         }
-                        .frame(width: 150)
+                        .frame(width: 50)
                         .font(.headline)
                         .foregroundColor(.white)
                         .padding()
                         .background(Color(red: 0.0, green: 0.0, blue: 0.6235294117647059))
                         .cornerRadius(15)
-                        .overlay( RoundedRectangle(cornerRadius: 15)
+                        .overlay( RoundedRectangle(cornerRadius: 30)
                             .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
                         )
                         .padding()
