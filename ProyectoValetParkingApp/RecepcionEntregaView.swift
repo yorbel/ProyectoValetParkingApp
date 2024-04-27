@@ -46,13 +46,13 @@ struct RecepcionEntregaView: View {
 
                   
 
-                        Button("!", systemImage: "car") {
+                        Button("", systemImage: "car") {
 
                             ios_mensaje = "Alerta de retiro enviada."
                             ios_mostrar_mensaje = true
                         
                         }
-                        .frame(maxWidth: .infinity)
+                        .frame(width: 150)
                         .font(.headline)
                         .foregroundColor(.white)
                         .padding()
