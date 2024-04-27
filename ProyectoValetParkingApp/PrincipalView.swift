@@ -156,14 +156,17 @@ struct PrincipalView: View {
 
                                     }
 
-                                    guard let ticket_query = url_qr["ticket"] else {
+                                    if(let ticket_query = url_qr["ticket"]){
                                         
+                                        ticket = ticket_query
+ 
+                                    }else{
+
                                         ios_mensaje = "Error al realizar lectura de la URL."
                                         ios_mostrar_mensaje = true
 
                                     }
 
-                                    ticket = ticket_query
 
                                 case .failure(let error):
                                     ios_mensaje = "Error al realizar lectura del QR."
