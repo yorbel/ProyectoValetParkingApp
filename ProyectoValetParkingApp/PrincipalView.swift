@@ -232,7 +232,7 @@ struct PrincipalView: View {
                     )
                     .padding()
                     .navigationDestination(isPresented: $pantalla_recepcion_entrega ){
-                        RecepcionEntregaView(ticket: ticket)
+                        RecepcionEntregaView(ticket: ticket).environmentObject(router)
                     }
 
                     Button("**CERRAR SESION**") {

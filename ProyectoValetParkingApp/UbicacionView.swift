@@ -129,7 +129,7 @@ struct UbicacionView: View {
                     Text(ios_mensaje)
                 }
                 .navigationDestination(isPresented: $pantalla_principal ){
-                    PrincipalView()
+                    PrincipalView().environmentObject(router)
                 }
             }
         }.onAppear{

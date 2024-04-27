@@ -196,13 +196,13 @@ struct IngresarView: View {
                         Text(ios_mensaje)
                     }
                     .navigationDestination(isPresented: $pantalla_ubicacion ){
-                        UbicacionView()
+                        UbicacionView().environmentObject(router)
                     }
                     
                 }
             }
             
-        }.environmentObject(router)
+        }
     }
 }
 
