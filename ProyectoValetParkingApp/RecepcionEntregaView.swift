@@ -367,6 +367,7 @@ struct RecepcionEntregaView: View {
                             let parking_id = try JSONDecoder().decode(ParkingIDModel.self, from: data)
                             parking.parking_id = parking_id.parking_id
                             parking.se_puede_recepcionar = false
+                            router.path.removeLast()
                                                                         
                         } catch let error {
 
