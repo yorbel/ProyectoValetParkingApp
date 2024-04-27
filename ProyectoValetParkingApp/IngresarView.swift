@@ -200,7 +200,7 @@ struct IngresarView: View {
                         if destination == 1 {
                           
                             UbicacionView().environmentObject(router)
-                            
+
                         }
                         if destination == 2 {
 
@@ -214,7 +214,36 @@ struct IngresarView: View {
                 }
             }
             
+        }.task{
+
+            accion_existe_sesion()
+
         }
+    }
+
+    func accion_existe_sesion(){
+
+        guard let sesion_id = globales.string(forKey: "sesion_id") else {
+
+            return
+        }
+
+        guard let token = globales.string(forKey: "token") else {
+
+            return
+        }
+
+        guard let lugar_id = globales.string(forKey: "lugar_id") else {
+
+            return
+        }
+
+        if( sesion_id != nil  && token != nil  && lugar_id != nil ){
+
+            router.path.append(2)
+
+        }
+
     }
 }
 
