@@ -237,8 +237,15 @@ struct PrincipalView: View {
 
                     Button("**CERRAR SESION**") {
 
-                        accion_activar_alerta()
-
+                        globales.removeObject(forKey: "token")
+                        globales.removeObject(forKey: "id")
+                        globales.removeObject(forKey: "nombre_usuario")
+                        globales.removeObject(forKey: "nombre")
+                        globales.removeObject(forKey: "apellido")
+                        globales.removeObject(forKey: "sesion_id")
+                        globales.removeObject(forKey: "lugar_id")
+                        router.path = .init()
+                        // accion_activar_alerta()
                     }
                     .frame(maxWidth: .infinity)
                     .font(.headline)
