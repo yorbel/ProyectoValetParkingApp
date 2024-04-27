@@ -153,10 +153,11 @@ struct PrincipalView: View {
 
                                         ios_mensaje = "Error al realizar lectura de la URL."
                                         ios_mostrar_mensaje = true
+                                        return
 
                                     }
 
-                                if let ticket_query = url_qr[queryParam: "ticket"]{
+                                    if let ticket_query = url_qr[queryParam: "ticket"]{
 
                                         ticket = ticket_query
  
