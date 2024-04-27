@@ -655,7 +655,8 @@ struct RecepcionEntregaView: View {
                 if response.statusCode == 204 {
                  
                     parking.entrega_realizada = "SI"
-                    socket.emit("vehiculo_entregado_valet_parking", ["ticket": ticket] )                                                         
+                    socket.emit("vehiculo_entregado_valet_parking", ["ticket": ticket] )
+                    router.path.removeLast()                                                         
                     
                 } else {
                     
