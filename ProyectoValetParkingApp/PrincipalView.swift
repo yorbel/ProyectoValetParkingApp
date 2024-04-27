@@ -78,7 +78,7 @@ struct PrincipalView: View {
     
     @State private var ticket : String = ""
     
-    @ObservedObject var lista_tickets_solicitados = ListaTicketModel()
+    @StateObject var lista_tickets_solicitados = ListaTicketModel()
 
     @State private var pantalla_recepcion_entrega = false
     
