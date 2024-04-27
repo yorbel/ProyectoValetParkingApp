@@ -13,7 +13,7 @@ import FirebaseCore
 import FirebaseMessaging
 
 extension URL {
-  subscript(queryParam name: String) -> String? {
+  subscript(name: String) -> String? {
     guard let urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: false) else { return nil }
     return urlComponents.queryItems?.first(where: { $0.name == name })?.value
   }
