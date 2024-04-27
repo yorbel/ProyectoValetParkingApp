@@ -46,7 +46,7 @@ struct RecepcionEntregaView: View {
 
                   
 
-                        Button("", systemImage: "card") {
+                        Button("!", systemImage: "car") {
 
                             ios_mensaje = "Alerta de retiro enviada."
                             ios_mostrar_mensaje = true
