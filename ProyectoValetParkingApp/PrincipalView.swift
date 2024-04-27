@@ -113,7 +113,16 @@ struct PrincipalView: View {
                         .labelsHidden()
                         .tint(Color(red: 0, green: 0, blue: 159))
                         .onChange(of: activo) { state in
-                            print("TOGGLE TO \(state)")
+
+                            if state {
+
+                                accion_inactividad_finalizar()
+
+                            }else{
+
+                                accion_inactividad_iniciar()
+
+                            }
                         }
 
                     Text(activo ? "Activo" : "Inactivo")
@@ -288,19 +297,206 @@ struct PrincipalView: View {
 
     func accion_inactividad_iniciar(){
 
+        guard let token = globales.string(forKey: "token") else {
+
+            return
+        }
+
         guard let sesion_id = globales.string(forKey: "sesion_id") else {
 
             return
         }
+        
+        guard let url = (URL(string: Globales.url + "/api/valet_parking/inactividad_iniciar/\(sesion_id)")) else {
+           
+            return
+
+        }
+      
+        var request = URLRequest(url: url)
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token, forHTTPHeaderField: "x-access-token")
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request){ (data, response, error) in
+            
+            
+            if let error = error {
+                
+                ios_mensaje = "Error en comunicación con el sistema."
+                ios_mostrar_mensaje = true
+                return
+                
+            } else if let data = data {
+                
+               
+                
+                guard let response = response as? HTTPURLResponse else {
+                    
+                    ios_mensaje = "Error en operación de la aplicación"
+                    ios_mostrar_mensaje = true
+                    return
+                    
+                }
+                
+                if response.statusCode == 200 {
+                    
+                    DispatchQueue.main.async {
+                        do {
+                            
+                            let inactividad_id = try JSONDecoder().decode(InactividadIDModel.self, from: data)
+                            globales.set(inactividad_id.inactividad_id, forKey: "inactividad_id")
+                                                                        
+                        } catch let error {
+
+                            print(error)
+                            
+                            ios_mensaje = "Error en operación de la aplicación"
+                            ios_mostrar_mensaje = true
+                            return
+                            
+                        }
+                    }
+                    
+                } else {
+                    
+                     DispatchQueue.main.async {
+                        do {
+                            
+                            if response.statusCode == 400 {
+                                
+                                let dataError = try JSONDecoder().decode([DataErrorModel].self, from: data)
+                                
+                                ios_mensaje = dataError[0].msg
+                                ios_mostrar_mensaje = true
+                                return
+                                
+                            }else{
+                                
+                                let dataError = try JSONDecoder().decode(DataErrorModel.self, from: data)
+                                
+                                ios_mensaje = dataError.msg
+                                ios_mostrar_mensaje = true
+                                return
+                                
+                            }
+                            
+                        } catch let error {
+                            
+                            ios_mensaje = "Error en operación de la aplicación"
+                            ios_mostrar_mensaje = true
+                            return
+                            
+                        }
+                    }
+                }
+                
+            } else {
+                
+                ios_mensaje = "Error en comunicación con el sistema."
+                ios_mostrar_mensaje = true
+                return
+                
+            }
+        }
+        
+        task.resume()
 
     }
 
     func accion_inactividad_finalizar(){
 
+        guard let token = globales.string(forKey: "token") else {
+
+            return
+        }
+
         guard let inactividad_id = globales.string(forKey: "inactividad_id") else {
 
             return
         }
+        
+        guard let url = (URL(string: Globales.url + "/api/valet_parking/inactividad_finalizar/\(inactividad_id)")) else {
+           
+            return
+
+        }
+      
+        var request = URLRequest(url: url)
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token, forHTTPHeaderField: "x-access-token")
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request){ (data, response, error) in
+            
+            
+            if let error = error {
+                
+                ios_mensaje = "Error en comunicación con el sistema."
+                ios_mostrar_mensaje = true
+                return
+                
+            } else if let data = data {
+                
+               
+                
+                guard let response = response as? HTTPURLResponse else {
+                    
+                    ios_mensaje = "Error en operación de la aplicación"
+                    ios_mostrar_mensaje = true
+                    return
+                    
+                }
+                
+                if response.statusCode == 204 {
+                    
+                    globales.removeObject(forKey: "inactividad_id")
+                    
+                } else {
+                    
+                     DispatchQueue.main.async {
+                        do {
+                            
+                            if response.statusCode == 400 {
+                                
+                                let dataError = try JSONDecoder().decode([DataErrorModel].self, from: data)
+                                
+                                ios_mensaje = dataError[0].msg
+                                ios_mostrar_mensaje = true
+                                return
+                                
+                            }else{
+                                
+                                let dataError = try JSONDecoder().decode(DataErrorModel.self, from: data)
+                                
+                                ios_mensaje = dataError.msg
+                                ios_mostrar_mensaje = true
+                                return
+                                
+                            }
+                            
+                        } catch let error {
+                            
+                            ios_mensaje = "Error en operación de la aplicación"
+                            ios_mostrar_mensaje = true
+                            return
+                            
+                        }
+                    }
+                }
+                
+            } else {
+                
+                ios_mensaje = "Error en comunicación con el sistema."
+                ios_mostrar_mensaje = true
+                return
+                
+            }
+        }
+        
+        task.resume()
         
     }
 

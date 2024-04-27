@@ -98,3 +98,9 @@ struct ParkingIDModel: Decodable {
 
 }
 
+struct InactividadIDModel: Decodable {
+
+    var inactividad_id: Int
+
+}
+
