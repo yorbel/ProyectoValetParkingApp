@@ -39,10 +39,33 @@ struct RecepcionEntregaView: View {
                 Image("logo")
                     .resizable()
                     .frame(height: 125, alignment: .center)
-                
-                Text("**TICKET: \(ticket)**")
-                    .font(.title)
-                    .foregroundColor(.white)
+                HStack{
+                    Text("**TICKET: \(ticket)**")
+                        .font(.title)
+                        .foregroundColor(.white)
+
+                  
+
+                        Button("", systemImage: "card") {
+
+                            ios_mensaje = "Alerta de retiro enviada."
+                            ios_mostrar_mensaje = true
+                        
+                        }
+                        .frame(maxWidth: .infinity)
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color(red: 0.0, green: 0.0, blue: 0.6235294117647059))
+                        .cornerRadius(15)
+                        .overlay( RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
+                        )
+                        .padding()
+
+                   
+
+                }
                 
                 Image("vehiculo")
                     .resizable()
