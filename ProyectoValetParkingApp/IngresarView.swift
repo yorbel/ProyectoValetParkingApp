@@ -202,8 +202,7 @@ struct IngresarView: View {
                                 UbicacionView().environmentObject(router)
                             case 2:
                                 PrincipalView().environmentObject(router)
-                            case 3:
-                                RecepcionEntregaView(ticket: ticket).environmentObject(router)
+                            
                         }
                        
                     }
