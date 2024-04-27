@@ -207,39 +207,7 @@ struct PrincipalView: View {
                
                 
                 VStack(alignment: .center, spacing: -20){
-                    Button("**PROCESAR TICKET**") {
-
-                        if(ticket == ""){
-
-                            ios_mensaje = "Debe ingresar número de ticket."
-                            ios_mostrar_mensaje = true
-                            return
-
-                        }
-                        
-                        router.path.append(3)
-
-                        
-                    }
-                    .frame(maxWidth: .infinity)
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color(red: 0.0, green: 0.0, blue: 0.6235294117647059))
-                    .cornerRadius(15)
-                    .overlay( RoundedRectangle(cornerRadius: 15)
-                        .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
-                    )
-                    .padding()
-                    .navigationDestination(for: Int.self){ destination in
-
-                        if destination == 3 {
-
-                            RecepcionEntregaView(ticket: ticket).environmentObject(router)
-
-                        }
-
-                    }
+                   
 
                     Button("**CERRAR SESION**") {
 
