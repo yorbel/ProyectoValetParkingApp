@@ -107,10 +107,15 @@ struct PrincipalView: View {
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .foregroundColor(.white)
                 
-                VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/){
+                VStack(alignment:.center){
+
                     Toggle("Activoo", isOn: $activo)
                         .labelsHidden()
                         .tint(Color(red: 0, green: 0, blue: 159))
+                        .onChange(of: activo) { state in
+                            print("TOGGLE TO \(state)")
+                        }
+
                     Text(activo ? "Activo" : "Inactivo")
                         .font(.body)
                         .foregroundColor(.white)
@@ -276,8 +281,38 @@ struct PrincipalView: View {
 
         }
         .task {
+            accion_buscar_si_activo()
             accion_buscar_tickes_solicitados() 
         }
+    }
+
+    func accion_inactividad_iniciar(){
+
+        guard let sesion_id = globales.string(forKey: "sesion_id") else {
+
+            return
+        }
+
+    }
+
+    func accion_inactividad_finalizar(){
+
+        guard let inactividad_id = globales.string(forKey: "inactividad_id") else {
+
+            return
+        }
+        
+    }
+
+    func accion_buscar_si_activo(){
+
+        guard let inactividad_id = globales.string(forKey: "inactividad_id") else {
+
+            return
+        }
+
+        activo = true
+
     }
 
     func accion_buscar_tickes_solicitados(){
@@ -398,6 +433,7 @@ struct PrincipalView: View {
         globales.removeObject(forKey: "apellido")
         globales.removeObject(forKey: "sesion_id")
         globales.removeObject(forKey: "lugar_id")
+   
         router.path = .init()
 
     }
