@@ -12,6 +12,13 @@ import SDWebImageSwiftUI
 import FirebaseCore
 import FirebaseMessaging
 
+extension URL {
+  subscript(queryParam name: String) -> String? {
+    guard let urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: false) else { return nil }
+    return urlComponents.queryItems?.first(where: { $0.name == name })?.value
+  }
+}
+
 class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate  {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
@@ -141,7 +148,23 @@ struct PrincipalView: View {
 
                             switch response {
                                 case .success(let result):
-                                    ticket = result.string
+
+                                    guard let url_qr = URL(string: result.string ) else {
+
+                                        ios_mensaje = "Error al realizar lectura de la URL."
+                                        ios_mostrar_mensaje = true
+
+                                    }
+
+                                    guard let ticket_query = url_qr["ticket"] {
+                                        
+                                        ios_mensaje = "Error al realizar lectura de la URL."
+                                        ios_mostrar_mensaje = true
+
+                                    }
+
+                                    ticket = ticket_query
+
                                 case .failure(let error):
                                     ios_mensaje = "Error al realizar lectura del QR."
                                     ios_mostrar_mensaje = true
