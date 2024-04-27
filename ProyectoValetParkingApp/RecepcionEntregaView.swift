@@ -13,6 +13,8 @@ struct RecepcionEntregaView: View {
 
     let globales = UserDefaults.standard
 
+    @EnvironmentObject var router: Router
+
     @State private var ios_mostrar_mensaje : Bool  = false
     @State private var ios_mensaje : String = ""
     

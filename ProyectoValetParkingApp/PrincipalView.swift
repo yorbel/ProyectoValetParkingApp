@@ -71,6 +71,8 @@ struct PrincipalView: View {
     
     let globales = UserDefaults.standard
 
+    @EnvironmentObject var router: Router
+
     @State private var ios_mostrar_mensaje : Bool  = false
     @State private var ios_mensaje : String = ""
     
@@ -163,7 +165,7 @@ struct PrincipalView: View {
                                         ios_mostrar_mensaje = true
                                         return
                                     }
-                                    
+
                                     ticket = ticket_query
 
                                 case .failure(let error):

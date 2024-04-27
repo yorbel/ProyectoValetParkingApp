@@ -7,9 +7,15 @@
 
 import SwiftUI
 
+final class Router: ObservableObject {
+    @Published var path = NavigationPath()
+}
+
 struct IngresarView: View {
     
-     let globales = UserDefaults.standard
+    let globales = UserDefaults.standard
+
+    @EnvironmentObject var router: Router
     
     @State private var ios_mostrar_mensaje : Bool  = false
     @State private var ios_mensaje : String = ""
@@ -140,7 +146,7 @@ struct IngresarView: View {
     }
     
     var body: some View {
-        NavigationStack{
+        NavigationStack(path: $router.path){
             ZStack{
                 Image("fondo")
                 .resizable()
@@ -196,7 +202,7 @@ struct IngresarView: View {
                 }
             }
             
-        }
+        }.environmentObject(router)
     }
 }
 
