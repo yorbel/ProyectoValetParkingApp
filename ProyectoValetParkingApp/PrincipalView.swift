@@ -156,8 +156,8 @@ struct PrincipalView: View {
 
                                     }
 
-                                    if(let ticket_query = url_qr["ticket"]){
-                                        
+                                    if let ticket_query = url_qr["ticket"]{
+
                                         ticket = ticket_query
  
                                     }else{
