@@ -197,13 +197,17 @@ struct IngresarView: View {
                     }
                     .navigationDestination(for: Int.self){ destination in
 
-                        switch destination {
-                            case 1:
-                                UbicacionView().environmentObject(router)
-                            case 2:
-                                PrincipalView().environmentObject(router)
+                        if destination == 1 {
+                          
+                            UbicacionView().environmentObject(router)
                             
                         }
+                        if destination == 2 {
+
+                            PrincipalView().environmentObject(router)
+
+                        }
+                        
                        
                     }
                     

@@ -233,9 +233,10 @@ struct PrincipalView: View {
                     .padding()
                     .navigationDestination(for: Int.self){ destination in
 
-                        switch destination {
-                            case 3:
-                                RecepcionEntregaView(ticket: ticket).environmentObject(router)
+                        if destination == 3 {
+
+                            RecepcionEntregaView(ticket: ticket).environmentObject(router)
+                            
                         }
                        
                     }
