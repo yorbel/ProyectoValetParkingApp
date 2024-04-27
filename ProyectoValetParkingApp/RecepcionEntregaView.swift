@@ -45,14 +45,16 @@ struct RecepcionEntregaView: View {
                         .foregroundColor(.white)
 
                   
+                    if parking.listo_para_retirar == "SI" {
 
                         Button("", systemImage: "car") {
 
+                            socket.emit("vehiculo_retirar_urgente_valet_parking", ["ticket": ticket] )
                             ios_mensaje = "Alerta de retiro enviada."
                             ios_mostrar_mensaje = true
                         
                         }
-                        .frame(width: 50)
+                        .frame(width: 40)
                         .font(.headline)
                         .foregroundColor(.white)
                         .padding()
@@ -62,6 +64,8 @@ struct RecepcionEntregaView: View {
                             .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
                         )
                         .padding()
+
+                    }
 
                    
 
