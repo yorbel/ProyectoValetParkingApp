@@ -231,6 +231,14 @@ struct PrincipalView: View {
                         .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
                     )
                     .padding()
+                    .navigationDestination(for: Int.self){ destination in
+
+                        switch destination {
+                            case 3:
+                                RecepcionEntregaView(ticket: ticket).environmentObject(router)
+                        }
+                       
+                    }
                     
 
                     Button("**CERRAR SESION**") {
