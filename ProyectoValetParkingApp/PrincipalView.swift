@@ -233,7 +233,7 @@ struct PrincipalView: View {
                         // globales.removeObject(forKey: "apellido")
                         // globales.removeObject(forKey: "sesion_id")
                         // globales.removeObject(forKey: "lugar_id")
-                        router.path.reset()
+                        router.path.removeAll()
                         // accion_activar_alerta()
                     }
                     .frame(maxWidth: .infinity)
