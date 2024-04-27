@@ -102,7 +102,7 @@ struct UbicacionView: View {
                     if( lugar_id != nil ){
 
                         globales.set(lugar_id, forKey: "lugar_id")
-                        pantalla_principal = true
+                        router.path.append(2)
 
                     } else {
 
@@ -128,9 +128,7 @@ struct UbicacionView: View {
                 } message: {
                     Text(ios_mensaje)
                 }
-                .navigationDestination(isPresented: $pantalla_principal ){
-                    PrincipalView().environmentObject(router)
-                }
+                
             }
         }.onAppear{
  

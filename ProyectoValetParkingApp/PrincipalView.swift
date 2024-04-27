@@ -217,7 +217,7 @@ struct PrincipalView: View {
 
                         }
                         
-                        pantalla_recepcion_entrega = true
+                        router.path.append(3)
 
                         
                     }
@@ -231,9 +231,7 @@ struct PrincipalView: View {
                         .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
                     )
                     .padding()
-                    .navigationDestination(isPresented: $pantalla_recepcion_entrega ){
-                        RecepcionEntregaView(ticket: ticket).environmentObject(router)
-                    }
+                    
 
                     Button("**CERRAR SESION**") {
 
@@ -244,7 +242,7 @@ struct PrincipalView: View {
                         // globales.removeObject(forKey: "apellido")
                         // globales.removeObject(forKey: "sesion_id")
                         // globales.removeObject(forKey: "lugar_id")
-                        router.path.removeLast(2)
+                        router.path.reset()
                         // accion_activar_alerta()
                     }
                     .frame(maxWidth: .infinity)

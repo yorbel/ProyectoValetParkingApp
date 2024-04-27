@@ -88,7 +88,7 @@ struct IngresarView: View {
                             globales.set(usuario.valet_parking.apellido, forKey: "apellido")
                             globales.set(usuario.valet_parking.sesion_id, forKey: "sesion_id")
                             
-                            pantalla_ubicacion = true
+                            router.path.append(1)
                                                      
                         } catch let error {
                             
@@ -195,8 +195,17 @@ struct IngresarView: View {
                     } message:{
                         Text(ios_mensaje)
                     }
-                    .navigationDestination(isPresented: $pantalla_ubicacion ){
-                        UbicacionView().environmentObject(router)
+                    .navigationDestination(for: Int.self){ destination in
+
+                        switch destination {
+                            case 1:
+                                UbicacionView().environmentObject(router)
+                            case 2:
+                                PrincipalView().environmentObject(router)
+                            case 3:
+                                RecepcionEntregaView(ticket: ticket).environmentObject(router)
+                        }
+                       
                     }
                     
                 }
