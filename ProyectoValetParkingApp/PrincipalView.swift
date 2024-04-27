@@ -159,6 +159,10 @@ struct PrincipalView: View {
 
                                     if let ticket_query = url_qr[queryParam: "ticket"]{
 
+                                        print("RESTO PASO")
+                                        print(ticket_query)
+                                        print("TICKET")
+
                                         ticket = ticket_query
  
                                     }else{
