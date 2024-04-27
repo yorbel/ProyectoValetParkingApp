@@ -504,10 +504,12 @@ struct PrincipalView: View {
 
         guard let inactividad_id = globales.string(forKey: "inactividad_id") else {
 
+            activo = true
             return
+            
         }
 
-        activo = true
+        activo = false
 
     }
 
