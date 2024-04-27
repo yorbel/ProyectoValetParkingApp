@@ -156,7 +156,7 @@ struct PrincipalView: View {
 
                                     }
 
-                                    guard let ticket_query = url_qr["ticket"] {
+                                    guard let ticket_query = url_qr["ticket"] else {
                                         
                                         ios_mensaje = "Error al realizar lectura de la URL."
                                         ios_mostrar_mensaje = true
