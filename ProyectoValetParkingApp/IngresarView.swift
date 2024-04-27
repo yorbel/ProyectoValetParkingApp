@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class Router: ObservableObject {
+class Router: ObservableObject {
     @Published var path = NavigationPath()
 }
 
