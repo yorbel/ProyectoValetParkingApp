@@ -217,7 +217,7 @@ struct PrincipalView: View {
 
                         }
                         
-                        router.path.append(3)
+                        router.path.append("recepcion_entrega_view")
 
                         
                     }
@@ -231,25 +231,21 @@ struct PrincipalView: View {
                         .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
                     )
                     .padding()
-                    .navigationDestination(for: Int.self){ destination in
+                    .navigationDestination(for: String.self){ destination in
 
-                        if destination == 3 {
-
-                            RecepcionEntregaView(ticket: ticket).environmentObject(router)
-
-                        }
+                        RecepcionEntregaView(ticket: ticket).environmentObject(router)
 
                     }
 
                     Button("**CERRAR SESION**") {
 
-                        // globales.removeObject(forKey: "token")
-                        // globales.removeObject(forKey: "id")
-                        // globales.removeObject(forKey: "nombre_usuario")
-                        // globales.removeObject(forKey: "nombre")
-                        // globales.removeObject(forKey: "apellido")
-                        // globales.removeObject(forKey: "sesion_id")
-                        // globales.removeObject(forKey: "lugar_id")
+                        globales.removeObject(forKey: "token")
+                        globales.removeObject(forKey: "id")
+                        globales.removeObject(forKey: "nombre_usuario")
+                        globales.removeObject(forKey: "nombre")
+                        globales.removeObject(forKey: "apellido")
+                        globales.removeObject(forKey: "sesion_id")
+                        globales.removeObject(forKey: "lugar_id")
                         router.path = .init()
                         // accion_activar_alerta()
                     }
