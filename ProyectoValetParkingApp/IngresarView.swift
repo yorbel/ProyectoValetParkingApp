@@ -20,8 +20,8 @@ struct IngresarView: View {
     @State private var ios_mostrar_mensaje : Bool  = false
     @State private var ios_mensaje : String = ""
     
-    @State private var nombre_usuario : String = "juan"
-    @State private var contrasena : String = "12345678"
+    @State private var nombre_usuario : String = ""
+    @State private var contrasena : String = ""
     @State private var pantalla_ubicacion = false
 
     enum Field {
@@ -238,7 +238,7 @@ struct IngresarView: View {
             if focused_field == .nombre_usuario {
 
                 focused_field = .contrasena
-                
+
             } else if focused_field == .contrasena {
 
                 focused_field = nil

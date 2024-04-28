@@ -683,7 +683,14 @@ struct RecepcionEntregaView: View {
                  
                     parking.entrega_realizada = "SI"
                     socket.emit("vehiculo_entregado_valet_parking", ["ticket": ticket] )
-                    router.path.removeLast()                                                         
+
+                    let seconds = 4.0
+
+                    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+
+                        router.path.removeLast()
+                        
+                    }
                     
                 } else {
                     
