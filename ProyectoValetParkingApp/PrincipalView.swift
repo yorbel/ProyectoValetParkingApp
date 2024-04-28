@@ -92,6 +92,8 @@ struct PrincipalView: View {
     @State private var animar_imagen_alerta : Bool  = true
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+
+    @FocusState private var is_focused: Bool
     
     var body: some View {
         ZStack{
@@ -131,6 +133,7 @@ struct PrincipalView: View {
                 }
                 
                 VStack(alignment: .center, spacing: -20){
+
                     TextField("INGRESAR TICKET", text: $ticket)
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         .foregroundColor(.black)
@@ -141,6 +144,8 @@ struct PrincipalView: View {
                             .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
                         )
                         .padding()
+                        .focused($is_focused)
+
                     Button("**CODIGO QR**", systemImage: "camera") {
 
                         mostrar_scanner_qr = true
@@ -268,7 +273,13 @@ struct PrincipalView: View {
                 }
                 
             }
-        }.alert("Mensaje AVP", isPresented: $ios_mostrar_mensaje){
+        }
+        .onTapGesture{
+                        
+            is_focused = false
+                                            
+        }
+        .alert("Mensaje AVP", isPresented: $ios_mostrar_mensaje){
             Button("OK"){}
         } message: {
             Text(ios_mensaje)

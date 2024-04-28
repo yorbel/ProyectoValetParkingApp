@@ -23,6 +23,15 @@ struct IngresarView: View {
     @State private var nombre_usuario : String = "juan"
     @State private var contrasena : String = "12345678"
     @State private var pantalla_ubicacion = false
+
+    enum Field {
+
+        case nombre_usuario
+        case contrasena
+
+    }
+
+    @FocusState private var focused_field: Field?
     
     func ingresar(){
         
@@ -166,6 +175,8 @@ struct IngresarView: View {
                             .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
                         )
                         .padding()
+                        .focused($focused_field, equals: .nombre_usuario)
+                        .submitLabel(.next)
                     
                     SecureField("Contraseña", text: $contrasena)
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
@@ -177,6 +188,8 @@ struct IngresarView: View {
                             .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
                         )
                         .padding()
+                        .focused($focused_field, equals: .contrasena)
+                        .submitLabel(.send)
                     
                     
                     Button("**INGRESAR**", action: ingresar)
@@ -214,7 +227,27 @@ struct IngresarView: View {
                 }
             }
             
-        }.task{
+        }
+        .onTapGesture {
+                        
+            focused_field = nil
+                                            
+        }
+        .onSubmit {
+
+            if focused_field == .nombre_usuario {
+
+                focused_field = .contrasena
+                
+            } else if focused_field == .contrasena {
+
+                focused_field = nil
+                ingresar()
+
+            }
+
+        }
+        .task{
 
             accion_existe_sesion()
 
