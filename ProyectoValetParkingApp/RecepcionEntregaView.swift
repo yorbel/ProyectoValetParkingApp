@@ -79,146 +79,149 @@ struct RecepcionEntregaView: View {
                     .font(.headline)
                     .foregroundColor(.white)
                 
-                VStack(alignment: .center, spacing: -20){
-                    
-                    Button("**RECEPCION REALIZADA**", systemImage: parking.se_puede_recepcionar ? "circle" : "checkmark.circle") {
+                ScrollView {
+
+                    VStack(alignment: .center, spacing: -20){
                         
-                        confirmar_recepcion_realizada = true
-
-                    }
-                    .frame(maxWidth: .infinity)
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(parking.se_puede_recepcionar ? Color(red: 196, green: 0.0, blue: 0) : Color(red: 0.0, green: 0.0, blue: 0.6235294117647059))
-                    .cornerRadius(15)
-                    .overlay( RoundedRectangle(cornerRadius: 15)
-                        .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
-                    )
-                    .padding()
-                    .alert("¿Confirma que realizo la recepción del vehículo?", isPresented: $confirmar_recepcion_realizada) {
-                        Button("SI", role: .destructive) {
-
-                            if(!parking.se_puede_recepcionar){
-
-                                ios_mensaje = "Recepción del vehículo ya fue realizada."
-                                ios_mostrar_mensaje = true
-                                return   
-                            }
+                        Button("**RECEPCION REALIZADA**", systemImage: parking.se_puede_recepcionar ? "circle" : "checkmark.circle") {
                             
-                            accion_recepcion_realizada()
-                        }
-                        Button("NO", role: .cancel) { }
-                    }
-                    
-                    Button("**BUSCANDO VEHICULO**", systemImage: parking.buscando_vehiculo == "SI" ? "checkmark.circle":  "circle" ) {
-                        
-                        confirmar_buscando_vehiculo = true
+                            confirmar_recepcion_realizada = true
 
-                    }
-                    .frame(maxWidth: .infinity)
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background( parking.buscando_vehiculo == "SI" ? Color(red: 0.0, green: 0.0, blue: 0.6235294117647059) : Color(red: 159, green: 0, blue: 0))
-                    .cornerRadius(15)
-                    .overlay( RoundedRectangle(cornerRadius: 15)
-                        .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
-                    )
-                    .padding()
-                    .alert("¿Confirma que podra realizar la busqueda del vehículo?", isPresented: $confirmar_buscando_vehiculo) {
-                        Button("SI", role: .destructive) {
+                        }
+                        .frame(maxWidth: .infinity)
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(parking.se_puede_recepcionar ? Color(red: 196, green: 0.0, blue: 0) : Color(red: 0.0, green: 0.0, blue: 0.6235294117647059))
+                        .cornerRadius(15)
+                        .overlay( RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
+                        )
+                        .padding()
+                        .alert("¿Confirma que realizo la recepción del vehículo?", isPresented: $confirmar_recepcion_realizada) {
+                            Button("SI", role: .destructive) {
+
+                                if(!parking.se_puede_recepcionar){
+
+                                    ios_mensaje = "Recepción del vehículo ya fue realizada."
+                                    ios_mostrar_mensaje = true
+                                    return   
+                                }
+                                
+                                accion_recepcion_realizada()
+                            }
+                            Button("NO", role: .cancel) { }
+                        }
+                        
+                        Button("**BUSCANDO VEHICULO**", systemImage: parking.buscando_vehiculo == "SI" ? "checkmark.circle":  "circle" ) {
                             
-                            if( parking.buscando_vehiculo == "SI" ){
-
-                                ios_mensaje = "La busqueda del vehículo ya esta siendo realizada."
-                                ios_mostrar_mensaje = true
-                                return   
-                            }
-
-                            accion_buscando_vehiculo()
+                            confirmar_buscando_vehiculo = true
 
                         }
-                        Button("NO", role: .cancel) { }
-                    }
-                    
-                    Button("**LISTO PARA RETIRAR**", systemImage: parking.listo_para_retirar == "SI" ? "checkmark.circle":  "circle" ) {
+                        .frame(maxWidth: .infinity)
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background( parking.buscando_vehiculo == "SI" ? Color(red: 0.0, green: 0.0, blue: 0.6235294117647059) : Color(red: 159, green: 0, blue: 0))
+                        .cornerRadius(15)
+                        .overlay( RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
+                        )
+                        .padding()
+                        .alert("¿Confirma que podra realizar la busqueda del vehículo?", isPresented: $confirmar_buscando_vehiculo) {
+                            Button("SI", role: .destructive) {
+                                
+                                if( parking.buscando_vehiculo == "SI" ){
+
+                                    ios_mensaje = "La busqueda del vehículo ya esta siendo realizada."
+                                    ios_mostrar_mensaje = true
+                                    return   
+                                }
+
+                                accion_buscando_vehiculo()
+
+                            }
+                            Button("NO", role: .cancel) { }
+                        }
                         
-            
-                        confirmar_listo_para_retirar = true
-
-                    }
-                    .frame(maxWidth: .infinity)
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background( parking.listo_para_retirar == "SI" ? Color(red: 0.0, green: 0.0, blue: 0.6235294117647059) : Color(red: 159, green: 0, blue: 0))
-                    .cornerRadius(15)
-                    .overlay( RoundedRectangle(cornerRadius: 15)
-                        .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
-                    )
-                    .padding()
-                    .alert("¿Confirma que el vehículo esta listo para retirar?", isPresented: $confirmar_listo_para_retirar) {
-                        Button("SI", role: .destructive) { 
-
-                            if( parking.buscando_vehiculo == "NO" ){
-
-                                ios_mensaje = "Primero debe marcar BUSCANDO VEHÍCULO."
-                                ios_mostrar_mensaje = true
-                                return   
-                            }
-
-                            if( parking.listo_para_retirar == "SI" ){
-
-                                ios_mensaje = "El vehículo ya se encuentra listo para retirar."
-                                ios_mostrar_mensaje = true
-                                return   
-                            }
-
-                            accion_listo_para_retirar()
+                        Button("**LISTO PARA RETIRAR**", systemImage: parking.listo_para_retirar == "SI" ? "checkmark.circle":  "circle" ) {
+                            
+                
+                            confirmar_listo_para_retirar = true
 
                         }
-                        Button("NO", role: .cancel) { }
-                    }
-                    
-                    Button("**ENTREGA REALIZADA**", systemImage: parking.entrega_realizada == "SI" ? "checkmark.circle":  "circle" ) {
+                        .frame(maxWidth: .infinity)
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background( parking.listo_para_retirar == "SI" ? Color(red: 0.0, green: 0.0, blue: 0.6235294117647059) : Color(red: 159, green: 0, blue: 0))
+                        .cornerRadius(15)
+                        .overlay( RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
+                        )
+                        .padding()
+                        .alert("¿Confirma que el vehículo esta listo para retirar?", isPresented: $confirmar_listo_para_retirar) {
+                            Button("SI", role: .destructive) { 
+
+                                if( parking.buscando_vehiculo == "NO" ){
+
+                                    ios_mensaje = "Primero debe marcar BUSCANDO VEHÍCULO."
+                                    ios_mostrar_mensaje = true
+                                    return   
+                                }
+
+                                if( parking.listo_para_retirar == "SI" ){
+
+                                    ios_mensaje = "El vehículo ya se encuentra listo para retirar."
+                                    ios_mostrar_mensaje = true
+                                    return   
+                                }
+
+                                accion_listo_para_retirar()
+
+                            }
+                            Button("NO", role: .cancel) { }
+                        }
                         
-                        confirmar_entrega_realizada = true 
-
-                    }
-                    .frame(maxWidth: .infinity)
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background( parking.entrega_realizada == "SI" ? Color(red: 0.0, green: 0.0, blue: 0.6235294117647059) :  Color(red: 159, green: 0, blue: 0))
-                    .cornerRadius(15)
-                    .overlay( RoundedRectangle(cornerRadius: 15)
-                        .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
-                    )
-                    .padding()
-                    .alert("¿Confirma que realizo la entrega del vehículo?", isPresented: $confirmar_entrega_realizada) {
-                        Button("SI", role: .destructive) { 
-
-                            if( parking.listo_para_retirar == "NO" ){
-
-                                ios_mensaje = "Primero debe marcar LISTO PARA RETIRAR."
-                                ios_mostrar_mensaje = true
-                                return   
-                            }
-
-                            if( parking.entrega_realizada == "SI" ){
-
-                                ios_mensaje = "La entrega del vehículo ya fue realizada."
-                                ios_mostrar_mensaje = true
-                                return   
-                            }
-
-                            accion_entrega_realizada()
+                        Button("**ENTREGA REALIZADA**", systemImage: parking.entrega_realizada == "SI" ? "checkmark.circle":  "circle" ) {
+                            
+                            confirmar_entrega_realizada = true 
 
                         }
-                        Button("NO", role: .cancel) { }
-                    }                
-                    
+                        .frame(maxWidth: .infinity)
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background( parking.entrega_realizada == "SI" ? Color(red: 0.0, green: 0.0, blue: 0.6235294117647059) :  Color(red: 159, green: 0, blue: 0))
+                        .cornerRadius(15)
+                        .overlay( RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color(red: 0, green: 0, blue: 159), lineWidth: 2)
+                        )
+                        .padding()
+                        .alert("¿Confirma que realizo la entrega del vehículo?", isPresented: $confirmar_entrega_realizada) {
+                            Button("SI", role: .destructive) { 
+
+                                if( parking.listo_para_retirar == "NO" ){
+
+                                    ios_mensaje = "Primero debe marcar LISTO PARA RETIRAR."
+                                    ios_mostrar_mensaje = true
+                                    return   
+                                }
+
+                                if( parking.entrega_realizada == "SI" ){
+
+                                    ios_mensaje = "La entrega del vehículo ya fue realizada."
+                                    ios_mostrar_mensaje = true
+                                    return   
+                                }
+
+                                accion_entrega_realizada()
+
+                            }
+                            Button("NO", role: .cancel) { }
+                        }                
+                        
+                    }
                 }
             }
         }.alert("Mensaje AVP", isPresented: $ios_mostrar_mensaje){
