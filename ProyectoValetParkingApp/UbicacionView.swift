@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreLocation
+import FirebaseMessaging
 
 struct LugarView: View {
     
@@ -102,6 +103,8 @@ struct UbicacionView: View {
                     if( lugar_id != nil ){
 
                         globales.set(lugar_id, forKey: "lugar_id")
+                        Messaging.messaging().subscribe(toTopic: "lugar\(lugar_id)")
+
                         router.path.append(2)
 
                     } else {

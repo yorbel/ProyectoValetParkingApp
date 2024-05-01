@@ -22,7 +22,6 @@ class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate, UNUserNot
         application.registerForRemoteNotifications()
 
         Messaging.messaging().delegate = self
-        Messaging.messaging().subscribe(toTopic: "lugar35")
 
         return true
       
