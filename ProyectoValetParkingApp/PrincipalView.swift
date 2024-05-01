@@ -16,6 +16,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
      // CUANDO EL USUARIO ESTA VIENDO LA PANTALLA
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        let userInfo = notification.request.content.userInfo
+        print("NOTIFICACION FOREGROUND \(userInfo)")
+
         completionHandler([[.alert, .badge, .sound]])
     }
 

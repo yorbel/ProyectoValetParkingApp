@@ -22,7 +22,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate  {
 
             if granted {
 
-                // print("PERMITIDO NOTIFICACIONES")
+                print("PERMITIDO NOTIFICACIONES")
 
                 // DispatchQueue.main.async {
                 //     application.shared.registerForRemoteNotifications()
