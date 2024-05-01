@@ -11,6 +11,7 @@ import AVFoundation
 import SDWebImageSwiftUI
 import FirebaseCore
 import FirebaseMessaging
+import UserNotifications
 
 extension URL {
   subscript(name: String) -> String? {
