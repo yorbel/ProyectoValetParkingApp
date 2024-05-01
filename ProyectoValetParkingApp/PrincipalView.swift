@@ -9,7 +9,42 @@ import SwiftUI
 import CodeScanner
 import AVFoundation
 import SDWebImageSwiftUI
+import UserNotifications
 
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+     // CUANDO EL USUARIO ESTA VIENDO LA PANTALLA
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([[.alert, .badge, .sound]])
+    }
+
+    // CUANDO EL USUARIO NO ESTA VIENDO LA PANTALLA
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        // let userInfo = response.notification.request.content.userInfo
+
+        // if let customData = userInfo["customData"] as? String {
+        //     print("Custom data received: \(customData)")
+
+        //     switch response.actionIdentifier {
+        //     case UNNotificationDefaultActionIdentifier:
+               
+        //         print("Default identifier")
+
+        //     case "show":
+               
+        //         print("Show more information…")
+
+        //     default:
+        //         break
+        //     }
+        // }
+
+        completionHandler()
+    }
+}
 
 extension URL {
   subscript(name: String) -> String? {

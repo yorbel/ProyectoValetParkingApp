@@ -11,15 +11,27 @@ import FirebaseMessaging
 import UserNotifications
 
 
-class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate  {
+class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate  {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     
         FirebaseApp.configure()
 
         UNUserNotificationCenter.current().delegate = self
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { _, _ in }
-        application.registerForRemoteNotifications()
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in 
+
+            if granted {
+
+                print("PERMITIDO NOTIFICACIONES")
+                
+                DispatchQueue.main.async {
+                    application.shared.registerForRemoteNotifications()
+                }
+            }
+        
+        }
+        
+        // application.registerForRemoteNotifications()
 
         Messaging.messaging().delegate = self
 
@@ -35,18 +47,6 @@ class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate, UNUserNot
         if let fcm = Messaging.messaging().fcmToken {
             print("fcm", fcm)
         }
-    }
-
-    // CUANDO EL USUARIO ESTA VIENDO LA PANTALLA
-
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([[.alert, .badge, .sound]])
-    }
-
-    // CUANDO EL USUARIO NO ESTA VIENDO LA PANTALLA
-
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        completionHandler()
     }
     
 }
