@@ -133,7 +133,9 @@ struct UbicacionView: View {
                 }
                 
             }
-        }.onAppear{
+        }
+        .navigationBarBackButtonHidden(true)
+        .onAppear{
  
             accion_conseguir_ubicacion_actual()
             
