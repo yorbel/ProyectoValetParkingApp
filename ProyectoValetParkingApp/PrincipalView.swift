@@ -270,6 +270,24 @@ struct PrincipalView: View {
                 
             }
         }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+
+            ToolbarItem(placement: .navigationBarLeading) {
+
+                Button {
+
+                    router.path.removeLast()
+               
+                } label: {
+            
+                    HStack {
+                        Image(systemName: "chevron.backward")
+                        Text("Atrás")
+                    }
+                }
+            }
+        }
         .onTapGesture{
                         
             is_focused = false

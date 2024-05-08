@@ -224,7 +224,26 @@ struct RecepcionEntregaView: View {
                     }
                 }
             }
-        }.alert("Mensaje AVP", isPresented: $ios_mostrar_mensaje){
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+
+            ToolbarItem(placement: .navigationBarLeading) {
+
+                Button {
+               
+                    router.path.removeLast()
+                    
+                } label: {
+            
+                    HStack {
+                        Image(systemName: "chevron.backward")
+                        Text("Atrás")
+                    }
+                }
+            }
+        }
+        .alert("Mensaje AVP", isPresented: $ios_mostrar_mensaje){
             Button("OK"){}
         } message: {
             Text(ios_mensaje)
