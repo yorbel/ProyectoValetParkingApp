@@ -233,7 +233,7 @@ struct RecepcionEntregaView: View {
                 Button {
                
                     router.path.removeLast()
-                    
+
                 } label: {
             
                     HStack {
@@ -263,8 +263,13 @@ struct RecepcionEntregaView: View {
             return
         }
 
+        guard let lugar_id = globales.string(forKey: "lugar_id") else {
+
+            return
+        }
+
         
-        guard let url = (URL(string: Globales.url + "/api/parking/ticket_se_puede_recepcionar/\(ticket)")) else {
+        guard let url = (URL(string: Globales.url + "/api/parking/ticket_se_puede_recepcionar/\(ticket)/\(lugar_id)")) else {
            
             return
 
