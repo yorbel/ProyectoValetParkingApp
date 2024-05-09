@@ -82,6 +82,7 @@ struct UbicacionView: View {
                     .onReceive(locationDataManager.$longitud) { value in
 
                         print("ON RECEIBED")
+                        print(value)
                         
                         guard let latitud = locationDataManager.latitud else {
             
