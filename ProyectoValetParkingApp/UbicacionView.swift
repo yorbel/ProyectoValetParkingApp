@@ -71,7 +71,7 @@ struct UbicacionView: View {
                     .resizable()
                     .frame(height: 125, alignment: .center)
                 
-                Text("Indica ubicación actual ( \(locationDataManager.latitud?.description ?? "Error"), \(locationDataManager.longitud?.description ?? "Error"))")
+                Text("Indica ubicación actual")
                     .font(.headline)
                     .foregroundColor(.white)
                     .onTapGesture{
