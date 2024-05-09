@@ -70,6 +70,12 @@ struct UbicacionView: View {
                 Image("logo")
                     .resizable()
                     .frame(height: 125, alignment: .center)
+
+                if (locationDataManager.latitud != nil && locationDataManager.longitud != nil) {
+                
+                   accion_conseguir_ubicacion_actual()
+                    
+                } 
                 
                 Text("Indica ubicación actual ( \(locationDataManager.latitud?.description ?? "Error"), \(locationDataManager.longitud?.description ?? "Error"))")
                     .font(.headline)
@@ -135,11 +141,7 @@ struct UbicacionView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        .onAppear{
- 
-            accion_conseguir_ubicacion_actual()
-            
-        }
+        
         
         
     }
@@ -245,8 +247,7 @@ struct UbicacionView: View {
     }
     
     func accion_conseguir_ubicacion_actual(){
-        
-        
+          
         guard let latitud = locationDataManager.latitud else {
             
             return
@@ -265,32 +266,6 @@ struct UbicacionView: View {
         print(longitud)
         
         accion_buscar_lugares_cercanos(latitud: latitud, longitud: longitud)
-        
-        //locationManager.delegate = self
-        /* locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
-        
-        if( CLAuthorizationStatus.authorizedWhenInUse == .authorizedWhenInUse ||  CLAuthorizationStatus.authorizedAlways == .authorizedAlways ) {
-            
-            print("ANTESS")
-            
-           
-                
-                guard let ubicacion_actual = locationManager.location else {
-                    
-                    print("NO ENTROOO")
-                    
-                    return
-                    
-                }
-                print(ubicacion_actual)
-                
-                print(ubicacion_actual.coordinate.latitude)
-                print(ubicacion_actual.coordinate.longitude)
-                
-       
-            
-        }*/
         
     }
 }
