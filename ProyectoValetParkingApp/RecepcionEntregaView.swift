@@ -20,7 +20,7 @@ struct RecepcionEntregaView: View {
     
     var ticket: String = ""
 
-    @State private var parking: ParkingModel = ParkingModel(parking_id: nil, se_puede_recepcionar:false, vehiculo_solicitado: nil, buscando_vehiculo: nil, valet_parking_buscando_id:nil, listo_para_retirar:nil, entrega_realizada: nil)
+    @State private var parking: ParkingModel = ParkingModel(parking_id: nil, se_puede_recepcionar:true, vehiculo_solicitado: nil, buscando_vehiculo: nil, valet_parking_buscando_id:nil, listo_para_retirar:nil, entrega_realizada: nil)
     @State private var confirmar_recepcion_realizada : Bool = false
     @State private var confirmar_buscando_vehiculo : Bool = false
     @State private var confirmar_listo_para_retirar : Bool = false
@@ -711,7 +711,7 @@ struct RecepcionEntregaView: View {
                     parking.entrega_realizada = "SI"
                     socket.emit("vehiculo_entregado_valet_parking", ["ticket": ticket] )
 
-                    let seconds = 4.0
+                    let seconds = 2.0
 
                     DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
 
