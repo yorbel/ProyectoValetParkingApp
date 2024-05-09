@@ -79,11 +79,54 @@ struct UbicacionView: View {
                         accion_conseguir_ubicacion_actual()
                     
                     }
-                    .onReceive(locationDataManager) { value in
+                    .onReceive(locationDataManager.$latitud) { value in
 
-                        print("ON RECEIBED")
+                        print("LATITUD")
 
-                        print(value)
+                        if value != nil {
+                            
+                            print(locationDataManager.latitud)
+
+                            print(locationDataManager.longitud)
+
+
+                        }
+                        
+                        guard let latitud = locationDataManager.latitud else {
+            
+                            return
+                            
+                        }
+                        
+                        guard let longitud = locationDataManager.longitud else {
+                            
+                            return
+                            
+                        }
+
+                        print("XXXXXXXXX")
+
+                        print(latitud)
+                        print(longitud)
+                        
+                        accion_buscar_lugares_cercanos(latitud: latitud, longitud: longitud)
+
+                        print("XXXXXXXXX")
+
+
+                    }
+                    .onReceive(locationDataManager.$longitud) { value in
+
+                        print("LONGITUD")
+
+                        if value != nil {
+                            
+                            print(locationDataManager.latitud)
+
+                            print(locationDataManager.longitud)
+
+
+                        }
                         
                         guard let latitud = locationDataManager.latitud else {
             
