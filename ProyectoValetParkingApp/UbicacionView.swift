@@ -136,7 +136,10 @@ struct UbicacionView: View {
         }
         .navigationBarBackButtonHidden(true)
         .onChange(of: locationDataManager) { oldValue, newValue in
-           accion_conseguir_ubicacion_actual()
+
+            print("POR AQUI")
+            print(locationDataManager)
+            accion_conseguir_ubicacion_actual()
         }
 
         
