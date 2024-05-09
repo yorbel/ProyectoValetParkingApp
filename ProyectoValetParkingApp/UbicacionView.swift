@@ -79,6 +79,12 @@ struct UbicacionView: View {
                         accion_conseguir_ubicacion_actual()
                     
                     }
+                    .onReceive(locationDataManager.$longitud) { value in
+
+                        print("ON RECEIBED")
+                        
+                        accion_conseguir_ubicacion_actual()
+                    }
                 
                 List{
 
@@ -135,19 +141,7 @@ struct UbicacionView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        .onChange(of: locationDataManager) { oldValue, newValue in
-
-            print("POR AQUI")
-            print(locationDataManager)
-            accion_conseguir_ubicacion_actual()
-            
-        }
-        .task {
-
-            accion_conseguir_ubicacion_actual()
-
-        }
-
+        
         
         
     }
