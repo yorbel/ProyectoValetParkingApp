@@ -140,6 +140,12 @@ struct UbicacionView: View {
             print("POR AQUI")
             print(locationDataManager)
             accion_conseguir_ubicacion_actual()
+            
+        }
+        .task {
+
+            accion_conseguir_ubicacion_actual()
+
         }
 
         
