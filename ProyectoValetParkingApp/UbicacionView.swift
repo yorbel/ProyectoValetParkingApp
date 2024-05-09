@@ -70,12 +70,6 @@ struct UbicacionView: View {
                 Image("logo")
                     .resizable()
                     .frame(height: 125, alignment: .center)
-
-                if (locationDataManager.latitud != nil && locationDataManager.longitud != nil) {
-                
-                   accion_conseguir_ubicacion_actual()
-                    
-                } 
                 
                 Text("Indica ubicación actual ( \(locationDataManager.latitud?.description ?? "Error"), \(locationDataManager.longitud?.description ?? "Error"))")
                     .font(.headline)
@@ -141,7 +135,10 @@ struct UbicacionView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        
+        .onChange(of: locationDataManager) { oldValue, newValue in
+           accion_conseguir_ubicacion_actual()
+        }
+
         
         
     }
