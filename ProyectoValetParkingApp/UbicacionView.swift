@@ -83,7 +83,28 @@ struct UbicacionView: View {
 
                         print("ON RECEIBED")
                         
-                        accion_conseguir_ubicacion_actual()
+                        guard let latitud = locationDataManager.latitud else {
+            
+                            return
+                            
+                        }
+                        
+                        guard let longitud = locationDataManager.longitud else {
+                            
+                            return
+                            
+                        }
+
+                        print("XXXXXXXXX")
+
+                        print(latitud)
+                        print(longitud)
+                        
+                        accion_buscar_lugares_cercanos(latitud: latitud, longitud: longitud)
+
+                        print("XXXXXXXXX")
+
+
                     }
                 
                 List{
