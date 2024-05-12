@@ -435,19 +435,19 @@
 				INFOPLIST_FILE = ProyectoValetParkingApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = AVP;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Se requiere acceso a la camara";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Se requiere ubicacion actual";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Se requiere ubicacion actual";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Se requiere acceso a la camara para poder realizar lecturas de codigo QR";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Se requiere ubicacion actual para obtener los lugares cercanos a usted que esten registrados en sistema";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Se requiere ubicacion actual para obtener los lugares cercanos a usted que esten registrados en sistema";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 15.0;
+				MARKETING_VERSION = 16.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.apolovalet.com.ProyectoValetParkingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -471,19 +471,19 @@
 				INFOPLIST_FILE = ProyectoValetParkingApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = AVP;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Se requiere acceso a la camara";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Se requiere ubicacion actual";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Se requiere ubicacion actual";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Se requiere acceso a la camara para poder realizar lecturas de codigo QR";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Se requiere ubicacion actual para obtener los lugares cercanos a usted que esten registrados en sistema";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Se requiere ubicacion actual para obtener los lugares cercanos a usted que esten registrados en sistema";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 15.0;
+				MARKETING_VERSION = 16.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.apolovalet.com.ProyectoValetParkingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
