@@ -436,8 +436,8 @@
 				INFOPLIST_KEY_CFBundleDisplayName = AVP;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Se requiere acceso a la camara para poder realizar lecturas de codigo QR";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Se requiere ubicacion actual para obtener los lugares cercanos a usted que esten registrados en sistema";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Se requiere ubicacion actual para obtener los lugares cercanos a usted que esten registrados en sistema";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Tu ubicación actual permite consultar en nuestro sistema los lugares cercanos a ti que hemos registrado y que debes seleccionar para poder procesar tickets de parking asociados a este lugar.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Tu ubicación actual permite consultar en nuestro sistema los lugares cercanos a ti que hemos registrado y que debes seleccionar para poder procesar tickets de parking asociados a este lugar.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -447,7 +447,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 16.0;
+				MARKETING_VERSION = 17.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.apolovalet.com.ProyectoValetParkingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -472,8 +472,8 @@
 				INFOPLIST_KEY_CFBundleDisplayName = AVP;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Se requiere acceso a la camara para poder realizar lecturas de codigo QR";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Se requiere ubicacion actual para obtener los lugares cercanos a usted que esten registrados en sistema";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Se requiere ubicacion actual para obtener los lugares cercanos a usted que esten registrados en sistema";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Tu ubicación actual permite consultar en nuestro sistema los lugares cercanos a ti que hemos registrado y que debes seleccionar para poder procesar tickets de parking asociados a este lugar.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Tu ubicación actual permite consultar en nuestro sistema los lugares cercanos a ti que hemos registrado y que debes seleccionar para poder procesar tickets de parking asociados a este lugar.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -483,7 +483,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 16.0;
+				MARKETING_VERSION = 17.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.apolovalet.com.ProyectoValetParkingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
