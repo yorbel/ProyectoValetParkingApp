@@ -7,9 +7,38 @@
 
 import SwiftUI
 import CoreLocation
+import FirebaseCore
 import FirebaseMessaging
+import UserNotifications
 
-extension AppDelegate: MessagingDelegate {
+extension AppDelegate: UIApplicationDelegate, MessagingDelegate {
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    
+        application.registerForRemoteNotifications()
+
+        FirebaseApp.configure()
+
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in 
+
+            if granted {
+
+                print("PERMITIDO NOTIFICACIONES")
+
+                // DispatchQueue.main.async {
+                //     application.shared.registerForRemoteNotifications()
+                // }
+            }
+        
+        }
+        
+
+        Messaging.messaging().delegate = self
+
+        return true
+      
+    }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
 

@@ -11,35 +11,9 @@ import FirebaseMessaging
 import UserNotifications
 
 
-class AppDelegate: NSObject, UIApplicationDelegate  {
+class AppDelegate: NSObject  {
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-    
-        application.registerForRemoteNotifications()
 
-        FirebaseApp.configure()
-
-        UNUserNotificationCenter.current().delegate = self
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in 
-
-            if granted {
-
-                print("PERMITIDO NOTIFICACIONES")
-
-                // DispatchQueue.main.async {
-                //     application.shared.registerForRemoteNotifications()
-                // }
-            }
-        
-        }
-        
-
-        Messaging.messaging().delegate = self
-
-        return true
-      
-    }
-    
 }
 
 @main
