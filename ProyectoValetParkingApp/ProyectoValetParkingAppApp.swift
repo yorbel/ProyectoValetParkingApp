@@ -11,7 +11,7 @@ import FirebaseMessaging
 import UserNotifications
 
 
-class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate  {
+class AppDelegate: NSObject, UIApplicationDelegate  {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     
@@ -38,18 +38,6 @@ class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate  {
 
         return true
       
-    }
-
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-
-        Messaging.messaging().setAPNSToken(deviceToken, type: .unknown)
-        // Messaging.messaging().apnsToken = deviceToken
-    }
-    
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        if let fcm = Messaging.messaging().fcmToken {
-            print("fcm", fcm)
-        }
     }
     
 }

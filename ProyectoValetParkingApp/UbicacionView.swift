@@ -9,6 +9,23 @@ import SwiftUI
 import CoreLocation
 import FirebaseMessaging
 
+extension AppDelegate: MessagingDelegate {
+
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+
+        Messaging.messaging().setAPNSToken(deviceToken, type: .unknown)
+        // Messaging.messaging().apnsToken = deviceToken
+    }
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        if let fcm = Messaging.messaging().fcmToken {
+            print("fcm", fcm)
+        }
+    }
+
+
+}
+
 struct LugarView: View {
     
     var lugar: LugarModel
@@ -139,7 +156,7 @@ struct UbicacionView: View {
                     if( lugar_id != nil ){
 
                         globales.set(lugar_id, forKey: "lugar_id")
-                        
+
                         // Messaging.messaging().subscribe(toTopic: "lugar\(lugar_id)")
 
                         Messaging.messaging().subscribe(toTopic: "lugar\(lugar_id)"){ error in
