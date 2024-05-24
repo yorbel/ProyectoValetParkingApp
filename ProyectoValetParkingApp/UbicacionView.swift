@@ -139,7 +139,21 @@ struct UbicacionView: View {
                     if( lugar_id != nil ){
 
                         globales.set(lugar_id, forKey: "lugar_id")
-                        Messaging.messaging().subscribe(toTopic: "lugar\(lugar_id)")
+                        
+                        // Messaging.messaging().subscribe(toTopic: "lugar\(lugar_id)")
+
+                        Messaging.messaging().subscribe(toTopic: "lugar\(lugar_id)"){ error in
+
+                            if error == nil {
+
+                                print("SI SUSCRITO A LUGAR\(lugar_id)")
+                            }
+                            else{
+
+                                print("NO SUSCRITO A LUGAR\(lugar_id)")
+
+                            }
+                        }
 
                         router.path.append(2)
 
