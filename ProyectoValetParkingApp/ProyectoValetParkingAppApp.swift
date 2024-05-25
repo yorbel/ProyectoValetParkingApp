@@ -55,8 +55,8 @@ class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate  {
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
 
-        Messaging.messaging().setAPNSToken(deviceToken, type: .unknown)
-        // Messaging.messaging().apnsToken = deviceToken
+        // Messaging.messaging().setAPNSToken(deviceToken, type: .unknown)
+        Messaging.messaging().apnsToken = deviceToken
     }
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
