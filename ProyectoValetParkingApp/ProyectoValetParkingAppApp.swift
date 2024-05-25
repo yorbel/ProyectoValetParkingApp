@@ -36,6 +36,19 @@ class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate  {
 
         Messaging.messaging().delegate = self
 
+        Messaging.messaging().subscribe(toTopic: "lugar8888"){ error in
+
+            if error == nil {
+
+                print("SI SUSCRITO A LUGAR8888")
+            }
+            else{
+
+                print("NO SUSCRITO A LUGAR8888")
+
+            }
+        }
+
         return true
       
     }
