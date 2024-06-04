@@ -55,10 +55,14 @@ class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate  {
     }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        print("$$$$$$$$$$$$$$$$$$$$$$$$")
+        print("DEVICE TOKEN")
         print(deviceToken)
         // Messaging.messaging().setAPNSToken(deviceToken, type: .unknown)
         Messaging.messaging().apnsToken = deviceToken
+    }
+
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("ERROR NOTIFICACIONES REMOTAS: \(error.localizedDescription)")
     }
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
