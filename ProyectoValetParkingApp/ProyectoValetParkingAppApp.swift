@@ -35,6 +35,8 @@ class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate  {
 
         Messaging.messaging().delegate = self
 
+        application.registerForRemoteNotifications()
+
         Messaging.messaging().subscribe(toTopic: "lugar8888"){ error in
 
             if error == nil {
@@ -47,8 +49,6 @@ class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate  {
 
             }
         }
-
-        application.registerForRemoteNotifications()
 
         return true
       
