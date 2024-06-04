@@ -21,13 +21,21 @@ class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate  {
         UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in 
 
-            if granted {
+            // if granted {
 
-                print("PERMITIDO NOTIFICACIONES")
+            //     print("PERMITIDO NOTIFICACIONES")
 
-                // DispatchQueue.main.async {
-                //     application.shared.registerForRemoteNotifications()
-                // }
+            
+            // }
+
+            if let error = error {
+
+                print("ERROR PERMISO: \(error.localizedDescription)")
+
+            } else {
+
+                application.registerForRemoteNotifications()
+
             }
         
         }
@@ -35,7 +43,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate  {
 
         Messaging.messaging().delegate = self
 
-        application.registerForRemoteNotifications()
+        // application.registerForRemoteNotifications()
 
         Messaging.messaging().subscribe(toTopic: "lugar8888"){ error in
 
