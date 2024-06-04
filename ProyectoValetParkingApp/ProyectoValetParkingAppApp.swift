@@ -34,7 +34,11 @@ class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate  {
 
             } else {
 
-                application.registerForRemoteNotifications()
+                DispatchQueue.main.async {
+
+                    application.registerForRemoteNotifications()
+
+                }
 
             }
         
