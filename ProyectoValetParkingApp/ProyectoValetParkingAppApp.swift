@@ -15,9 +15,6 @@ class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate  {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     
-
-        FirebaseApp.configure()
-
         UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in 
 
@@ -61,6 +58,8 @@ class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate  {
 
             }
         }
+
+        FirebaseApp.configure()
 
         return true
       
